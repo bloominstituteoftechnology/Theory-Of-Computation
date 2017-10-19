@@ -33,3 +33,35 @@
 ## JESH and PATRICK rules (for now)
 1. strings must use double-quotes
 2. no whitespaces in strings
+
+TODO:
+```
+// USE A key: value dict to TRANSPILE
+
+// example BananaScript program
+// BANANA SCRIPT
+<d_string> <a> = <'Welcome to Banana Script'>
+<print> <a>
+<print> <'some value'>
+<d_int> <x> = <5>
+<d_int> <y> = <0>
+<while> <x> <gt> <y> | <print> <x> \
+
+// TRANSPILE TO:
+
+// ES5 JAVASCRIPT
+var a = 'Welcome to Banana Script';
+console.log(a);
+console.log('some value');
+var x = 5;
+var y = 0;
+while (x > y) { console.log(x); }
+
+
+// Dict/hash/object for transpiling e.g.
+
+const transpilingDictionary = {
+  <while-loop>: while,
+  <print>: console.log(),
+}
+```
