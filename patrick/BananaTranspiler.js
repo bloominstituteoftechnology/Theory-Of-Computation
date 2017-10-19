@@ -27,12 +27,6 @@ for (let i = 0; i < bnfScriptOriginal.length; i++) {
   // parse each string into components
 
 }
-/******************************************************************************
- * 2.1 Read whole file
- ******************************************************************************/
-//const bnfScript = fs.readFileSync(bnfScriptFile, 'utf8');
-//console.log('File read: ');
-//console.log(bnfScript);
 
 /******************************************************************************
  * 3. Put the tokens from the read into a hash table
