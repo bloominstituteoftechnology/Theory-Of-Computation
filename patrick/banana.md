@@ -30,3 +30,6 @@
 <eq> := '='
 <while> := 'while (<conditional>)'
 ```
+## JESH and PATRICK rules (for now)
+1. strings must use double-quotes
+2. no whitespaces in strings
