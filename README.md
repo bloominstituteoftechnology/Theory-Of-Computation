@@ -1,6 +1,6 @@
 # Theory Of Computation
 
-Why do I have to build data structures and what are they for? Data structures are specific examples of mechanical, automated problem solving. 
+Why do I have to build data structures and what are they for? Data structures are specific examples of mechanical, automated problem solving.
 
 # Abstract computing and the Turing Machine
 
@@ -104,10 +104,10 @@ The takeaway from this proof and observation is that it is not possible to build
 
 # Assignments:
 
-Draw a state machine for a stop light
-Mathematically describe a state machine for a stop light using the rules of Regular Languages
-Create a new subset of the Javascript language using Backus-Naur Form
-Write via state machine notation a Turing machine that can identify the string: 'aaabbb'
-Write a Turing Machine in Javascript
+1. Draw a state machine for a stop light
+2. Mathematically describe a state machine for a stop light using the rules of Regular Languages
+3. Create a new subset of the Javascript language using Backus-Naur Form
+4. Write via state machine notation a Turing machine that can identify the string: 'aaabbb'
+5. Write a Turing Machine in Javascript  
 
 # Theory-Of-Computation
