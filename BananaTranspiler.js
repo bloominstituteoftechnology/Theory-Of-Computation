@@ -8,8 +8,8 @@ fs.readFile('./BananaScript.bnf', 'utf8', function (err,data) {
   let temp;
   const lines = data.split('\n');
   lines.forEach((line, i) => {
-    const key = line.split(':=')[0].trim();
-    const value = line.split(':=')[1];
+    const key = line.split(":=")[0].trim();
+    const value = line.split(":=")[1];
     if (!value) transpiler[temp] = key;
     else {
       transpiler[key] = value;
