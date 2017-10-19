@@ -30,6 +30,41 @@
 <eq> := '='
 <while> := 'while (<conditional>)'
 ```
+
+``` a COOLER banascript BNF
+<expressions> := <expression+\>
+<expression> := <type> <name> = <value>
+                <while-loop>
+                <print> <name>
+                <print> <value>
+<conditional> := <name> <lt> <value>
+                 <name> <gt> <value>
+                 <name> <eq> <value>
+<while-loop> := <while> <conditional> | <expressions> \
+<while> := 'go bananas <conditional>'
+<type> := make <name> be <value>
+<name> := string
+<value> := integer or a string 
+<print> := 'console.log(<name>)' | 'console.log(<value>)'
+<lt> := 'littler than'
+<gt> := 'bigger than'
+<eq> := 'same as'
+```
+``` bananaScriptTest.bs
+make x be 5
+go bananas x bigger than 0
+  shout x
+  enshrinken x
+end
+```
+
+```
+ go bananas x bigger than 0
+   expressions
+ end
+```
+
+
 ## JESH and PATRICK rules (for now)
 1. strings must use double-quotes
 2. no whitespaces in strings

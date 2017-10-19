@@ -19,21 +19,52 @@ console.log(`1. File to be ingested and parsed: "${bnfScriptFile}"`);
  * read in file contents, separating each line into an array of strings
  * NOTE: should this file be entered as a fourth parameter?
  ******************************************************************************/
-const bnfScript = fs.readFileSync(bnfScriptFile, 'utf8').split(os.EOL);
-console.log('2. Array containing each line from text file:\n', bnfScript);
+const bnfScriptOriginal = fs.readFileSync(bnfScriptFile, 'utf8').split(os.EOL);
+console.log('2. Array containing each line from text file:\n', bnfScriptOriginal);
 /* ...separating by tokens, that is: stuff in <>, :=, | */
-for (let i = 0; i < bnfScript.length; i++) {
+for (let i = 0; i < bnfScriptOriginal.length; i++) {
   // remove white spaces and empty strings?
   // parse each string into components
 
 }
-
+/******************************************************************************
+ * 2.1 Read whole file
+ ******************************************************************************/
+//const bnfScript = fs.readFileSync(bnfScriptFile, 'utf8');
+//console.log('File read: ');
+//console.log(bnfScript);
 
 /******************************************************************************
  * 3. Put the tokens from the read into a hash table
  * "BNF_table" by the left side of the line delimited by :=
  ******************************************************************************/
-console.log('3. TO BE DONE');
+console.log('3. Put the tokens from the read into a hash table');
+/* ...separating by tokens, that is: stuff in <>, :=, | */
+let map = {};
+let previousToken = undefined;
+for (let i = 0; i < bnfScriptOriginal.length; i++) {
+  // remove white spaces and empty strings?
+  // parse each string into components
+  const newLine = bnfScriptOriginal[i].split(":=");
+  if(newLine[1] != undefined) { // there is a LHS and a RHS of the BNF rule
+    let token = newLine[0].trim();
+    previousToken = token;
+    let newExpansions = newLine[1].split('|');
+    newExpansions = newExpansions.map((exp) => {return exp.trim()});
+    let existingExpansion = map[token];
+    if(existingExpansion === undefined) {
+      map[token] = newExpansions;
+    }
+    else {
+      existingExpansion.push(newExpansions);
+    }
+  }
+  else {
+    map[previousToken].push(newLine[0].trim());
+  }
+}
+console.log('This is the table of tokens: ');
+console.log(map);
 
 
 /******************************************************************************
