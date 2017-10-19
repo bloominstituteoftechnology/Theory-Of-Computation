@@ -8,9 +8,9 @@ Computers in 1880 were men and more often women who would work out formulas with
 
 Alonzo Church, Alan Turning, Stephen Kleene, Kurt Godel, David Hilbert, and others worked to formalize these ideas into mathematical proofs leading, eventually, to the Turing Machine and the proofs that accompanied it.
 
-    It was stated above that 'a function is effectively calculable if its values can be found by some purely mechanical process'. We may take this statement literally, understanding by a purely mechanical process one which could be carried out by a machine. It is possible to give a mathematical description, in a certain normal form, of the structures of these machines. The development of these ideas leads to the author's definition of a computable function, and to an identification of computability with effective calculability. It is not difficult, though somewhat laborious, to prove that these three definitions [the 3rd is the λ-calculus] are equivalent.
-
-    — Turing (1939) in The Undecidable, p. 160
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It was stated above that 'a function is effectively calculable if its values can be found by some purely mechanical process'. We may take this statement literally, understanding by a purely mechanical process one which could be carried out by a machine. It is possible to give a mathematical description, in a certain normal form, of the structures of these machines. The development of these ideas leads to the author's definition of a computable function, and to an identification of computability with effective calculability. It is not difficult, though somewhat laborious, to prove that these three definitions [the 3rd is the λ-calculus] are equivalent.
+>
+>    — Turing (1939) in The Undecidable, p. 160
 
 Something is numerically computable by a human iff it is computable by a Turing machine, and that all forms of iterative deterministic computation are equivalent.
 
