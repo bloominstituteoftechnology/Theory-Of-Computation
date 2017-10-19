@@ -23,7 +23,8 @@
 <while-loop> := <while> <conditional> | <expressions> \
 <type> := d_int | d_string | banana
 <name> := string
-<value> := integer or a string <print> := 'console.log(<name>)' | 'console.log(<value>)'
+<value> := integer or a string 
+<print> := 'console.log(<name>)' | 'console.log(<value>)'
 <lt> := '<'
 <gt> := '>'
 <eq> := '='
