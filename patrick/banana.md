@@ -4,7 +4,7 @@
 
 1. Read "BananaScript.bnf" file from an argument to a node program BananaTranspiler.js
 2. Read each line of file, separating by tokens, that is: stuff in <>, :=, |
-3. Put the tokens from the read into a hash table "BNF_tabke" by the left side of the line delimited by :=
+3. Put the tokens from the read into a hash table "BNF_table" by the left side of the line delimited by :=
 4. Read "BananaScript.bs" file containing custom bananascript programming language
 5. Parse it using a pushdown automata and accumulate the results into a string variable program
 6. let bananascript_executable = eval(program);
