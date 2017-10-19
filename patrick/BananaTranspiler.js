@@ -22,6 +22,10 @@ console.log(`1. File to be ingested and parsed: "${bnfScriptFile}"`);
 const bnfScript = fs.readFileSync(bnfScriptFile, 'utf8').split(os.EOL);
 console.log('2. Array containing each line from text file:\n', bnfScript);
 /* ...separating by tokens, that is: stuff in <>, :=, | */
+for (let i = 0; i < bnfScript.length; i++) {
+  // remove white spaces and empty strings?
+  // parse each string into components
+}
 
 
 /******************************************************************************

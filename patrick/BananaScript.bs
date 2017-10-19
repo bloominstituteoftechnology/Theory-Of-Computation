@@ -1,1 +1,6 @@
-// Custom BananaScript programming language
+<d_string> <a> = <'Welcome to Banana Script'>
+<print> <a>
+<print> <'some value'>
+<d_int> <x> = <5>
+<d_int> <y> = <0>
+<while> <x> <gt> <y> | <print> <x> \

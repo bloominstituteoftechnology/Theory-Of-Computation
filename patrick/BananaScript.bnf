@@ -1,4 +1,4 @@
-// to be read in line by line, token per token into a BNF_table
+// Construct a BNF_table to encapsulate:
 
 <expressions> := <expression+\>
 <expression> := <type> <name> = <value>
@@ -16,3 +16,32 @@
 <gt> := '>'
 <eq> := '='
 <while> := 'while (<conditional>)'
+
+// USE A key: value dict to TRANSPILE
+
+// example BananaScript program
+// BANANA SCRIPT
+<d_string> <a> = <'Welcome to Banana Script'>
+<print> <a>
+<print> <'some value'>
+<d_int> <x> = <5>
+<d_int> <y> = <0>
+<while> <x> <gt> <y> | <print> <x> \
+
+// TRANSPILE TO:
+
+// ES5 JAVASCRIPT
+var a = 'Welcome to Banana Script';
+console.log(a);
+console.log('some value');
+var x = 5;
+var y = 0;
+while (x > y) { console.log(x); }
+
+
+// Dict/hash/object for transpiling e.g.
+
+const transpilingDictionary = {
+  <while-loop>: while,
+  <print>: console.log(),
+}
