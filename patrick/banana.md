@@ -28,6 +28,7 @@ a COOLER banascript BNF
 ```html
 <expressions> := <expression+\>
 <expression> := <type> <name> = <value>
+                <type> <name> = <name>
                 <while-loop>
                 <print> <name>
                 <print> <value>
@@ -38,30 +39,28 @@ a COOLER banascript BNF
 <while> := go bananas <conditional>
 <type> := make <name> be <value>
 <name> := string
-<value> := integer or a string 
+<value> := integer
 <print> := shout <name> | shout <value>
 <lt> := littler than
 <gt> := bigger than
 <eq> := same as
-<decrement> := enshrinken <type integer> <value>
+<decrement> := enshrinken <value>
 <end> := SRS BSNS
 ```
 
 TODO:
 ```c
-// USE A key: value dict to TRANSPILE
-
 // example BananaScript program
 // BANANA SCRIPT
 make a be 'Welcome to Banana Script'
 shout a
 shout 'some string value'
-shout 'some integer value'
+shout 32
 make x be 5
 go bananas x bigger than 0
   shout x
   enshrinken x
-end
+SRS BSNS
 ```
 
 ```js
@@ -71,8 +70,7 @@ console.log(a);
 console.log('some value');
 console.log(32);
 var x = 5;
-var y = 0;
-while (x > y) {
+while (x > 0) {
   console.log(x);
   x--;
 }
