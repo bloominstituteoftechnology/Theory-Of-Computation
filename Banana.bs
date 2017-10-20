@@ -1,1 +1,6 @@
-<d_int> <d_string> <
+make x be 5
+go bananas x bigger than 0
+  shout "banana"
+  shout x
+  enshrinken x
+end
