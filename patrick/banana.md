@@ -15,13 +15,13 @@ make x be 5
 go bananas x bigger than 0
   shout x
   enshrinken x
-end
+SRS BSNS
 ```
 
 ```
- go bananas x bigger than 0
-   expressions
- end
+go bananas x bigger than 0
+ expressions
+SRS BSNS
 ```
 
 a COOLER banascript BNF
