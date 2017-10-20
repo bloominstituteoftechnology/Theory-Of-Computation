@@ -18,17 +18,17 @@ Something is numerically computable by a human iff it is computable by a Turing 
 
 ### Mathematical and Theoretical background
 
-[propositional calculus]()
+[propositional calculus](https://en.wikipedia.org/wiki/Propositional_calculus)
 
-[calculus]()
+[calculus](https://en.wikipedia.org/wiki/Calculus)
 
 [boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra)
 
-[babbage]()
+[babbage](https://en.wikipedia.org/wiki/Charles_Babbage)
 
-[principia mathematica]()
+[principia mathematica](https://en.wikipedia.org/wiki/Principia_Mathematica)
 
-[automata theory]()
+[automata theory](https://en.wikipedia.org/wiki/Automata_theory)
 
 ### Grammars, State Machines, and Languages
 
@@ -60,11 +60,11 @@ Chomsky invented CFGs in the context of natural language. They haven't proven to
 
 [Backus Naur Form](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form) This is of special importance in Computer Science!
 
-[programming languages]() These are _obviously_ of special importance. :)
+[programming languages](https://en.wikipedia.org/wiki/Programming_language) These are _obviously_ of special importance. :)
 
-[computability]()
+[computability](https://en.wikipedia.org/wiki/Computability_theory)
 
-[lambda calculus]()
+[lambda calculus](https://en.wikipedia.org/wiki/Lambda_calculus)
 
 [theory of computation models](https://en.wikipedia.org/wiki/Theory_of_computation)
 
@@ -90,17 +90,17 @@ The takeaway from this proof and observation is that it is not possible to build
 
 [computational complexity](https://en.wikipedia.org/wiki/Computational_complexity_theory)
 
-[asymptotic complexity]()
+[asymptotic complexity](https://en.wikipedia.org/wiki/Asymptotic_computational_complexity)
 
-[algorithms]()
+[algorithms](https://en.wikipedia.org/wiki/Algorithm)
 
-[undecideability]()
+[undecideability](https://en.wikipedia.org/wiki/Undecidable_problem)
 
-[intractability]()
+[intractability](https://en.wikipedia.org/wiki/Computational_complexity_theory#Intractability)
 
-[Gödel's Incompleteness Theorem]()
+[Gödel's Incompleteness Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 
-[Artificial Intelligence]()
+[Artificial Intelligence](https://en.wikipedia.org/wiki/Artificial_intelligence)
 
 # Assignments:
 
