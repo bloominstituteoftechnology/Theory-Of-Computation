@@ -1,5 +1,6 @@
 <expressions> := <expression+\>
 <expression> := <type> <name> = <value>
+                <type> <name> = <name>
                 <while-loop>
                 <print> <name>
                 <print> <value>
@@ -10,9 +11,10 @@
 <while> := go bananas <conditional>
 <type> := make <name> be <value>
 <name> := string
-<value> := integer or a string 
-<print> := shout
+<value> := integer
+<print> := shout <name> | shout <value>
 <lt> := littler than
 <gt> := bigger than
 <eq> := same as
-<decrement> := enshrinken
+<decrement> := enshrinken <value>
+<end> := SRS BSNS
