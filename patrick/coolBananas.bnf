@@ -6,13 +6,13 @@
 <conditional> := <name> <lt> <value>
                  <name> <gt> <value>
                  <name> <eq> <value>
-<while-loop> := <while> <conditional> <expressions>
-<while> := go bananas <conditional>
+<while-loop> := <while> <conditional> <expressions> end
+<while> := go bananas
 <type> := make <name> be <value>
 <name> := string
 <value> := integer or a string 
-<print> := shout
+<print> := console.log(<name>) | console.log(<value>)
 <lt> := littler than
 <gt> := bigger than
 <eq> := same as
-<decrement> := enshrinken
+

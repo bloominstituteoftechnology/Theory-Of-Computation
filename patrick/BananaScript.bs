@@ -1,6 +1,15 @@
-<d_string> <a> = <'Welcome to Banana Script'>
-<print> <a>
-<print> <'some value'>
-<d_int> <x> = <5>
-<d_int> <y> = <0>
-<while> <x> <gt> <y> | <print> <x> \
+make x be 5
+go bananas x bigger than 0
+  shout x
+  enshrinken x
+end
+
+make a be 'Welcome to Banana Script'
+shout a
+shout 'some string value'
+shout 'some integer value'
+make x be 5
+go bananas x bigger than 0
+  shout x
+  enshrinken x
+end
