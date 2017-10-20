@@ -2,14 +2,14 @@ make x be 5
 go bananas x bigger than 0
   shout x
   enshrinken x
-end
+SRS BSNS
 
 make a be 'Welcome to Banana Script'
 shout a
 shout 'some string value'
-shout 'some integer value'
+shout 32
 make x be 5
 go bananas x bigger than 0
   shout x
   enshrinken x
-end
+SRS BSNS
