@@ -1,4 +1,8 @@
 # Write a dialect of Javascript using Backus-Naur Form 
+> *"Building a derivation in a context-free grammar is inherently a nondeterministic process. In transforming a variable, any rule with the variable on the left-hand side may be applied. The breadth-first parsers built a search tree by applying all permissible rules, while the depth-first parsers explored derivations initiated with one rule and backed up to try another whenever the search was determined to be a dead-end."*
+>
+> ---Thomas A. Sudkamp
+
 [Thomson's Lucid Chart](https://www.lucidchart.com/documents/edit/c7e701b5-f2f4-4c20-ab8b-4fea175c5cf5/0?shared=true&)
 
 1. Read "BananaScript.bnf" file from an argument to a node program BananaTranspiler.js
