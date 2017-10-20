@@ -1,6 +1,6 @@
 # Theory Of Computation
 
-Why do I have to build data structures and what are they for? Data structures are specific examples of mechanical, automated problem solving. 
+Why do I have to build data structures and what are they for? Data structures are specific examples of mechanical, automated problem solving.
 
 # Abstract computing and the Turing Machine
 
@@ -8,9 +8,9 @@ Computers in 1880 were men and more often women who would work out formulas with
 
 Alonzo Church, Alan Turning, Stephen Kleene, Kurt Godel, David Hilbert, and others worked to formalize these ideas into mathematical proofs leading, eventually, to the Turing Machine and the proofs that accompanied it.
 
-    It was stated above that 'a function is effectively calculable if its values can be found by some purely mechanical process'. We may take this statement literally, understanding by a purely mechanical process one which could be carried out by a machine. It is possible to give a mathematical description, in a certain normal form, of the structures of these machines. The development of these ideas leads to the author's definition of a computable function, and to an identification of computability with effective calculability. It is not difficult, though somewhat laborious, to prove that these three definitions [the 3rd is the λ-calculus] are equivalent.
-
-    — Turing (1939) in The Undecidable, p. 160
+>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;It was stated above that 'a function is effectively calculable if its values can be found by some purely mechanical process'. We may take this statement literally, understanding by a purely mechanical process one which could be carried out by a machine. It is possible to give a mathematical description, in a certain normal form, of the structures of these machines. The development of these ideas leads to the author's definition of a computable function, and to an identification of computability with effective calculability. It is not difficult, though somewhat laborious, to prove that these three definitions [the 3rd is the λ-calculus] are equivalent.
+>
+>    — Turing (1939) in The Undecidable, p. 160
 
 Something is numerically computable by a human iff it is computable by a Turing machine, and that all forms of iterative deterministic computation are equivalent.
 
@@ -18,17 +18,17 @@ Something is numerically computable by a human iff it is computable by a Turing 
 
 ### Mathematical and Theoretical background
 
-[propositional calculus]()
+[propositional calculus](https://en.wikipedia.org/wiki/Propositional_calculus)
 
-[calculus]()
+[calculus](https://en.wikipedia.org/wiki/Calculus)
 
 [boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra)
 
-[babbage]()
+[babbage](https://en.wikipedia.org/wiki/Charles_Babbage)
 
-[principia mathematica]()
+[principia mathematica](https://en.wikipedia.org/wiki/Principia_Mathematica)
 
-[automata theory]()
+[automata theory](https://en.wikipedia.org/wiki/Automata_theory)
 
 ### Grammars, State Machines, and Languages
 
@@ -60,11 +60,11 @@ Chomsky invented CFGs in the context of natural language. They haven't proven to
 
 [Backus Naur Form](https://en.wikipedia.org/wiki/Backus%E2%80%93Naur_form) This is of special importance in Computer Science!
 
-[programming languages]() These are _obviously_ of special importance. :)
+[programming languages](https://en.wikipedia.org/wiki/Programming_language) These are _obviously_ of special importance. :)
 
-[computability]()
+[computability](https://en.wikipedia.org/wiki/Computability_theory)
 
-[lambda calculus]()
+[lambda calculus](https://en.wikipedia.org/wiki/Lambda_calculus)
 
 [theory of computation models](https://en.wikipedia.org/wiki/Theory_of_computation)
 
@@ -90,24 +90,24 @@ The takeaway from this proof and observation is that it is not possible to build
 
 [computational complexity](https://en.wikipedia.org/wiki/Computational_complexity_theory)
 
-[asymptotic complexity]()
+[asymptotic complexity](https://en.wikipedia.org/wiki/Asymptotic_computational_complexity)
 
-[algorithms]()
+[algorithms](https://en.wikipedia.org/wiki/Algorithm)
 
-[undecideability]()
+[undecideability](https://en.wikipedia.org/wiki/Undecidable_problem)
 
-[intractability]()
+[intractability](https://en.wikipedia.org/wiki/Computational_complexity_theory#Intractability)
 
-[Gödel's Incompleteness Theorem]()
+[Gödel's Incompleteness Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 
-[Artificial Intelligence]()
+[Artificial Intelligence](https://en.wikipedia.org/wiki/Artificial_intelligence)
 
 # Assignments:
 
-Draw a state machine for a stop light
-Mathematically describe a state machine for a stop light using the rules of Regular Languages
-Create a new subset of the Javascript language using Backus-Naur Form
-Write via state machine notation a Turing machine that can identify the string: 'aaabbb'
-Write a Turing Machine in Javascript
+1. Draw a state machine for a stop light
+2. Mathematically describe a state machine for a stop light using the rules of Regular Languages
+3. Create a new subset of the Javascript language using Backus-Naur Form
+4. Write via state machine notation a Turing machine that can identify the string: 'aaabbb'
+5. Write a Turing Machine in Javascript  
 
 # Theory-Of-Computation

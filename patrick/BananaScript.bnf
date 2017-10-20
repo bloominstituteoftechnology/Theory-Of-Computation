@@ -1,0 +1,16 @@
+<expressions> := <expression+\>
+<expression> := <type> <name> = <value>
+                <while-loop>
+                <print> <name>
+                <print> <value>
+<conditional> := <name> <lt> <value>
+                 <name> <gt> <value>
+                 <name> <eq> <value>
+<while-loop> := <while> <conditional> | <expressions> \
+<type> := d_int | d_string | banana
+<name> := string
+<value> := integer or a string <print> := 'console.log(<name>)' | 'console.log(<value>)'
+<lt> := '<'
+<gt> := '>'
+<eq> := '='
+<while> := 'while (<conditional>)'
