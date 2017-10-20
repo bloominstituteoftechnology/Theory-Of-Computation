@@ -4,9 +4,9 @@ go bananas x bigger than 0
   enshrinken x
 SRS BSNS
 
-make a be 'Welcome to Banana Script'
+make a be "Welcome to Banana Script"
 shout a
-shout 'some string value'
+shout "some string value"
 shout 32
 make x be 5
 go bananas x bigger than 0
