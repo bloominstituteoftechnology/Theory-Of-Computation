@@ -1,6 +1,6 @@
 make x be 5
 go bananas x bigger than 0
-  shout "banana"
   shout x
+  shout "banana"
   enshrinken x
 end

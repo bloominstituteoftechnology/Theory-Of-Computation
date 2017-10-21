@@ -3,6 +3,8 @@
                 <while-loop>
                 <print> <name>
                 <print> <value>
+                <increment> <value>
+                <decrement> <value>
 <conditional> := <name> <lt> <value>
                  <name> <gt> <value>
                  <name> <eq> <value>
@@ -15,6 +17,8 @@
 <lt> := littler than
 <gt> := bigger than
 <eq> := same as
+<decrement> := enshrinken
+<increment> := embiggen
 <print> := shout
 <end> := end
 
