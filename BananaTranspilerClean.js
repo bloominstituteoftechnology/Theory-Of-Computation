@@ -79,13 +79,6 @@ bananaSplit = bananaSplit.reduce((prev, current) => {
 let bananaProgramLexxed = bananaSplit;
 
 
-const stringObj = {
-  1: 'd_string',
-  2: 'let',
-};
-
-
-
 // JS to BS Transpilation Table:
 let js2bsTranspilationTable = {
   '<type>' : 'let %s be %s',
@@ -126,11 +119,10 @@ let findTokenOrTerminalInBNF = (tokenOrTerminal, bnf) => {
 // Prepping for parse process
 let output = "";
 let pda = [];
-bananaProgramLexxed = bananaProgramLexxed.reverse();
 let exitLoop = false;
 while(bananaProgramLexxed.length > 0) {
 
-  let current = bananaProgramLexxed.pop(); 
+  let current = bananaProgramLexxed.shift(); 
   let foundTokenOrTerminal = findTokenOrTerminalInBNF(current, grammar);
   if(foundTokenOrTerminal === undefined) {
     process.exit();
@@ -139,16 +131,16 @@ while(bananaProgramLexxed.length > 0) {
   // Syntax Error! Unknown Symbol on line xxx
   pda.push(foundTokenOrTerminal);
   if(pda.length === 1) {
-    let currentToken = pda.pop();
+    let currentToken = pda.shift();
     if(currentToken.key === "<type>") {
-      let name = bananaProgramLexxed.pop();
+      let name = bananaProgramLexxed.shift();
       // try to cast name[0] into a character, if it fails, syntax error via
       // javascript
-      let be = bananaProgramLexxed.pop();
+      let be = bananaProgramLexxed.shift();
       if(be !== 'be') {
         process.exit();
       }
-      let value = bananaProgramLexxed.pop();
+      let value = bananaProgramLexxed.shift();
       // cast value to a number, if there's an error, cast value to a string
       // if there's an error, then quit as above
 
@@ -156,26 +148,26 @@ while(bananaProgramLexxed.length > 0) {
       output = output + typeOutput;
     }
     if(currentToken.key === "<print>") {
-      let word = bananaProgramLexxed.pop();
+      let word = bananaProgramLexxed.shift();
       let printOutput = `console.log(${word}); `;
       output = output + printOutput;
     }
     if(currentToken.key === "<increment>") {
-      let value = bananaProgramLexxed.pop();
+      let value = bananaProgramLexxed.shift();
       output = output + ` ${value}++ `;
     }
     if(currentToken.key === "<decrement>") {
-      let value = bananaProgramLexxed.pop();
+      let value = bananaProgramLexxed.shift();
       output = output + ` ${value}-- `;
     }
     if(currentToken.key === "<while>") {
-      let bananas = bananaProgramLexxed.pop();
-      let name = bananaProgramLexxed.pop();
-      let conditional = bananaProgramLexxed.pop(); 
+      let bananas = bananaProgramLexxed.shift();
+      let name = bananaProgramLexxed.shift();
+      let conditional = bananaProgramLexxed.shift(); 
       let foundConditionalTerminal = findTokenOrTerminalInBNF(conditional, grammar);
       let conditionalOutput = js2bsTranspilationTable[foundConditionalTerminal.key];
-      let than = bananaProgramLexxed.pop();
-      let value = bananaProgramLexxed.pop();
+      let than = bananaProgramLexxed.shift();
+      let value = bananaProgramLexxed.shift();
       let whileOutput = "while( " + name + conditionalOutput + value + ") {";
       output = output + whileOutput;
     }
