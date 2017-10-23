@@ -9,11 +9,11 @@ const os = require('os');
  * "BananaTranspiler.js"
  * BNF Grammar filex name to be read in from node 3rd argument value
  * BananaScript file read in from 4th argument.
- * e.g. `$ node BananaTranspiler.js BananaScript.bnf`
+ * e.g. `$ node BananaTranspiler.js BananaScript.bnf BananaScript.bs`
  ******************************************************************************/
-const bnfScriptFile = process.argv[2];
+const bnfScriptFile = process.argv[2] || 'BananaScript.bnf';
 console.log(`1. File to be ingested and parsed: "${bnfScriptFile}"`);
-const bananaScriptExecFile = process.argv[3];
+const bananaScriptExecFile = process.argv[3] || 'BananaScript.bs';
 
 
 /******************************************************************************
