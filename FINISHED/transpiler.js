@@ -21,7 +21,6 @@ console.log(`   Program file to be ingested and parsed: "${bananaScriptExecFile}
 /******************************************************************************
  * 2. Read each line of file...
  * read in file contents, separating each line into an array of strings
- * NOTE: should this file be entered as a fourth parameter?
  ******************************************************************************/
 const bnfScriptOriginal = fs.readFileSync(bnfScriptFile, 'utf8').split(os.EOL);
 console.log(`2. Array containing each line from Grammar file, "${bnfScriptFile}":\n`, bnfScriptOriginal, '\n');
@@ -31,18 +30,15 @@ console.log(`2. Array containing each line from Grammar file, "${bnfScriptFile}"
  * "BNF_table" by the left side of the line delimited by :=
  ******************************************************************************/
 console.log('3. Put the tokens from the read into a hash table of tokens:');
-/* ...separating by tokens, that is: stuff in <>, :=, | */
 let grammar = {};
 let previousToken = undefined;
 for (let i = 0; i < bnfScriptOriginal.length; i++) {
-  // remove white spaces and empty strings?
-  // parse each string into components
   const newLine = bnfScriptOriginal[i].split(':=');
   if(newLine[1] != undefined) { // there is a LHS and a RHS of the BNF rule
     let token = newLine[0].trim();
     previousToken = token;
     let newExpansions = newLine[1].split('|');
-    newExpansions = newExpansions.map((exp) => {return exp.trim()});
+    newExpansions = newExpansions.map((exp) => {return exp.trim();});
     let existingExpansion = grammar[token];
     if(existingExpansion === undefined) {
       grammar[token] = newExpansions;
@@ -55,7 +51,6 @@ for (let i = 0; i < bnfScriptOriginal.length; i++) {
     grammar[previousToken].push(newLine[0].trim());
   }
 }
-
 console.log(grammar);
 console.log('');
 
@@ -69,10 +64,7 @@ console.log(`   Array containing each line from "${bananaScriptExecFile}" file:\
 console.log(bananaScript);
 console.log();
 let bananaSplit = [];
-let carrotStrip;
 for (let i = 0; i < bananaScript.length; i++){
-  //carrotStrip = bananaScript[i].replace(/</g, '').replace(/>/g, '');
-  //bananaSplit.push(carrotStrip.split(' '));
   bananaSplit.push(bananaScript[i].trim().split(' '));
 }
 bananaSplit = bananaSplit.reduce((prev, current) => {
@@ -91,8 +83,7 @@ let js2bsTranspilationTable = {
   '<eq>' : '==',
   '<gt>' : '>',
   '<lt>' : '<'
-}
-
+};
 
 /******************************************************************************
  * 5. Parse it using a pushdown automata and accumulate
@@ -100,33 +91,26 @@ let js2bsTranspilationTable = {
  * LL(1) parser
  ******************************************************************************/
 console.log('5. Parse using a pushdown automata and accumulate the results into a string variable program\n');
-
 let findTokenOrTerminalInBNF = (tokenOrTerminal, bnf) => {
   let bnfKeys = Object.keys(bnf);
   let result = undefined;
-  // bnfKeys array of keys
   bnfKeys.forEach((key) => {
-    //For everytime we have a key assign it to current expansion
     let currentExpansion = bnf[key];
-
     currentExpansion.forEach((token) => {
-
       let isInExpansion = token.indexOf(tokenOrTerminal);
       if(isInExpansion >= 0) {
-
         result = {key:key, token:token};
       }
     });
   });
 
   return result;
-}
-
+};
 
 // Prepping for parse process
 let output = '';
 let pda = [];
-let exitLoop = false;
+// let exitLoop = false;
 while(bananaProgramLexxed.length > 0) {
 
   let current = bananaProgramLexxed.shift();
@@ -184,15 +168,15 @@ while(bananaProgramLexxed.length > 0) {
   }
 }
 
-
 /******************************************************************************
  * 6. let bananascript_executable = eval(program);
  ******************************************************************************/
-console.log('6. let bananascript_executable = eval(program);\n')
+console.log('6. let bananascript_executable = eval(program);\n');
 console.log(output);
 let bananascript_executable = () =>{
   eval(output);
-}
+};
+
 /******************************************************************************
  * 7. program();
  ******************************************************************************/
