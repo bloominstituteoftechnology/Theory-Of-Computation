@@ -32,7 +32,6 @@ a COOLER banascript BNF
 ```html
 <expressions> := <expression+\>
 <expression> := <type> <name> = <value>
-                <type> <name> = <name>
                 <while-loop>
                 <print> <name>
                 <print> <value>
