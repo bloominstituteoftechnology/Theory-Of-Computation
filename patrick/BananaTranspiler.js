@@ -13,7 +13,7 @@ const os = require('os');
  ******************************************************************************/
 const bnfScriptFile = process.argv[2];
 console.log(`1. File to be ingested and parsed: "${bnfScriptFile}"`);
-const bananaScriptExecFile = process.argv[3]
+const bananaScriptExecFile = process.argv[3];
 
 
 /******************************************************************************
@@ -40,12 +40,12 @@ let previousToken = undefined;
 for (let i = 0; i < bnfScriptOriginal.length; i++) {
   // remove white spaces and empty strings?
   // parse each string into components
-  const newLine = bnfScriptOriginal[i].split(":=");
+  const newLine = bnfScriptOriginal[i].split(':=');
   if(newLine[1] != undefined) { // there is a LHS and a RHS of the BNF rule
     let token = newLine[0].trim();
     previousToken = token;
     let newExpansions = newLine[1].split('|');
-    newExpansions = newExpansions.map((exp) => {return exp.trim()});
+    newExpansions = newExpansions.map((exp) => {return exp.trim();});
     let existingExpansion = grammar[token];
     if(existingExpansion === undefined) {
       grammar[token] = newExpansions;
@@ -84,7 +84,7 @@ let js2bsTranspilationTable = {
   '<eq>' : '==',
   '<gt>' : '>',
   '<lt>' : '<'
-}
+};
 
 
 /******************************************************************************
@@ -103,33 +103,33 @@ let findTokenOrTerminalInBNF = (tokenOrTerminal, bnf) => {
       console.log(token);
       let isInExpansion = token.indexOf(tokenOrTerminal);
       if(isInExpansion >= 0) {
-        console.log("\n\n\n");
-        console.log("Found the token in:");
-        console.log("{" + key + ": " + token + "}");
-        console.log("\n\n\n");
+        console.log('\n\n\n');
+        console.log('Found the token in:');
+        console.log('{' + key + ': ' + token + '}');
+        console.log('\n\n\n');
         result = {key:key, token:token};
       }
     });
   });
   console.log(result);
   return result;
-}
+};
 
 console.log('Parse via LL(1)');
 // Prepping for parse process
-let output = "";
+let output = '';
 let pda = [];
 bananaProgramLexxed = bananaProgramLexxed.reverse();
 let exitLoop = false;
 while(bananaProgramLexxed.length > 0) {
-  console.log("/*********************************");
-  console.log(" * Processing the next token in program!");
-  console.log(" *********************************/");
+  console.log('/*********************************');
+  console.log(' * Processing the next token in program!');
+  console.log(' *********************************/');
   let current = bananaProgramLexxed.pop();
-  console.log("Currently parsing: " + current);
+  console.log('Currently parsing: ' + current);
   let foundTokenOrTerminal = findTokenOrTerminalInBNF(current, grammar);
   if(foundTokenOrTerminal === undefined) {
-    console.log("Syntax Error on " + current);
+    console.log('Syntax Error on ' + current);
     process.exit();
   }
   // if foundTokenOrTerminal = undefined
@@ -139,24 +139,24 @@ while(bananaProgramLexxed.length > 0) {
     console.log('Only one candidate for this expression, lets do LR(1) to map it, then add to program');
     let currentToken = pda.pop();
     console.log(bananaProgramLexxed);
-    if(currentToken.key === "<type>") {
+    if(currentToken.key === '<type>') {
       let name = bananaProgramLexxed.pop();
       // try to cast name[0] into a character, if it fails, syntax error via
       // javascript
       let be = bananaProgramLexxed.pop();
       if(be !== 'be') {
-        console.log("BananaScript Invalid Syntax: make must be `make name be value`");
-        console.log("Exiting transpilation...");
+        console.log('BananaScript Invalid Syntax: make must be `make name be value`');
+        console.log('Exiting transpilation...');
         process.exit();
       }
       let value = bananaProgramLexxed.pop();
       // cast value to a number, if there's an error, cast value to a string
       // if there's an error, then quit as above
 
-      let typeOutput = "let " + name + " = " + value + ";\n";
+      let typeOutput = 'let ' + name + ' = ' + value + ';\n';
       output = output + typeOutput;
     }
-    if(currentToken.key === "<while>") {
+    if(currentToken.key === '<while>') {
       let bananas = bananaProgramLexxed.pop();
       let name = bananaProgramLexxed.pop();
       let conditional = bananaProgramLexxed.pop();
@@ -164,10 +164,10 @@ while(bananaProgramLexxed.length > 0) {
       let conditionalOutput = js2bsTranspilationTable[foundConditionalTerminal.key];
       let than = bananaProgramLexxed.pop();
       let value = bananaProgramLexxed.pop();
-      let whileOutput = "while( " + name + conditionalOutput  + value + ") {";
+      let whileOutput = 'while( ' + name + conditionalOutput  + value + ') {';
       output = output + whileOutput;
     }
-    if(currentToken.key  === "<end>") {
+    if(currentToken.key  === '<end>') {
       output = output + '}';
     }
   }
@@ -183,7 +183,7 @@ console.log('\n');
 console.log('\n');
 eval(output);
 
-console.log("What's left");
+console.log('What\'s left');
 console.log(bananaProgramLexxed);
 
 /******************************************************************************
