@@ -18,24 +18,29 @@ const bananaScriptExecFile = process.argv[3]
 /******************************************************************************
  * 2. Read each line of file...
  * read in file contents, separating each line into an array of strings
+ * NOTE: should this file be entered as a fourth parameter?
  ******************************************************************************/
 const bnfScriptOriginal = fs.readFileSync(bnfScriptFile, 'utf8').split(os.EOL);
-console.log('2. Array containing each line from BNF text file:\n', bnfScriptOriginal);
+console.log('2. Array containing each line from text file:\n', bnfScriptOriginal);
+/* ...separating by tokens, that is: stuff in <>, :=, | */
+for (let i = 0; i < bnfScriptOriginal.length; i++) {
+  // remove white spaces and empty strings?
+  // parse each string into components
 
+}
 
 /******************************************************************************
- * 2. ...separating by tokens, that is: stuff in <>, :=, |
  * 3. Put the tokens from the read into a hash table
- *    "BNF_table" by the left side of the line delimited by :=
+ * "BNF_table" by the left side of the line delimited by :=
  ******************************************************************************/
 console.log('3. Put the tokens from the read into a hash table');
 /* ...separating by tokens, that is: stuff in <>, :=, | */
 let grammar = {};
 let previousToken = undefined;
 for (let i = 0; i < bnfScriptOriginal.length; i++) {
-  // remove white spaces and empty strings
+  // remove white spaces and empty strings?
   // parse each string into components
-  const newLine = bnfScriptOriginal[i].split(':=');
+  const newLine = bnfScriptOriginal[i].split(":=");
   if(newLine[1] != undefined) { // there is a LHS and a RHS of the BNF rule
     let token = newLine[0].trim();
     previousToken = token;
@@ -60,8 +65,6 @@ console.log(grammar);
 /******************************************************************************
  * 4. Read arg for exec bananascript
  * custom bananascript programming language
- * NOTE: should this file be entered as a fourth parameter?
- * e.g. `$ node BananaTranspiler.js BananaScript.bnf BananaScript.bs`
  ******************************************************************************/
 console.log(bananaScriptExecFile);
 const bananaScript = fs.readFileSync(bananaScriptExecFile, 'utf8').split(os.EOL);
@@ -77,20 +80,6 @@ bananaSplit = bananaSplit.reduce((prev, current) => {
   return prev.concat(current);
 });
 let bananaProgramLexxed = bananaSplit;
-
-const stringObj = {
-  1: 'd_string',
-  2: 'let',
-};
-
-let jsString = '';
-
-if (bananaSplit[0][0] === stringObj[1]) {
-  console.log('Jesh doesnt share his cheap candy');
-  // let newJS = jsString.concat(stringObj[2], );
-  bananaSplit[0][0] = stringObj[2];
-  console.log(bananaSplit);
-}
 
 // JS to BS Transpilation Table:
 let js2bsTranspilationTable = {
