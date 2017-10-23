@@ -19,19 +19,20 @@ make x be 5
 go bananas x bigger than 0
   shout x
   enshrinken x
-SRS BSNS
+end
 ```
 
 ```
 go bananas x bigger than 0
  expressions
-SRS BSNS
+end
 ```
 
 a COOLER banascript BNF
 ```html
 <expressions> := <expression+\>
 <expression> := <type> <name> = <value>
+                <type> <name> = <name>
                 <while-loop>
                 <print> <name>
                 <print> <value>
@@ -47,8 +48,10 @@ a COOLER banascript BNF
 <lt> := littler than
 <gt> := bigger than
 <eq> := same as
-<decrement> := enshrinken <value>
-<end> := SRS BSNS
+<decrement> := enshrinken
+<increment> := embiggen
+<print> := shout
+<end> := end
 ```
 
 TODO:
