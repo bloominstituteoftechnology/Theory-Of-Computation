@@ -7,7 +7,8 @@ const os = require('os');
 /******************************************************************************
  * 1. Read "BananaScript.bnf" file from an argument to a node program
  * "BananaTranspiler.js"
- * Script name to be read in from node 3rd argument value
+ * BNF Grammar filex name to be read in from node 3rd argument value
+ * BananaScript file read in from 4th argument.
  * e.g. `$ node BananaTranspiler.js BananaScript.bnf`
  ******************************************************************************/
 const bnfScriptFile = process.argv[2];
@@ -18,7 +19,6 @@ const bananaScriptExecFile = process.argv[3]
 /******************************************************************************
  * 2. Read each line of file...
  * read in file contents, separating each line into an array of strings
- * NOTE: should this file be entered as a fourth parameter?
  ******************************************************************************/
 const bnfScriptOriginal = fs.readFileSync(bnfScriptFile, 'utf8').split(os.EOL);
 console.log('2. Array containing each line from text file:\n', bnfScriptOriginal);
