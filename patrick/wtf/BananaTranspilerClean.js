@@ -77,6 +77,9 @@ bananaSplit = bananaSplit.reduce((prev, current) => {
   return prev.concat(current);
 });
 let bananaProgramLexxed = bananaSplit;
+if (bananaProgramLexxed[bananaProgramLexxed.length - 1] === '') {
+  bananaProgramLexxed.pop();
+}
 
 
 // JS to BS Transpilation Table:
