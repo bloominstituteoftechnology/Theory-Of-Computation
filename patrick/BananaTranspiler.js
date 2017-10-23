@@ -7,33 +7,28 @@ const os = require('os');
 /******************************************************************************
  * 1. Read "BananaScript.bnf" file from an argument to a node program
  * "BananaTranspiler.js"
- * BNF Grammar filex name to be read in from node 3rd argument value
- * BananaScript file read in from 4th argument.
+ * BNF Grammar file name to be read in from node 3rd argument value.
+ * BananaScript file read to be in from 4th argument.
+ * DEFAULT files for `$ node BananaTranspiler.js`
  * e.g. `$ node BananaTranspiler.js BananaScript.bnf BananaScript.bs`
  ******************************************************************************/
 const bnfScriptFile = process.argv[2] || 'BananaScript.bnf';
-console.log(`1. File to be ingested and parsed: "${bnfScriptFile}"`);
+console.log(`1. Grammar file to be ingested and parsed: "${bnfScriptFile}"`);
 const bananaScriptExecFile = process.argv[3] || 'BananaScript.bs';
-
+console.log(`   Program file to be ingested and parsed: "${bananaScriptExecFile}"\n`);
 
 /******************************************************************************
  * 2. Read each line of file...
  * read in file contents, separating each line into an array of strings
  ******************************************************************************/
 const bnfScriptOriginal = fs.readFileSync(bnfScriptFile, 'utf8').split(os.EOL);
-console.log('2. Array containing each line from text file:\n', bnfScriptOriginal);
-/* ...separating by tokens, that is: stuff in <>, :=, | */
-for (let i = 0; i < bnfScriptOriginal.length; i++) {
-  // remove white spaces and empty strings?
-  // parse each string into components
-
-}
+console.log(`2. Array containing each line from Grammar file, "${bnfScriptFile}":\n`, bnfScriptOriginal, '\n');
 
 /******************************************************************************
  * 3. Put the tokens from the read into a hash table
  * "BNF_table" by the left side of the line delimited by :=
  ******************************************************************************/
-console.log('3. Put the tokens from the read into a hash table');
+console.log('3. Put the tokens from the read into a hash table of tokens:');
 /* ...separating by tokens, that is: stuff in <>, :=, | */
 let grammar = {};
 let previousToken = undefined;
@@ -58,17 +53,19 @@ for (let i = 0; i < bnfScriptOriginal.length; i++) {
     grammar[previousToken].push(newLine[0].trim());
   }
 }
-console.log('This is the table of tokens: ');
-console.log(grammar);
 
+console.log(grammar);
+console.log('');
 
 /******************************************************************************
  * 4. Read arg for exec bananascript
  * custom bananascript programming language
  ******************************************************************************/
-console.log(bananaScriptExecFile);
+console.log(`4. Program file to be ingested and parsed: "${bananaScriptExecFile}"`);
 const bananaScript = fs.readFileSync(bananaScriptExecFile, 'utf8').split(os.EOL);
-// console.log('4. Array containing each line from text file:\n', bananaScript);
+console.log(`   Array containing each line from "${bananaScriptExecFile}" file:\n`);
+console.log(bananaScript);
+console.log();
 let bananaSplit = [];
 for (let i = 0; i < bananaScript.length; i++){
   bananaSplit.push(bananaScript[i].trim().split(' '));
@@ -92,8 +89,9 @@ let js2bsTranspilationTable = {
  * the results into a string variable program
  * LL(1) parser
  ******************************************************************************/
+console.log('5. Parse using a pushdown automata and accumulate the results into a string variable program\n');
 
-let findTokenOrTerminalInBNF = (tokenOrTerminal, bnf) => {
+const findTokenOrTerminalInBNF = (tokenOrTerminal, bnf) => {
   let bnfKeys = Object.keys(bnf);
   let result = undefined;
   bnfKeys.forEach((key) => {
