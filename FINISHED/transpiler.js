@@ -71,9 +71,12 @@ bananaSplit = bananaSplit.reduce((prev, current) => {
   return prev.concat(current);
 });
 let bananaProgramLexxed = bananaSplit;
-if (bananaProgramLexxed[bananaProgramLexxed.length - 1] === '') {
-  bananaProgramLexxed.pop();
+for (let i = 0; i < bananaProgramLexxed.length; i++) {
+  if(bananaProgramLexxed[i] === '') {
+    bananaProgramLexxed.splice(i, 1);
+  }
 }
+
 console.log(`   Array containing each split line from "${bananaScriptExecFile}" file:\n`);
 console.log(bananaProgramLexxed);
 console.log();
