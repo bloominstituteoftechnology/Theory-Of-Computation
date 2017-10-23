@@ -16,5 +16,7 @@
 <lt> := littler than
 <gt> := bigger than
 <eq> := same as
-<decrement> := enshrinken <value>
-<end> := SRS BSNS
+<decrement> := enshrinken
+<increment> := embiggen
+<print> := shout
+<end> := end
