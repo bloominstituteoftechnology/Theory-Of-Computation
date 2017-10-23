@@ -7,7 +7,7 @@
                  <name> <gt> <value>
                  <name> <eq> <value>
 <while-loop> := <while> <conditional> <expressions> end
-<while> := go bananas
+<while> := go bananas <conditional> <expressions> end
 <type> := make <name> be <value>
 <name> := string
 <value> := integer or a string 
@@ -15,4 +15,6 @@
 <lt> := littler than
 <gt> := bigger than
 <eq> := same as
+<print> := shout
+<end> := end
 
