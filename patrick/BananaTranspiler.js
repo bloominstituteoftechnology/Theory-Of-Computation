@@ -70,10 +70,7 @@ console.log(bananaScriptExecFile);
 const bananaScript = fs.readFileSync(bananaScriptExecFile, 'utf8').split(os.EOL);
 // console.log('4. Array containing each line from text file:\n', bananaScript);
 let bananaSplit = [];
-let carrotStrip;
 for (let i = 0; i < bananaScript.length; i++){
-  //carrotStrip = bananaScript[i].replace(/</g, '').replace(/>/g, '');
-  //bananaSplit.push(carrotStrip.split(' '));
   bananaSplit.push(bananaScript[i].trim().split(' '));
 }
 bananaSplit = bananaSplit.reduce((prev, current) => {
