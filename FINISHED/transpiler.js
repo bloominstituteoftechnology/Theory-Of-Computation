@@ -11,7 +11,7 @@ const os = require('os');
  * BananaScript file read to be in from 4th argument.
  * i.e. `$ NODE .JS .BNF .BS`
  * DEFAULT files for `$ node BananaTranspiler.js`
- * e.g. `$ node BananaTranspiler.js BananaScript.bnf BananaScript.bs`
+ * e.g. `$ node transpiler.js banana.bnf script.bs`
  ******************************************************************************/
 const bnfScriptFile = process.argv[2] || 'BananaScript.bnf';
 console.log(`1. Grammar file to be ingested and parsed: "${bnfScriptFile}"`);
@@ -30,12 +30,9 @@ console.log(`2. Array containing each line from Grammar file, "${bnfScriptFile}"
  * "BNF_table" by the left side of the line delimited by :=
  ******************************************************************************/
 console.log('3. Put the tokens from the read into a hash table of tokens:');
-/* ...separating by tokens, that is: stuff in <>, :=, | */
 let grammar = {};
 let previousToken = undefined;
 for (let i = 0; i < bnfScriptOriginal.length; i++) {
-  // remove white spaces and empty strings?
-  // parse each string into components
   const newLine = bnfScriptOriginal[i].split(':=');
   if(newLine[1] != undefined) { // there is a LHS and a RHS of the BNF rule
     let token = newLine[0].trim();
@@ -54,7 +51,6 @@ for (let i = 0; i < bnfScriptOriginal.length; i++) {
     grammar[previousToken].push(newLine[0].trim());
   }
 }
-
 console.log(grammar);
 console.log('');
 
@@ -64,7 +60,6 @@ console.log('');
  ******************************************************************************/
 console.log(`4. Program file to be ingested and parsed: "${bananaScriptExecFile}"`);
 const bananaScript = fs.readFileSync(bananaScriptExecFile, 'utf8').split(os.EOL);
-
 console.log(`   Array containing each line from "${bananaScriptExecFile}" file:\n`);
 console.log(bananaScript);
 console.log();
@@ -76,7 +71,9 @@ bananaSplit = bananaSplit.reduce((prev, current) => {
   return prev.concat(current);
 });
 let bananaProgramLexxed = bananaSplit;
-// bananaProgramLexxed.pop();
+if (bananaProgramLexxed[bananaProgramLexxed.length - 1] === '') {
+  bananaProgramLexxed.pop();
+}
 console.log(`   Array containing each split line from "${bananaScriptExecFile}" file:\n`);
 console.log(bananaProgramLexxed);
 console.log();
@@ -88,75 +85,57 @@ let js2bsTranspilationTable = {
   '<lt>' : '<'
 };
 
-
 /******************************************************************************
  * 5. Parse it using a pushdown automata and accumulate
  * the results into a string variable program
  * LL(1) parser
  ******************************************************************************/
 console.log('5. Parse using a pushdown automata and accumulate the results into a string variable program\n');
-
-const findTokenOrTerminalInBNF = (tokenOrTerminal, bnf) => {
+let findTokenOrTerminalInBNF = (tokenOrTerminal, bnf) => {
   let bnfKeys = Object.keys(bnf);
   let result = undefined;
   bnfKeys.forEach((key) => {
     let currentExpansion = bnf[key];
-    console.log(currentExpansion);
     currentExpansion.forEach((token) => {
-      console.log(token);
       let isInExpansion = token.indexOf(tokenOrTerminal);
       if(isInExpansion >= 0) {
-        console.log('\n\n\n');
-        console.log('Found the token in:');
-        console.log('{' + key + ': ' + token + '}');
-        console.log('\n\n\n');
         result = {key:key, token:token};
       }
     });
   });
-  console.log(result);
+
   return result;
 };
 
-console.log('Parse via LL(1)');
 // Prepping for parse process
 let output = '';
 let pda = [];
-bananaProgramLexxed = bananaProgramLexxed.reverse();
-let exitLoop = false;
+// let exitLoop = false;
 while(bananaProgramLexxed.length > 0) {
-  console.log('/*********************************');
-  console.log(' * Processing the next token in program!');
-  console.log(' *********************************/');
-  let current = bananaProgramLexxed.pop();
-  console.log('Currently parsing: ' + current);
+
+  let current = bananaProgramLexxed.shift();
   let foundTokenOrTerminal = findTokenOrTerminalInBNF(current, grammar);
   if(foundTokenOrTerminal === undefined) {
-    console.log('Syntax Error on ' + current);
     process.exit();
   }
   // if foundTokenOrTerminal = undefined
   // Syntax Error! Unknown Symbol on line xxx
   pda.push(foundTokenOrTerminal);
   if(pda.length === 1) {
-    console.log('Only one candidate for this expression, lets do LR(1) to map it, then add to program');
-    let currentToken = pda.pop();
-    console.log(bananaProgramLexxed);
+    let currentToken = pda.shift();
     if(currentToken.key === '<type>') {
-      let name = bananaProgramLexxed.pop();
+      let name = bananaProgramLexxed.shift();
       // try to cast name[0] into a character, if it fails, syntax error via
       // javascript
-      let be = bananaProgramLexxed.pop();
+      let be = bananaProgramLexxed.shift();
       if(be !== 'be') {
-        console.log('BananaScript Invalid Syntax: make must be `make name be value`');
-        console.log('Exiting transpilation...');
         process.exit();
       }
-      let value = bananaProgramLexxed.pop();
+      let value = bananaProgramLexxed.shift();
       // cast value to a number, if there's an error, cast value to a string
       // if there's an error, then quit as above
 
-      let typeOutput = 'let ' + name + ' = ' + value + ';\n';
+      let typeOutput = 'let ' + name + ' = ' + value + '; ';
       output = output + typeOutput;
     }
     if(currentToken.key === '<print>') {
@@ -173,14 +152,14 @@ while(bananaProgramLexxed.length > 0) {
       output = output + ` ${value}-- `;
     }
     if(currentToken.key === '<while>') {
-      let bananas = bananaProgramLexxed.pop();
-      let name = bananaProgramLexxed.pop();
-      let conditional = bananaProgramLexxed.pop();
+      let bananas = bananaProgramLexxed.shift();
+      let name = bananaProgramLexxed.shift();
+      let conditional = bananaProgramLexxed.shift();
       let foundConditionalTerminal = findTokenOrTerminalInBNF(conditional, grammar);
       let conditionalOutput = js2bsTranspilationTable[foundConditionalTerminal.key];
-      let than = bananaProgramLexxed.pop();
-      let value = bananaProgramLexxed.pop();
-      let whileOutput = 'while( ' + name + conditionalOutput  + value + ') {';
+      let than = bananaProgramLexxed.shift();
+      let value = bananaProgramLexxed.shift();
+      let whileOutput = 'while( ' + name + conditionalOutput + value + ') {';
       output = output + whileOutput;
     }
     if(currentToken.key  === '<end>') {
@@ -189,20 +168,19 @@ while(bananaProgramLexxed.length > 0) {
   }
 }
 
-
 /******************************************************************************
  * 6. let bananascript_executable = eval(program);
  ******************************************************************************/
-console.log('6. TO BE DONE');
+console.log('6. let bananascript_executable = eval(program);\n');
 console.log(output);
-console.log('\n');
-console.log('\n');
-eval(output);
-
-console.log('What\'s left');
-console.log(bananaProgramLexxed);
+let bananascript_executable = () =>{
+  eval(output);
+};
 
 /******************************************************************************
  * 7. program();
  ******************************************************************************/
-console.log('7. TO BE DONE');
+console.log('\n*********************************');
+console.log('Lets Go Bananas!');
+console.log('*********************************');
+bananascript_executable();
