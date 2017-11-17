@@ -174,16 +174,16 @@ The takeaway from this proof and observation is that it is not possible to build
 
 1. Write a regex to parse all links from a web page and print them:
 
-    curl https://stackoverflow.com > stackoverflow.html
-    node extractlinks.js stackoverflow.html
+      curl https://stackoverflow.com > stackoverflow.html
+      node extractlinks.js stackoverflow.html
 
 This command will produce all of the links from the StackOverflow main page in this format:
 
-    https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d
-    https://ajax.googleapis.com/ajax/libs/query/1.12.4/jquery.min.js
-    ...
-    ...
-    ...
+      https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d
+      https://ajax.googleapis.com/ajax/libs/query/1.12.4/jquery.min.js
+      ...
+      ...
+      ...
 
 You can find these links by searching for the `https` string with your regex, or the `href=` string, or potentially many others. Remember to separate the url from the double quotes `"` surrounding it.
 
@@ -192,14 +192,14 @@ You can find these links by searching for the `https` string with your regex, or
 3. Write a regex that accepts a phone number in any phone number format:
 
 
-    555-123-4567
-    5551234567
-    (555) 123-4567
-    555 123 4567
+      555-123-4567
+      5551234567
+      (555) 123-4567
+      555 123 4567
 
 The output of any of these phone #s as input should be:
 
-    5551234567
+      5551234567
 
 ## Extra Credit:
 
