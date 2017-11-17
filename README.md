@@ -174,8 +174,10 @@ The takeaway from this proof and observation is that it is not possible to build
 
 1. Write a regex to parse all links from a web page and print them:
 
-      curl https://stackoverflow.com > stackoverflow.html
-      node extractlinks.js stackoverflow.html
+```
+curl https://stackoverflow.com > stackoverflow.html
+node extractlinks.js stackoverflow.html
+```
 
 This command will produce all of the links from the StackOverflow main page in this format:
 
@@ -191,11 +193,12 @@ You can find these links by searching for the `https` string with your regex, or
 
 3. Write a regex that accepts a phone number in any phone number format:
 
-
-      555-123-4567
-      5551234567
-      (555) 123-4567
-      555 123 4567
+```
+555-123-4567
+5551234567
+(555) 123-4567
+555 123 4567
+```
 
 The output of any of these phone #s as input should be:
 
