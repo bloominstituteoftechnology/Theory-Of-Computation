@@ -121,7 +121,7 @@ models](https://en.wikipedia.org/wiki/Theory_of_computation)
 special importance in Computer Science!
 
 One of the first decision problems and the foundation of Computer Science.
-Turing Machine was invented in order to provide a solution for this problem -
+The Turing Machine was invented in order to provide a solution for this problem -
 that it is undecidable.
 
 The question is: Can a program be written `f` that will for every other program
