@@ -77,7 +77,7 @@ The pursuit of ancient philosophy from Aristotle and Stoic philosophers near 300
 [Calculus](https://en.wikipedia.org/wiki/Calculus)
 
 Not a direct antecedent of Computer Science, Calculus instead is part of the
-train of reasonining that informs all of the modern world: Logic and formal
+train of reasoning that informs all of the modern world: Logic and formal
 analysis can describe the behavior of things.
 
 [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra)
