@@ -99,7 +99,7 @@ Charles Babbage first proposed that these formal rules could be automated. He
 built part of the Difference Engine and proposed the design of the Analytical
 Engine. His work became the foundation of formal automata theory.
 
-[Ada Lovelace](https://en.wikipedia.org/wiki/Charles_Babbage) (1815-1852)
+[Ada Lovelace](https://en.wikipedia.org/wiki/Ada_Lovelace) (1815-1852)
 
 The first computer programmer, Ada Lovelace studied under Charles Babbage and
 created the first languages to automate the unbuilt Analytical Engine. 
