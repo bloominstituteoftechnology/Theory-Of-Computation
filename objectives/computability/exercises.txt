@@ -1,0 +1,12 @@
+ Where do you see boolean algebra used in JavaScript?
+
+conditional logic e.x. if else ! && ||
+
+What are some examples of logical symbols in JavaScript?
+
+! && || ^
+
+The Analytical Engine was never constructed. Why not?
+
+Charles Babbage tried devloping it but had conflicts with his chief engineer and had
+finacial troubles.
