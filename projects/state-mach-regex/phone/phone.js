@@ -23,9 +23,9 @@ rl.on('line', function (line) {
   const finalNum = validNumArr.join('')
   // console.log(finalNum);
   if (finalNum.length !== 10) console.log('number must have 10 digits');
-  
+
   else console.log(finalNum);
-  
+
   // beejs solutions
   // const matches = line.match(myRe);
   // if (matches === null) {
