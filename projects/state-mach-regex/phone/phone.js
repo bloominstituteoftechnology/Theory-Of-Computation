@@ -11,13 +11,16 @@ var rl = readline.createInterface({
 
 rl.on('line', function (line) {
 
-    // !!!! IMPLEMENT ME
+  // !!!! IMPLEMENT ME
 
-    // Come up with the phone regex
+  // Come up with the phone regex
+  const phoneRegex = /^\(?\d{3}\)?[- ]?\d{3}[- ]?\d{4}$/;
 
-    // Find matches
-
-    // If match found, print number with no spaces, parens, or dashes
-
-    // Else print that no number was found
+  // If match found, print number with no spaces, parens, or dashes
+  if(phoneRegex.test(line)){
+    const formattedLine = line.replace(/[- )(]/g, '');
+    console.log(formattedLine);
+  } else {   // Else print that no number was found
+    console.log("not a phone number");
+  }
 });
