@@ -1,9 +1,9 @@
-var readline = require('readline');
+const readline = require('readline');
 
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false
+const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+    terminal: false
 });
 
 
@@ -14,10 +14,17 @@ rl.on('line', function (line) {
     // !!!! IMPLEMENT ME
 
     // Come up with the phone regex
-
+    const regex = /(\(?[0-9]{3}\)?(?:[\s|-]?|[\s-]{0,2}\s?)[0-9]{3}[\s-]{0,2}\s?[0-9]{4})/g;
     // Find matches
-
-    // If match found, print number with no spaces, parens, or dashes
-
-    // Else print that no number was found
+    const matches = line.match(regex);
+    if (matches === null) {
+        console.log("No phone number phone in entry...");
+    } else {
+        for (let i = 0; i < matches.length; i++) {
+            const temp = matches[i].split('').filter((item, i) => {
+                return !isNaN(parseInt(item));
+            }).join('');
+            console.log(temp);
+        }
+    }
 });
