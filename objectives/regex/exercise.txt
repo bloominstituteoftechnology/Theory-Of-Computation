@@ -1,0 +1,2 @@
+monkey regest: /\d{1,2}\smonkeys?/g
+
