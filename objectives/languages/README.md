@@ -34,7 +34,7 @@ Regular grammars typically do not have fixed lengths:
     A -> A0
     A -> A1
     A -> B1
-    B -> null 
+    B -> null
 
 A set of rules like this is expressed typically in a shorter form:
 
@@ -44,7 +44,7 @@ or
 
     S = 1[0|1]*1
 
-by adding the rule 
+by adding the rule
 
     A -> B
 
@@ -94,10 +94,10 @@ block = [ "const" ident "=" number {"," ident "=" number} ";"]
         [ "var" ident {"," ident} ";"]
         { "procedure" ident ";" block ";" } statement .
 
-statement = [ ident ":=" expression | "call" ident 
-              | "?" ident | "!" expression 
-              | "begin" statement {";" statement } "end" 
-              | "if" condition "then" statement 
+statement = [ ident ":=" expression | "call" ident
+              | "?" ident | "!" expression
+              | "begin" statement {";" statement } "end"
+              | "if" condition "then" statement
               | "while" condition "do" statement ].
 
 condition = "odd" expression |
@@ -130,6 +130,19 @@ VAR x;
 BEGIN
    x := 1;
    WHILE x <= 10
+   BEGIN
+      ! x;
+      x := x + 1
+   END
+END.
+```
+
+```pl/0
+VAR x;
+
+BEGIN
+   x := 1;
+   WHILE x <= 10 DO
    BEGIN
       ! x;
       x := x + 1

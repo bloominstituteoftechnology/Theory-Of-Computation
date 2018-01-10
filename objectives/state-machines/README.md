@@ -75,6 +75,10 @@ next input moves us to the next state.
 Follow the state machine as the user deposits a dime, a nickel, and then another
 dime.
 
+```
+not sure if i'm supposed to draw it since it's in the image
+```
+
 
 ### Draw a state machine diagram for a video game AI
 
@@ -83,3 +87,19 @@ Video game AIs can exist in a lot of states, e.g. idling, bored, running, shooti
 1. Come up with a list of 4 states an AI can be in.
 2. Figure out the transitions between those states.
 3. Draw a state machine diagram of your AI.
+
+```
+                           Everything is going as planned
+     + ----------------------------------------------------------------------+
+     |                                                                       |
+     |                                                                       v
++---------+   Wheel Broke        +-------------+  Found best doctor    +-----------+
+| Healthy |--------------------->| Hand injury |---------------------->| Dysentery |
++---------+                      +-------------+    in the country     +-----------+
+    ^                                   |                                    |
+    |         Wheel Fixed               v                                    v
+    +-----------------------------------+                                +-------+
+                                                                         | Death |
+                                                                         +-------+
+
+```
