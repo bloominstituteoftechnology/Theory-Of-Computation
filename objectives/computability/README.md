@@ -102,7 +102,7 @@ Engine. His work became the foundation of formal automata theory.
 [Ada Lovelace](https://en.wikipedia.org/wiki/Ada_Lovelace) (1815-1852)
 
 The first computer programmer, Ada Lovelace studied under Charles Babbage and
-created the first languages to automate the unbuilt Analytical Engine. 
+created the first languages to automate the unbuilt Analytical Engine.
 
 [Principia Mathematica](https://en.wikipedia.org/wiki/Principia_Mathematica)
 
@@ -150,6 +150,20 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 
 * Where do you see boolean algebra used in JavaScript?
 
+  Comparisons. ie
+
+    - a == b
+    - a === b
+    - a != b
+    - a == b || (b === c && c != d)
+
 * What are some examples of logical symbols in JavaScript?
 
+  - &&
+  - ||
+  - !
+
 * The Analytical Engine was never constructed. Why not?
+
+  >Babbage was never able to complete construction of any of his machines due to conflicts with his chief engineer and inadequate funding
+  > - [Wikipedia](https://en.wikipedia.org/wiki/Analytical_Engine)

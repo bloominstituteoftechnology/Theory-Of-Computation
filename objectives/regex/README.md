@@ -92,19 +92,44 @@ Where does the regex fail us?
 
 All of the following are valid email addresses. How does our regex fail to detect them?
 
-* Name@example.com
-* name22@example.com
-* name+2_3@example.com
-* name(goats)@example.com
-* (goats)name@example.com
+* Name@example.com        -- We are not checking for uppercase characters
+* name22@example.com      -- We are not checking for numbers
+* name+2_3@example.com    -- We are not checking for + or numbers or _
+* name(goats)@example.com -- We are not checking for ( or )
+* (goats)name@example.com -- name@example.com is detected but the (goats) is omitted
 
 All of the following are invalid email addresses. Why does our regex say they're OK?
 
-* name@example.com.
-* name@example..com
-* name@example..
+* name@example.com. -- The [a-z.] catches the last period
+* name@example..com -- The [a-z.] says a period after a period is valid
+* name@example..    -- The [a-z.] says a period after a period is valid
 
 How could it be improved to handle these cases? Writing an email regex is hard.
+
+`[()+_A-Za-z0-9]+@[A-Za-z0-9]+(\.[A-Za-z0-9]+)+` (doesn't work for name@example.com.)
+
+Whoever wrote the email address specs is ridiculous
+```
+The local-part of the email address may use any of these ASCII characters:
+
+- uppercase and lowercase Latin letters A to Z and a to z;
+- digits 0 to 9;
+- special characters !#$%&'*+-/=?^_`{|}~;
+- dot ., provided that it is not the first or last character unless quoted, and provided also that it does not appear consecutively unless quoted (e.g. John..Doe@example.com is not - allowed but "John..Doe"@example.com is allowed);[6]
+
+Note that characters after a plus sign + are generally ignored, so fred+bah@domain and fred+foo@domain will end up in the same inbox as fred@domain This can be useful for tagging emails for sorting, see below.
+
+- space and "(),:;<>@[\] characters are allowed with restrictions (they are only allowed inside a quoted string, as described in the paragraph below, and in addition, a backslash or double-quote must be preceded by a backslash);
+- comments are allowed with parentheses at either end of the local-part; e.g. john.smith(comment)@example.com and (comment)john.smith@example.com are both equivalent to john.smith@example.com.
+
+In addition to the above ASCII characters, international characters above U+007F, encoded as UTF-8, are permitted by RFC 6531, though mail systems may restrict which characters to use when assigning local-parts.
+
+A quoted string may exist as a dot separated entity within the local-part, or it may exist when the outermost quotes are the outermost characters of the local-part (e.g., abc."defghi".xyz@example.com or "abcdefghixyz"@example.com are allowed.[citation needed] Conversely, abc"defghi"xyz@example.com is not; neither is abc\"def\"ghi@example.com).[citation needed] Quoted strings and characters however, are not commonly used.[citation needed] RFC 5321 also warns that "a host that expects to receive mail SHOULD avoid defining mailboxes where the Local-part requires (or uses) the Quoted-string form".
+
+The local-part postmaster is treated specially—it is case-insensitive, and should be forwarded to the domain email administrator. Technically all other local-parts are case-sensitive, therefore jsmith@example.com and JSmith@example.com specify different mailboxes; however, many organizations treat uppercase and lowercase letters as equivalent. Indeed, RFC 5321 warns that "a host that expects to receive mail SHOULD avoid defining mailboxes where ... the Local-part is case-sensitive".
+
+Despite the wide range of special characters which are technically valid, organisations, mail services, mail servers and mail clients in practice often do not accept all of them. For example, Windows Live Hotmail only allows creation of email addresses using alphanumerics, dot (.), underscore (_) and hyphen (-).[7] Common advice is to avoid using some special characters to avoid the risk of rejected emails.[8]
+```
 
 
 ### Greedy versus Non-Greedy
