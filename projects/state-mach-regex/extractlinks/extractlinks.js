@@ -12,6 +12,9 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+fs.readFile(filename, 'utf-8', function(err, data) {
+    
+});
 
 // Set up regex
 
