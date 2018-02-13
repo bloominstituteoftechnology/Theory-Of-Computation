@@ -11,8 +11,6 @@ var rl = readline.createInterface({
 
 rl.on('line', function (line) {
 
-    // !!!! IMPLEMENT ME
-
     // Come up with the phone regex
 
     // Find matches

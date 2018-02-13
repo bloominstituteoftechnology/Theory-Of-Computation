@@ -9,12 +9,16 @@ if (args.length != 1) {
 
 const filename = args[0];
 
-// !!!! IMPLEMENT ME
+const text = fs.readFileSync(filename, {encoding:"utf8"});
 
-// Read file
+const regex = /("https\:([^"]|"")*")|("https\:([^']|'')*")|("http\:([^"]|"")*")|("http\:([^']|'')*")/g;
 
-// Set up regex
+let array1;
 
-// Find matches
+while ((array1 = regex.exec(text)) !== null) {
+    console.log(array1[0].replace(/"/g, ''));
+    // expected output: "Found foo. Next starts at 9."
+    // expected output: "Found foo. Next starts at 19."
+  }
 
 // Print all matches
