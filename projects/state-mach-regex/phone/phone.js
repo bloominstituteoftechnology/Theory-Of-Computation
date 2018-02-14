@@ -16,10 +16,10 @@ rl.on('line', function (line) {
     // Come up with the phone regex
     const regex = /([0-9])\w+/g;
     // Find matches
-    var found = line.match(regex);
+    var found = line.match(regex).join('');
     // If match found, print number with no spaces, parens, or dashes
     if (found !== null) {
-      console.log(`The phone number is ${line}`);
+      console.log(`The phone number is ${found}`);
       rl.close();
     } else {
       // Else print that no number was found
