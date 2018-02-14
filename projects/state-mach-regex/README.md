@@ -15,7 +15,7 @@
                   Going straight
    not blinking <--------------------- other light blinking
                   flat tire
-   not blinking ---------------------> both light blinking
+   not blinking ---------------------- both light blinking
                   tire pumped
    not blinking <--------------------- one light blinking
 
