@@ -17,8 +17,4 @@ let array1;
 
 while ((array1 = regex.exec(text)) !== null) {
     console.log(array1[0].replace(/"/g, ''));
-    // expected output: "Found foo. Next starts at 9."
-    // expected output: "Found foo. Next starts at 19."
-  }
-
-// Print all matches
+}
