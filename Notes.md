@@ -65,3 +65,25 @@ to get out of the state use 'Lazy' or '?'. '?' stops greedy by being Lazy by mov
 Side note: if trouble install react on the mac, use 'sudo' so you can bypass the whole permission problem
 e.g sudo npm install -g create-react-app
 
+# Algorithmns 
+1. constants: constants do not change and does not really affect the run time so it isn't really taken into
+consideration when measuring Big O notation.
+ 
+2. logarithmic: CompSci - usually Log2; There is a bigger payoff the larger your data set is especially compared to 
+most algorithmns with the exception of O(1) algorithmns. Logs secret is using exponents of 2. 
+e.g Log 2 64 = 6 as 2 ^6 = 64;  log_x(y) = e,  x^e = y; note: e stands for exponent
+
+3. log linear: This is basically logarthimic * linear. Linear being a iterative alrogithmn where you search through
+every element in the data and logarithmic emphasis on the exponents of 2. Big O notation is O(nlog n)
+
+4. quadratic: can most easily illustrated by double or nested for loops. Mathmatically it can just be seen as n * n 
+or n^2 or O(n^2). Its behavior becomes very much more closer to exponential algorithmn especially with larger data sets 
+
+5. Cubic: 3 nest loops which also can be seen as O(n^3) or if its 1 logarithmic and 2 linear you can say 
+O(n^2)(log(n) or really just say O(n^2)log(n); So logarithmic is just O(log n) and linear O(n). 
+
+6. exponential: can only handle really small sets of data as it grows exponentially which makes it quickly impossible to handle 
+even moderately sized data sets. After a certain point like n = 30, the algorithmn is untrackable as most computer hardware will 
+not be able to handle it. Cannot be used to run big data. Recursion within a recursion can end up with a exponential algorithmn. 
+
+5. All of this generally falls under discrete mathmetics 

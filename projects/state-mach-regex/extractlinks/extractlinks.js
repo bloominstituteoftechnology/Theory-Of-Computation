@@ -25,7 +25,9 @@ const filename = args[0];
 
 const filedata = fs.readFileSync(filename, {encoding: 'utf8'});
 // Set up regex
-const regFile = /https/g;
+
+// strict http, 0 or 1 s, stict two '/', ay amount of char until Lazy '.',  
+const regFile = /https?:\/\/[^\\'">\s]+?\.[^\\'">\s]+/g;
 // Find matches
 regFile = filedata.match(regFile);
 for (let url of matches) {
