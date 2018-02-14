@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// app created to test regex with feedback from console and test replace method
 class App extends Component {
   constructor() {
     super();
@@ -16,10 +17,7 @@ class App extends Component {
 
   componentDidMount() {
     this.state.numbers.forEach((val => {
-      //let regex = /[^()-\s\]]/g;
-      // let val = '(555) 123-4567';
-      //let re = /[()]/g;
-      //replaces all the symbols for nothing
+      // replaces all the symbols for nothing
       val = val.replace(/[-()\s\]]/g, '');
       console.log(val);
       this.setState({newNumber: val})
