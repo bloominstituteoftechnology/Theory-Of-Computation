@@ -8,7 +8,7 @@ var rl = readline.createInterface({
 
 rl.on('line', function (line) {
 
-  regex = /\+?1?\s*\(?-*\.*(\d{3})\)?\.*-*\s*(\d{3})\.*-*\s*(\d{4})$/;
+  regex = /(\d{3})\)?\.*-*\s*(\d{3})\.*-*\s*(\d{4})$/;
 
   if (regex.exec(line) !== null) {
     console.log(line.replace(/-| |\(|\)|/g, ''));
