@@ -149,7 +149,15 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 ## Exercises
 
 * Where do you see boolean algebra used in JavaScript?
+    
+    When using conditionl statements and having the Boolean to determine if a statment is TRUE or FALSE.
+    Using operators like:
 
 * What are some examples of logical symbols in JavaScript?
+    
+    < -- > -- ===
+    OR : || -- AND : && -- NOT : ! 
 
 * The Analytical Engine was never constructed. Why not?
+
+    Sadly, Babbage was never able to complete construction of any of his machines due to conflicts with his chief engineer and inadequate funding

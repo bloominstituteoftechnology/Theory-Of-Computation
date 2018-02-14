@@ -129,7 +129,7 @@ VAR x;
 
 BEGIN
    x := 1;
-   WHILE x <= 10
+   WHILE x <= 10 DO
    BEGIN
       ! x;
       x := x + 1

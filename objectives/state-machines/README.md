@@ -83,3 +83,5 @@ Video game AIs can exist in a lot of states, e.g. idling, bored, running, shooti
 1. Come up with a list of 4 states an AI can be in.
 2. Figure out the transitions between those states.
 3. Draw a state machine diagram of your AI.
+
+IN `img` FOLDER
