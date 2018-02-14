@@ -20,7 +20,11 @@ const regex = /https?:\/\/[^\\'">\s]+?\.[^\\'">\s]+/g;
 // Find matches
 const matches = filedata.match(regex);
 
+var count = 0;
 // Print all matches
-for (let url of matches) {
+for (var url of matches) {
+    ++count;
     console.log(url);
 }
+
+console.log("count: ", count);
