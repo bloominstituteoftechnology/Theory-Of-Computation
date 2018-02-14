@@ -11,8 +11,8 @@ const filename = args[0];
 
 // !!!! IMPLEMENT ME
 
+// Read file
 let text = fs.readFileSync('./stackoverflow.html','utf8')
-
 
 // Set up regex
 // BEAST -> /(?:(?:https?|ftp|file):\/\/|www\.|ftp\.)(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[-A-Z0-9+&@#\/%=~_|$?!:,.])*(?:\([-A-Z0-9+&@#\/%=~_|$?!:,.]*\)|[A-Z0-9+&@#\/%=~_|$])/igm
@@ -21,9 +21,7 @@ const quoteRemover = (/['"]+/g, '')
 
 // Find matches
 matches = text.match(regex);
-// matches.replace((/['"]+/g, ''));
 
 // Print all matches
-// console.log(matches);
 matches.forEach(item => console.log(item));
-console.log(matches.length);
+console.log("Amount of links found: ", matches.length);

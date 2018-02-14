@@ -1,4 +1,4 @@
-177
+Amount of links found:  177
 http://b
 http://edge
 http://www.w3.org/2000/svg
