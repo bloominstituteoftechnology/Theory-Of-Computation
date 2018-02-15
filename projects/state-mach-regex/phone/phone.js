@@ -5,19 +5,15 @@ var rl = readline.createInterface({
   output: process.stdout,
   terminal: false
 });
-
-
-// This code reads a line at a time from stdin
+let validNumbers = [];
 
 rl.on('line', function (line) {
-
-    // !!!! IMPLEMENT ME
-
-    // Come up with the phone regex
-
-    // Find matches
-
-    // If match found, print number with no spaces, parens, or dashes
-
-    // Else print that no number was found
+  const regex = /([0-9])\w+/g;
+  var found = line.match(regex);
+  if (found !== null) {
+    console.log(`The phone number is ${line}`);
+    rl.close();
+  } else {
+    console.log("No Number was found");
+  }
 });
