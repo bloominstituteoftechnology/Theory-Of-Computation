@@ -22,14 +22,7 @@ the new state.
 
 Here is an example transition from `Happy` state to `Sad` state and back:
 
-```
-+-------+   Dental emergency    +-----+
-| Happy |---------------------->| Sad |
-+-------+                       +-----+
-    ^                              |
-    |      Dental work done        |
-    +------------------------------+
-```
+![Happy, Sad SM](img/happy-sad-sm.png)
 
 Sometimes it is useful to think of the transitions as events. Other times it is
 useful to think of them as "input consumed".
