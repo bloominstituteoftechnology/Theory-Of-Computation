@@ -26,7 +26,7 @@ Grammar:
     C -> null
 
 > Notice how similar this grammar is to a state machine. Fun fact: grammars like
-> this can be converted to state machines and vice versa!
+> this can 88be converted to state machines and vice versa!
 
 Regular grammars typically do not have fixed lengths:
 
