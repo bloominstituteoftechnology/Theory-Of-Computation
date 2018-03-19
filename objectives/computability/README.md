@@ -149,7 +149,14 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 ## Exercises
 
 * Where do you see boolean algebra used in JavaScript?
+    Conditional Statements
+    Array Methods like Includes, 
 
 * What are some examples of logical symbols in JavaScript?
+    "===" Equal
+    "&&" And
+    "||" Or
+    "!" Not
 
 * The Analytical Engine was never constructed. Why not?
+As of May 2016, actual construction had not been attempted, since no consistent understanding could yet be obtained from Babbage’s original design drawings.[30] By 2017, the "Plan 28" effort reported that a searchable database of all catalogued material was available, and an initial review of Babbage’s voluminous Scribbling Books had been completed
