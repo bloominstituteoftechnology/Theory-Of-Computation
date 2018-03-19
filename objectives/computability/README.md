@@ -150,6 +150,11 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 
 * Where do you see boolean algebra used in JavaScript?
 
+    Every if statement, while statements use boolean algebra. 
+
 * What are some examples of logical symbols in JavaScript?
+    && || !
 
 * The Analytical Engine was never constructed. Why not?
+
+    "Babbage was never able to complete construction of any of his machines due to conflicts with his chief engineer and inadequate funding." -Wikipedia
