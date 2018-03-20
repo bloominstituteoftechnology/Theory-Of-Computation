@@ -25,7 +25,7 @@ content = fs.readFileSync('./stackoverflow.html','utf-8');
 // }
 
 // Set up regex
-const regex = /(https?):\/\/[0-9?a-z./=-]+/gi
+const regex = /(https?):\/\/[0-9a-z./=-?]+.*\"/gi
 
 // Find matches
 let matchesArr = content.match(regex);
