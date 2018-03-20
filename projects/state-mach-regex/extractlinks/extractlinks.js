@@ -9,21 +9,28 @@ if (args.length != 1) {
 
 const filename = args[0];
 
-// !!!! IMPLEMENT ME
+/**
+ * removes the last character of a string and returns the result
+ * @param {string} str
+ * @returns {string} 
+ */
+function chopLast(str) {
+  return str.slice(0, -1);
+}
 
 try {
   // Read file
   const fileString = fs.readFileSync(filename, { encoding: 'utf8' });
   
   // Set up regex
-  const urlRegex = /(http(s)?:\/\/)[a-z]{1,256}\.[a-z]{1,256}\.[a-z]{2,10}(\/[a-z]\w+\.[a-z]\w+)?/g;
+  const urlRegex = /https?[a-z]+:\/\/.+?"/g;
 
   // Find matches
   const urls = fileString.match(urlRegex);
   if (!urls.length) throw 'No urls found.';
 
   // Print all matches
-  urls.forEach(url => console.log(url));
+  urls.forEach(url => console.log(chopLast(url)));
 
 } catch(err) {
   console.log(err.message);
