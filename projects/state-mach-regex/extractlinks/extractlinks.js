@@ -16,7 +16,7 @@ try {
   const fileString = fs.readFileSync(filename, { encoding: 'utf8' });
   
   // Set up regex
-  const urlRegex = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g;
+  const urlRegex = /(http(s)?:\/\/)[a-z]{1,256}\.[a-z]{1,256}\.[a-z]{2,10}(\/[a-z]\w+\.[a-z]\w+)?/g;
 
   // Find matches
   const urls = fileString.match(urlRegex);
