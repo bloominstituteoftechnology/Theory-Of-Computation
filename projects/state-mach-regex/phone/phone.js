@@ -14,7 +14,7 @@ rl.on('line', function (line) {
     // !!!! IMPLEMENT ME
 
     // Come up with the phone regex
-    let regex = /\(?(\d{3})\)? ?-?(\d{3})-? ?(\d{4})/g
+    let regex = /^\(?\d{3}\)?\ ?\-?\d{3}\-?\ ?\d{4}$/g
 
     // Find matches
     let match = line.match(regex);
