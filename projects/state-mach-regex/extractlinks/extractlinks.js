@@ -8,13 +8,14 @@ if (args.length != 1) {
 }
 
 const filename = args[0];
+const regex = /(http|https)\:\/\/([^\"\']{1,})/g;
 
-// !!!! IMPLEMENT ME
 
-// Read file
-
-// Set up regex
-
-// Find matches
-
-// Print all matches
+fs.readFile(filename, 'utf-8', (err, data) => {
+    if (err) throw err;
+    const dataStr = JSON.stringify(data);
+    const matches = dataStr.match(regex);
+    matches.forEach(match => {
+        console.log(match);
+    })
+})
