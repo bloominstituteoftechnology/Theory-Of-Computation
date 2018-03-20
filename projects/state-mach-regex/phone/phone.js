@@ -11,13 +11,18 @@ var rl = readline.createInterface({
 
 rl.on('line', function (line) {
 
-    // !!!! IMPLEMENT ME
+  // !!!! IMPLEMENT ME
+  let testArr = [
+    '555-123-4567',
+    '5551234567',
+    '(555) 123 - 4567',
+    '555 123 4567'];
 
-    // Come up with the phone regex
+  // Come up with the phone regex
+  let reg = /[^1(0]\d{3}[^-\s)][^-\s)]?\d{3}[^-\s)][^-\s)]?\d{4}/;
+  // Find matches
 
-    // Find matches
+  // If match found, print number with no spaces, parens, or dashes
 
-    // If match found, print number with no spaces, parens, or dashes
-
-    // Else print that no number was found
+  // Else print that no number was found
 });
