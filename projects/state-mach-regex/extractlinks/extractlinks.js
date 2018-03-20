@@ -15,7 +15,13 @@ const filename = args[0];
 let fileData = fs.readFileSync(filename).toString('utf-8');
 let lines = fileData.split(/\n\r/); // Split each line of the file.
 // Set up regex
+
 let reg = /https?:\/\/[\w-\.\/\?\=\&\;\%]+/;
+// starts with http
+// may or may not have an s
+// has :
+// contains double slashes
+// any combination of alphanumeric, dots, slash, ? , = , & , ; , or & all the way until we find a character otherwise.
 
 // Find matches
 results = [];
