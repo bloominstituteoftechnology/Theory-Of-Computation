@@ -27,6 +27,10 @@ this format:
 You can find these links by searching for the `http` or `https` string with your
 regex, or the `href=` string, or potentially many others. Remember to separate
 the url from the double quotes `"` surrounding it.
+To run the program follow these steps:
+i. go to the extractlinks directory
+ii.run this command on Node terminal: curl https://stackoverflow.com > stackoverflow.html
+iii. then run this command: node extractlinks.js stackoverflow.html
 
 2. Write a regex that accepts a phone number in any phone number format:
 
