@@ -1,20 +1,12 @@
-const fs = require('fs');
+var fs = require("fs");
+const regex = /("https\:([^"]|)*")|("https\:([^']|'')*")|("http\:([^"]|"")*")|("http\:([^']|'')*")/g;
 
-const args = process.argv.slice(2);
+var text = fs.readFileSync("./projects/state-mach-regex/extractlinks/stackoverflow.html", "utf-8");
 
-if (args.length != 1) {
-    console.error("usage: extractlinks inputfile");
-    process.exit(1);
+var found = text.match(regex);
+
+for (var i = 0; i < found.length; i++) {
+    found[i] = found[i].replace(/"/g, "");
 }
 
-const filename = args[0];
-
-// !!!! IMPLEMENT ME
-
-// Read file
-
-// Set up regex
-
-// Find matches
-
-// Print all matches
+console.log(found);
