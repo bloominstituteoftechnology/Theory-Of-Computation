@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="344.5" cy="321.5" rx="30" ry="30"/>
+	<text x="333.5" y="327.5" font-family="Times New Roman" font-size="20">off</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="583.5" cy="129.5" rx="30" ry="30"/>
+	<text x="570.5" y="135.5" font-family="Times New Roman" font-size="20">RB</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="651.5" cy="457.5" rx="30" ry="30"/>
+	<text x="638.5" y="463.5" font-family="Times New Roman" font-size="20">LB</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="74.5" cy="352.5" rx="30" ry="30"/>
+	<text x="55.5" y="358.5" font-family="Times New Roman" font-size="20">Both</text>
+	<polygon stroke="black" stroke-width="1" points="367.888,302.711 560.112,148.289"/>
+	<polygon fill="black" stroke-width="1" points="560.112,148.289 550.744,149.401 557.007,157.197"/>
+	<text x="469.5" y="246.5" font-family="Times New Roman" font-size="20">lever up</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 348.737,291.827 A 208.874,208.874 0 0 1 553.611,127.242"/>
+	<polygon fill="black" stroke-width="1" points="348.737,291.827 355.32,285.069 345.547,282.949"/>
+	<text x="230.5" y="164.5" font-family="Times New Roman" font-size="20">right turn/ lever middle</text>
+	<polygon stroke="black" stroke-width="1" points="371.929,333.651 624.071,445.349"/>
+	<polygon fill="black" stroke-width="1" points="624.071,445.349 618.782,437.537 614.731,446.68"/>
+	<text x="501.5" y="379.5" font-family="Times New Roman" font-size="20">lever down</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 625.469,472.355 A 198.091,198.091 0 0 1 350.988,350.761"/>
+	<polygon fill="black" stroke-width="1" points="350.988,350.761 348.52,359.866 358.091,356.969"/>
+	<text x="282.5" y="496.5" font-family="Times New Roman" font-size="20">left turn/ lever middle</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 611.754,139.49 A 187.309,187.309 0 0 1 673.453,437.101"/>
+	<polygon fill="black" stroke-width="1" points="611.754,139.49 617.02,147.318 621.097,138.186"/>
+	<text x="726.5" y="275.5" font-family="Times New Roman" font-size="20">lever up</text>
+	<polygon stroke="black" stroke-width="1" points="589.59,158.875 645.41,428.125"/>
+	<polygon fill="black" stroke-width="1" points="645.41,428.125 648.682,419.276 638.89,421.306"/>
+	<text x="520.5" y="302.5" font-family="Times New Roman" font-size="20">lever down</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 324.716,344.009 A 186.587,186.587 0 0 1 98.871,369.939"/>
+	<polygon fill="black" stroke-width="1" points="98.871,369.939 103.156,378.344 108.303,369.77"/>
+	<text x="154.5" y="424.5" font-family="Times New Roman" font-size="20">hazards button down</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 87.594,325.562 A 152.278,152.278 0 0 1 325.642,298.231"/>
+	<polygon fill="black" stroke-width="1" points="325.642,298.231 323.574,289.026 316.462,296.056"/>
+	<text x="115.5" y="238.5" font-family="Times New Roman" font-size="20">hazard button up</text>
+</svg>
