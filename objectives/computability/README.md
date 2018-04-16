@@ -148,8 +148,14 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 
 ## Exercises
 
-* Where do you see boolean algebra used in JavaScript?
+1. Where do you see boolean algebra used in JavaScript?
 
-* What are some examples of logical symbols in JavaScript?
+    * Through a variety of Boolean phrases employed in the langage itself, such as conditional 'if' and 'while' statements, through the use of ternary statements, in implementing regex, and in statements of negation.
 
-* The Analytical Engine was never constructed. Why not?
+2. What are some examples of logical symbols in JavaScript?
+
+    * '&&' (And) '||' (Or) '!' (Not)
+
+3. The Analytical Engine was never constructed. Why not?
+
+    * The classic meeting of intractable personalities and budget considerations.   The machine itself would have proven prohibitively expensive, especially considering the cultural skepticism that would have accompanied any attempt at funding.  Further the creator the machine, Babbage, was a difficult person to work with by all accounts, and struggled with altering his ideas in the face of practical considerations. 
