@@ -69,10 +69,18 @@ Follow the state machine as the user deposits a dime, a nickel, and then another
 dime.
 
 
-### Draw a state machine diagram for a video game AI
+### Draw a state machine diagram for a video game AI - Marvel's Contest of Champions
 
 Video game AIs can exist in a lot of states, e.g. idling, bored, running, shooting.
 
 1. Come up with a list of 4 states an AI can be in.
+    * Idle
+    * Run
+    * Evade
+    * Block
+    * Light Attack
+    * Heavy Attack
+
 2. Figure out the transitions between those states.
+    * See Drawing
 3. Draw a state machine diagram of your AI.
