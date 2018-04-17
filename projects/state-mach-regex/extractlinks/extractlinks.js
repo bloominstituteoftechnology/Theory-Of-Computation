@@ -15,7 +15,7 @@ const filename = args[0];
 const content = fs.readFileSync(filename, 'utf-8');
 
 // Set up regex
-const re = /http[^"^']*/gi;
+const re = /http[^"']*/gi;
 
 // Find matches
 const matches = content.match(re);
