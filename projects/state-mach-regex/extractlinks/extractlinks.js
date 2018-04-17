@@ -13,8 +13,23 @@ const filename = args[0];
 
 // Read file
 
+const readFile = fs.readFileSync(filename, {encoding: 'utf8'});
+
 // Set up regex
+
+const regex = /https?:\/\/[^\\'">\s]+?\.[^\\'">\s]+/g;
 
 // Find matches
 
+const matches = readFile.match(regex);
+
+let count = 0;
+
 // Print all matches
+
+for (let url of matches) {
+    ++count;
+    console.log(url);
+}
+
+console.log("count: ", count);
