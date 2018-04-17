@@ -21,7 +21,7 @@ rl.on('line', function(line) {
 
   // If match found, print number with no spaces, parens, or dashes
 
-  if (phoneNo.length === 10) console.log(phoneNo);
+  if (phoneNo.length === 10 && Number.isInteger(+phoneNo)) console.log(phoneNo);
   else
     // Else print that no number was found
 
