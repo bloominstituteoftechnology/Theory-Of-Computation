@@ -21,10 +21,18 @@ rl.on('line', function (line) {
         console.log('Blinkers are currently off.');
         break;
       case 'LEFT':
+        if (state === 'RIGHT') {
+          console.log('Blinker must transition through OFF or HAZARDS first!');
+          break;
+        }
         state = command;
         console.log('Left blinker active!');
         break;
       case 'RIGHT':
+        if (state === 'LEFT') {
+          console.log('Blinker must transition through OFF or HAZARDS first!');
+          break;
+        }
         state = command;
         console.log('Right blinker active!');
         break;
