@@ -12,9 +12,19 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+fs.readFile(filename, 'utf8', (err, data) => {
+  if (err) throw err;
+  processFile(data);
+})
 
-// Set up regex
+function processFile(content) {
+  // Set up regex
+  let reg = /(https?):\/\/[\w./=-?]+\"/g;
+  // Find matches
+  let matched = content.match(reg);
+  // Print all matches
+  matched.forEach(match => console.log(match));
+}
 
-// Find matches
 
-// Print all matches
+
