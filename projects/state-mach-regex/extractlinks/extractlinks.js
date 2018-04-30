@@ -8,10 +8,18 @@ if (args.length != 1) {
 }
 
 const filename = args[0];
-
+console.log('filename is', filename);
 // !!!! IMPLEMENT ME
 
 // Read file
+let re = /http\S+("|')/g
+fs.readFile(filename, { encoding: 'utf8' }, (err, data) => {
+    if (err) throw err;
+    let match = data.match(re);
+    if (match) {
+        match = match.map(each => console.log(each.slice(0, each.length - 1)));
+    }
+})
 
 // Set up regex
 

@@ -14,7 +14,12 @@ rl.on('line', function (line) {
     // !!!! IMPLEMENT ME
 
     // Come up with the phone regex
-
+  let reg = /\d? ?(\d{3}).?\s?(\d{3}).?(\d{4})/
+  let msg;
+  if (line.match(reg)) msg = line.match(reg).slice(1, 4).join('');
+  else msg = "no valid number was found";
+  console.log(msg); 
+  
     // Find matches
 
     // If match found, print number with no spaces, parens, or dashes
