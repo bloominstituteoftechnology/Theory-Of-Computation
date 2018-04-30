@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="74.5" cy="37.5" rx="30" ry="30"/>
+	<text x="60.5" y="43.5" font-family="Times New Roman" font-size="20">Off</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="74.5" cy="567.5" rx="30" ry="30"/>
+	<text x="57.5" y="573.5" font-family="Times New Roman" font-size="20">Left</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="694.5" cy="567.5" rx="30" ry="30"/>
+	<text x="675.5" y="573.5" font-family="Times New Roman" font-size="20">Both</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="694.5" cy="43.5" rx="30" ry="30"/>
+	<text x="672.5" y="49.5" font-family="Times New Roman" font-size="20">Right</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 72.574,537.562 A 3895.025,3895.025 0 0 1 72.574,67.438"/>
+	<polygon fill="black" stroke-width="1" points="72.574,537.562 77.082,529.275 67.101,529.878"/>
+	<text x="2.5" y="308.5" font-family="Times New Roman" font-size="20">Left on</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 99.182,54.553 A 3832.691,3832.691 0 0 1 673.815,545.772"/>
+	<polygon fill="black" stroke-width="1" points="673.815,545.772 671.884,536.537 664.668,543.461"/>
+	<text x="403.5" y="277.5" font-family="Times New Roman" font-size="20">Emergency on</text>
+	<polygon stroke="black" stroke-width="1" points="74.5,537.5 74.5,67.5"/>
+	<polygon fill="black" stroke-width="1" points="74.5,67.5 69.5,75.5 79.5,75.5"/>
+	<text x="79.5" y="308.5" font-family="Times New Roman" font-size="20">Left off</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 670.276,549.802 A 5152.724,5152.724 0 0 1 95.751,58.675"/>
+	<polygon fill="black" stroke-width="1" points="95.751,58.675 97.915,67.858 104.953,60.754"/>
+	<text x="250.5" y="335.5" font-family="Times New Roman" font-size="20">Emergency off</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 104.278,563.859 A 2431.5,2431.5 0 0 1 664.722,563.859"/>
+	<polygon fill="black" stroke-width="1" points="664.722,563.859 657.352,557.97 656.199,567.904"/>
+	<text x="326.5" y="538.5" font-family="Times New Roman" font-size="20">Emergency on</text>
+	<polygon stroke="black" stroke-width="1" points="664.5,567.5 104.5,567.5"/>
+	<polygon fill="black" stroke-width="1" points="104.5,567.5 112.5,572.5 112.5,562.5"/>
+	<text x="340.5" y="588.5" font-family="Times New Roman" font-size="20">Switch left</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 104.417,35.27 A 3513.707,3513.707 0 0 1 664.632,40.692"/>
+	<polygon fill="black" stroke-width="1" points="664.632,40.692 657.111,34.997 656.217,44.957"/>
+	<text x="349.5" y="17.5" font-family="Times New Roman" font-size="20">Right on</text>
+	<polygon stroke="black" stroke-width="1" points="664.501,43.21 104.499,37.79"/>
+	<polygon fill="black" stroke-width="1" points="104.499,37.79 112.45,42.867 112.547,32.868"/>
+	<text x="348.5" y="61.5" font-family="Times New Roman" font-size="20">Right off</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 691.585,537.642 A 2543.186,2543.186 0 0 1 691.585,73.358"/>
+	<polygon fill="black" stroke-width="1" points="691.585,537.642 695.834,529.219 685.876,530.132"/>
+	<text x="560.5" y="311.5" font-family="Times New Roman" font-size="20">Emergency on</text>
+	<polygon stroke="black" stroke-width="1" points="694.5,537.5 694.5,73.5"/>
+	<polygon fill="black" stroke-width="1" points="694.5,73.5 689.5,81.5 699.5,81.5"/>
+	<text x="699.5" y="311.5" font-family="Times New Roman" font-size="20">Switch right</text>
+</svg>
