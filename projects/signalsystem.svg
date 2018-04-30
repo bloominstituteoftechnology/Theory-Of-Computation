@@ -12,32 +12,32 @@
 	<text x="372.5" y="551.5" font-family="Times New Roman" font-size="20">both on</text>
 	<path stroke="black" stroke-width="1" fill="none" d="M 432.446,45.897 A 319.084,319.084 0 0 1 730.655,246.173"/>
 	<polygon fill="black" stroke-width="1" points="730.655,246.173 732.317,236.887 723.036,240.61"/>
-	<text x="617.5" y="91.5" font-family="Times New Roman" font-size="20">right signal on</text>
+	<text x="617.5" y="91.5" font-family="Times New Roman" font-size="20">lever the signal on</text>
 	<path stroke="black" stroke-width="1" fill="none" d="M 79.132,246.458 A 330.682,330.682 0 0 1 372.513,47.064"/>
 	<polygon fill="black" stroke-width="1" points="79.132,246.458 86.894,241.097 77.714,237.131"/>
-	<text x="87.5" y="95.5" font-family="Times New Roman" font-size="20">left signal on</text>
+	<text x="87.5" y="95.5" font-family="Times New Roman" font-size="20">lever the signal on</text>
 	<path stroke="black" stroke-width="1" fill="none" d="M 731.127,302.99 A 374.278,374.278 0 0 1 432.346,542.544"/>
 	<polygon fill="black" stroke-width="1" points="432.346,542.544 440.961,546.39 439.577,536.486"/>
-	<text x="619.5" y="484.5" font-family="Times New Roman" font-size="20">switch to emergency</text>
+	<text x="619.5" y="484.5" font-family="Times New Roman" font-size="20">switch hazard on</text>
 	<path stroke="black" stroke-width="1" fill="none" d="M 372.691,542.19 A 374.823,374.823 0 0 1 77.88,302.987"/>
 	<polygon fill="black" stroke-width="1" points="372.691,542.19 365.532,536.047 364.032,545.934"/>
-	<text x="22.5" y="483.5" font-family="Times New Roman" font-size="20">switch to emergency</text>
+	<text x="22.5" y="483.5" font-family="Times New Roman" font-size="20">switch hazard on</text>
 	<polygon stroke="black" stroke-width="1" points="715.595,257.774 427.405,64.226"/>
 	<polygon fill="black" stroke-width="1" points="427.405,64.226 431.258,72.837 436.834,64.535"/>
-	<text x="576.5" y="152.5" font-family="Times New Roman" font-size="20">signal off</text>
+	<text x="576.5" y="152.5" font-family="Times New Roman" font-size="20">lever the signal off</text>
 	<polygon stroke="black" stroke-width="1" points="93.312,257.637 377.688,64.363"/>
 	<polygon fill="black" stroke-width="1" points="377.688,64.363 368.261,64.725 373.882,72.995"/>
-	<text x="154.5" y="152.5" font-family="Times New Roman" font-size="20">signal off</text>
+	<text x="154.5" y="152.5" font-family="Times New Roman" font-size="20">lever the signal off</text>
 	<polygon stroke="black" stroke-width="1" points="425.906,526.734 717.094,293.266"/>
 	<polygon fill="black" stroke-width="1" points="717.094,293.266 707.725,294.37 713.98,302.171"/>
-	<text x="576.5" y="430.5" font-family="Times New Roman" font-size="20">switch to right signal</text>
+	<text x="576.5" y="430.5" font-family="Times New Roman" font-size="20">switch hazard off, lever right signal</text>
 	<polygon stroke="black" stroke-width="1" points="379.204,526.598 91.796,293.402"/>
 	<polygon fill="black" stroke-width="1" points="91.796,293.402 94.858,302.325 101.159,294.56"/>
-	<text x="73.5" y="430.5" font-family="Times New Roman" font-size="20">switch to left signal</text>
+	<text x="73.5" y="430.5" font-family="Times New Roman" font-size="20">switch hazard off, lever left signal</text>
 	<path stroke="black" stroke-width="1" fill="none" d="M 416.656,73.945 A 499.805,499.805 0 0 1 416.656,519.055"/>
 	<polygon fill="black" stroke-width="1" points="416.656,519.055 424.696,514.119 415.742,509.666"/>
-	<text x="473.5" y="302.5" font-family="Times New Roman" font-size="20">emergency on</text>
+	<text x="473.5" y="302.5" font-family="Times New Roman" font-size="20">switch hazard on</text>
 	<path stroke="black" stroke-width="1" fill="none" d="M 387.488,519.532 A 471.81,471.81 0 0 1 387.488,73.468"/>
 	<polygon fill="black" stroke-width="1" points="387.488,73.468 379.3,78.154 388.112,82.881"/>
-	<text x="211.5" y="302.5" font-family="Times New Roman" font-size="20">emergency off</text>
+	<text x="211.5" y="302.5" font-family="Times New Roman" font-size="20">switch hazard off</text>
 </svg>
