@@ -34,13 +34,13 @@ let links = lines
     .map(line => {
         let link = line.match(httpExp)[ 0 ];
         // Remove the quotes from the link
-        let res = link.slice(1, link.length - 1);
+        let res = link.slice(1, -1);
         // If text match exists, concat the text to the link
         if (line.match(textExp)) {
             let text = line.match(textExp)[ 0 ];
             res += ' || ';
             // Remove the surrounding ><'s
-            res += text.slice(1, text.length - 1);
+            res += text.slice(1, -1);
         }
         return res;
     });
