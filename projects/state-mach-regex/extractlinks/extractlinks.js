@@ -19,5 +19,9 @@ function urlCheck(str) {
 }
 
 fs.readFile(filename, "utf8", (err, data) => {
+  if (err) {
+    console.log('There was an error while reading the file');
+    return;
+  }
   urlCheck(data);
 });
