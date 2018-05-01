@@ -16,7 +16,7 @@ const filename = args[ 0 ];
 let lines = fs.readFileSync(`./${filename}`, 'utf-8').split(' ');
 
 // Set up regex
-let exp = new RegExp(/"http.+"/, 'i');
+let exp = new RegExp(/["']http[s]?.+?["']/, 'i');
 
 // Find matches
 lines = lines.filter(line => exp.test(line));
