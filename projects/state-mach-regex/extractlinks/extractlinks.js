@@ -12,7 +12,7 @@ console.log('filename is', filename);
 // !!!! IMPLEMENT ME
 
 // Read file
-let re = /http\S+("|')/g
+let re = /https?:\/\/\S+("|')/g
 fs.readFile(filename, { encoding: 'utf8' }, (err, data) => {
     if (err) throw err;
     let match = data.match(re);
