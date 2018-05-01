@@ -19,4 +19,4 @@ const links = data.match(/(http.+?(?="))/gm);
 // Find matches
 
 // Print all matches
-console.log({links});
+links.forEach(link => console.log(link));
