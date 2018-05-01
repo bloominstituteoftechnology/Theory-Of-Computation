@@ -10,5 +10,7 @@ var rl = readline.createInterface({
 // This code reads a line at a time from stdin
 
 rl.on('line', function (line) {
-  let r = / /;
+  let r = /[0-9]{10}/;
+  let regex = new RegExp(r, 'g');
+  console.log(line.match(regex).join(''));
 });
