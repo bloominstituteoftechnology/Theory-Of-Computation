@@ -8,16 +8,24 @@ if (args.length != 1) {
 }
 
 const filename = args[0];
-console.log('filename is', filename);
 // !!!! IMPLEMENT ME
 
 // Read file
-let re = /https?:\/\/\S+("|')/g
+// Potential for stretch
+// let re = /https?:\/\/\S+['">]{2}.+?</g
+// let re = /https?:\/\/\S+['">]{2}\w+?</g
+// let re = /https?:\/\/\S+(?=['"]).+?>\w+</g
+let re = /https?:\/\/\S+['"]/g
 fs.readFile(filename, { encoding: 'utf8' }, (err, data) => {
     if (err) throw err;
     let match = data.match(re);
     if (match) {
-        match = match.map(each => console.log(each.slice(0, each.length - 1)));
+        match = match.map(each => {
+            // for stretch
+            // console.log(each.slice(0, each.indexOf('>') - 1) + ' ' + each.slice(each.indexOf('>') + 1, each.length - 1));
+            // console.log(each)
+            console.log(each.slice(0, each.length - 1))
+        });
     }
 })
 
