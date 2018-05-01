@@ -9,7 +9,9 @@ const loadFile = () => {
   } else {
     const data = fs.readFileSync(process.argv[2]);
     const file = data.toString();
-    const regex = new RegExp(/(http|https):\/\/([\w_-]+\.[\w_-]+)([\w.,@?^=%&:/~+#-]*)?/, 'g');
+    const regex = new RegExp(/(http|https):\/\/([\w_-]+\.[\w_-]+)([\w.,@?^=%&:/~+#-]*)?/, 'g'); // ```/(?<=href=").*?(?=")/```   <- super elegant lookbehind version but requires --harmony on node 8
+    // const reg = /(?<=href=").*?(?=")/;
+    // const regex = new RegExp(reg, 'g');
     const links = file.match(regex);
 
     console.log(links);
