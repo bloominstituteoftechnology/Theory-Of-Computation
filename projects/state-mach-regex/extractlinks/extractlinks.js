@@ -15,12 +15,21 @@ const filename = args[0];
 const loadedFile = fs.readFileSync(filename, {encoding: 'utf8'});
 
 // Set up regex
-const regex = /https?:\/\/[^\\"'>/$.?#\s].[^\\"'>()\s]+/ig;
+// const regex = /https?:\/\/[^\\"'>/$.?#\s].[^\\"'>()\s]+/ig;
+const regex = /<\s*a.*?href\s*=\s*(?:"|')(.*?)(?:"|')[^>]*>(.*?)<\s*?\/\s*?a\s*?>|(https?:\/\/[^\\"'>/$.?#\s].[^\\"'>()\s]+)/ig;
+// const regex = /<\s*a.*?href\s*=\s*(?:"|')(.*?)(?:"|')[^>]*>(.*?)<\s*?\/\s*?a\s*?>/ig;
 
 // Find matches
 const matches = loadedFile.match(regex);
 
 // Print all matches
 for (let link of matches) {
-    console.log(link);
+    link = link.match(regex);
+    const match = regex.exec(link);
+    
+    if (match[1] === undefined || match[2] === undefined) {
+        console.log(match[3]);
+    } else {
+        console.log(match[1], match[2]);
+    }
 }
