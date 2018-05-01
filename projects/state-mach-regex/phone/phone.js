@@ -22,7 +22,7 @@ rl.on('line', function (line) {
 
     // If match found, print number with no spaces, parens, or dashes
     if (matches !== null) {
-      console.log(matches[0].split(regex).join(''));
+      console.log(matches[1] + matches[2] + matches[3]);
     } else { // Else print that no number was found
       console.log("No phone number found.");
     }
