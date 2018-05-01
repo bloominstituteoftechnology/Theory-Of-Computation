@@ -19,9 +19,9 @@ const phoneReg = new RegExp("^\(?([0-9]{3})\)?[-.●]?([0-9]{3})[-.●]?([0-9]{4
     // Find matches
 const parse = line.match(phoneReg);
     // If match found, print number with no spaces, parens, or dashes
-if (!parse){
-  console.log(`The parse failed!`);
-  return
-} else console.log(parse);
+  if (parse){
+    console.log(parse);
+  }
     // Else print that no number was found
+  console.log(`Parsing failed`);
 });
