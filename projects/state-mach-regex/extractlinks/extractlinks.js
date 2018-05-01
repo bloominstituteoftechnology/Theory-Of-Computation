@@ -18,7 +18,7 @@ const filename = args[0];
 
 // non-stretch
 let re = /https?:\/\/\S+['"]/g
-// let re = /(?<=href=").*?(?=")/g;
+// let re = /(?<=href=").*?(?=")/g; // use --harmony in node command
 fs.readFile(filename, { encoding: 'utf8' }, (err, data) => {
     if (err) throw err;
     let match = data.match(re);
