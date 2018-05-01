@@ -13,7 +13,6 @@ const filename = args[0];
 // Read file
 let file = fs.readFileSync(filename, 'utf8');
 // Set up regex
-// const regex = /^((https?):\/\/)?([w|W]{3}\.)+[a-zA-Z0-9\-\.]{3,}\.[a-zA-Z]{2,}(\.[a-zA-Z]{2,})?$/;
 const regex = /https?:\/\/\w?.[^"'\)\s]+/g
 // Find matches
 const links = file.match(regex);
