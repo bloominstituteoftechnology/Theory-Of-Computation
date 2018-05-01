@@ -6,14 +6,23 @@ var rl = readline.createInterface({
   terminal: false
 });
 
+// let rgx = new RegExp(/[0-9]/g);
+
 // This code reads a line at a time from stdin
-
+rl.on("line", (line) => {
+  // console.log("this is what i typed",line);
+  let rgx = new RegExp(/[0-9]/g);
+  const works = line.toString().match(rgx).join('');
+  console.log(works);
+})
 // !!!! IMPLEMENT ME
-
 // Come up with the phone regex
+// let rgx = new RegExp(/[0-9]/g);
 
-// Find matches
 
-// If match found, print number with no spaces, parens, or dashes
-
+// const allMatch = rl.match(rgx)
+// // If match found, print number with no spaces, parens, or dashes
+// allMatch.forEach((el) => {
+//   console.log(el);
+// });
 // Else print that no number was found
