@@ -8,12 +8,14 @@ var rl = readline.createInterface({
 
 // let rgx = new RegExp(/[0-9]/g);
 
+console.log("Enter your phone number");
+
 // This code reads a line at a time from stdin
 rl.on("line", (line) => {
   // console.log("this is what i typed",line);
   let rgx = new RegExp(/[0-9]/g);
   const works = line.toString().match(rgx).join('');
-  console.log(works);
+  console.log("Your phone number should look like this:", works);
 })
 // !!!! IMPLEMENT ME
 // Come up with the phone regex
