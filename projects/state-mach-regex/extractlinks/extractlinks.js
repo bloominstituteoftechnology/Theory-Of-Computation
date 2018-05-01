@@ -12,9 +12,16 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+const text = fs.readFileSync(filename, 'utf8');
 
 // Set up regex
-
+const urlRegex = /(http|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:/~+#-]*[\w@?^=%&/~+#-])?/g;
 // Find matches
+const found = text.match(urlRegex);
 
 // Print all matches
+found.forEach(link => {
+  console.log(link)
+});
+
+console.log(found.length);
