@@ -13,7 +13,17 @@ const filename = args[0];
 
 // Read file
 
+fs.readFile('filename', 'utf8', (err, data) => {
+    if (err) {
+        throw err;
+    } else {
+        findMatch(data);
+    }
+});
+
 // Set up regex
+
+const regexUrl = 
 
 // Find matches
 
