@@ -19,7 +19,7 @@ fs.readFile(filename, 'utf8', (err, data) => {
 })
 
 // Set up regex
-const urlRegex = /(http|https)?:\/\/[a-zA-Z0-9.\/-]+[\.][a-zA-Z0-9.\/-]+/gi;
+const urlRegex = /(http|https)?:\/\/[\w.\/-]+[\.][\w.\/-]+/gi;
 
 // Find matches
 const findMatch = (data) => {
@@ -192,5 +192,5 @@ const printMatch = (match) => {
     148: https://stackoverflow.blog/2009/06/25/attribution-required/
     149: https://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif
     150: https://www.google-analytics.com/analytics.js
-    
+
 */

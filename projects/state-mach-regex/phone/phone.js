@@ -14,13 +14,13 @@ rl.on('line', (line) => {
     // !!!! IMPLEMENT ME
 
     // Come up with the phone regex
-    const phoneRegex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im
+    const phoneRegex = /^[\+]?[(]?[\d]{3}[)]?[-\s\.]?[\d]{3}[-\s\.]?[\d]{4,6}$/im
 
     // Find matches
     const findMatch = line.match(phoneRegex);
 
     // If match found, print number with no spaces, parens, or dashes
-    let newNum = line.replace(/[()-\s]/g, '');
+    let newNum = line.replace(/[()-\s\.\+]/g, '');
 
     if (findMatch) console.log(newNum);
 
@@ -33,11 +33,13 @@ rl.on('line', (line) => {
   Terries-MacBook-Pro:phone TERR1E$ node phone.js
   555-123-4567
   5551234567
-  5551234567
-  5551234567
   (555) 123-4567
   5551234567
   555 123 4567
+  5551234567
+  555.123.4567
+  5551234567
+  5551234567
   5551234567
 
 */
