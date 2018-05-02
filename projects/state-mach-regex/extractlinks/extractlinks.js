@@ -1,8 +1,5 @@
-import { link } from 'fs/promises';
-import { linkSync } from 'fs';
-
 const fs = require('fs');
-
+ 
 const args = process.argv.slice(2);
 
 if (args.length != 1) {
@@ -25,22 +22,23 @@ fs.readFile('filename', 'utf8', (err, data) => {
 });
 
 // Set up regex
+function findMatch(data) {
 
-const regexUrl = /(http|https):\/\/\w+.+\/.+[^'"@$!~]/ig
+    const regexUrl = /(http|https):\/\/\w+.+\/.+[^'"@$!~]/ig
 
 // Find matches
 
-const findMatch = data => {
-    return data.match(readFile);
+    const findMatch = data => {
+        return data.match(readFile);
 };
 
 // Print all matches
 
-data.forEach(links => {
-    console.log(`${links.length} Matches`);
+    data.forEach(links => {
+        console.log(`${links.length} Matches`);
 });
 
-
+};
 
 
 
