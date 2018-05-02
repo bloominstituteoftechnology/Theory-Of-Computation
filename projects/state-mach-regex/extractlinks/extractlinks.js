@@ -19,7 +19,7 @@ fs.readFile(filename, 'utf8', (err, data) => {
 
 function processFile(content) {
   // Set up regex
-  let reg = /(https?|http?):\/\/[\w./=-?]+\"/g;
+  let reg = /(https?):\/\/[\w./=-?]+\"/g;
   // Find matches
   let matched = content.match(reg);
   // Print all matches
