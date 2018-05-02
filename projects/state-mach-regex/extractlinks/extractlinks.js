@@ -23,13 +23,16 @@ const regex = /<\s*a.*?href\s*=\s*(?:"|')(.*?)(?:"|')[^>]*>(.*?)<\s*?\/\s*?a\s*?
 const matches = loadedFile.match(regex);
 
 // Print all matches
+let count = 0;
+
 for (let link of matches) {
+    count++;
     link = link.match(regex);
     const match = regex.exec(link);
     
     if (match[1] === undefined || match[2] === undefined) {
-        console.log(match[3]);
+        console.log(count, match[3]);
     } else {
-        console.log(match[1], match[2]);
+        console.log(count, match[1], match[2]);
     }
 }
