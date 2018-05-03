@@ -155,3 +155,4 @@ You see boolean logic in JavaScript commonly in if/else and while statements usi
 Some examples include: `===` (string equality), `!=` (not equal to), `>` (greater than), `<` (less than), `&&` (and), and `||` (or).
 
 * The Analytical Engine was never constructed. Why not?
+The analytical engine was never oconstructed, "due to conflicts with his chief engineer and inadequate funding" ([Analytical Engine - Wikipedia](https://en.wikipedia.org/wiki/Analytical_Engine))
