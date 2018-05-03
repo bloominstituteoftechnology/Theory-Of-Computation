@@ -152,5 +152,6 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 You see boolean logic in JavaScript commonly in if/else and while statements using comparisons `x === 5` or `y === 'some string'`; or using `true` and `false`.
 
 * What are some examples of logical symbols in JavaScript?
+Some examples include: `===` (string equality), `!=` (not equal to), `>` (greater than), `<` (less than), `&&` (and), and `||` (or).
 
 * The Analytical Engine was never constructed. Why not?
