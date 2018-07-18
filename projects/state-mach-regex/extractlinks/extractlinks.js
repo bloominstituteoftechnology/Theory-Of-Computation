@@ -9,12 +9,21 @@ if (args.length != 1) {
 
 const filename = args[0];
 
+
 // !!!! IMPLEMENT ME
 
 // Read file
-
+	fs.readFile(`./${filename}`, 'utf8', (err, data) => {
+		if(err) return console.log({error: err});
+		else {
+			let reg = /("http.+?")/g;
+			let result = data.match(reg);
+			console.log(data);
+			console.log(result);
+		}
+	});
 // Set up regex
-
+	
 // Find matches
 
 // Print all matches
