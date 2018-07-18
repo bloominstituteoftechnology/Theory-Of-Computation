@@ -11,8 +11,10 @@ class App extends Component {
     ctx.fillStyle = 'orange';
     ctx.fillRect(0, 0, 300, 300);
 
+    this.drawLines(ctx);
     this.drawCircles(ctx);
-    this.drawText(ctx);
+    this.circleText(ctx);
+    this.lineText(ctx);
   }
 
   drawCircles(ctx) {
@@ -41,7 +43,7 @@ class App extends Component {
     ctx.fill();
   }
 
-  drawText(ctx) {
+  circleText(ctx) {
     ctx.fillStyle = "black";
     ctx.font="12px ariel";
 
@@ -57,6 +59,62 @@ class App extends Component {
     // Right Text
     ctx.fillText("Right", 216, 114);
     
+  }
+
+  drawLines(ctx) {
+    // Off-To-Left
+    ctx.beginPath();
+    ctx.moveTo(130, 29);
+    ctx.lineTo(50, 114);
+    ctx.stroke();
+
+    // Off-To-Both
+
+    // Off-To-Right
+
+    // Left-To-Off
+    
+    // Left-To-Both
+
+    // Left-To-Right
+
+    // Both-To-Off
+
+    // Both-To-Left
+
+    // Both-To-Right
+
+    // Right-To-Off
+
+    // Right-To-Left
+
+    // Right-To-Both
+  }
+
+  lineText(ctx) {
+    // Off-To-Left
+
+    // Off-To-Both
+
+    // Off-To-Right
+
+    // Left-To-Off
+    
+    // Left-To-Both
+
+    // Left-To-Right
+
+    // Both-To-Off
+
+    // Both-To-Left
+
+    // Both-To-Right
+
+    // Right-To-Off
+
+    // Right-To-Left
+
+    // Right-To-Both
   }
 
   render() {
