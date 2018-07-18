@@ -12,27 +12,43 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
-fs.readFile(filename, "utf8", (err, data) => {
-    if (err) {
-        throw err;
-    }
-    // Set up regex
-    let regexToken = /(?:ht|f)tps?:\/\/[-a-zA-Z0-9.]+\.[a-zA-Z]{2,3}(\/[^"<]*)?/g;
-    // Find matches
-    data
-      .split("\n")
-      .map(file => {
-        file.match(regexToken);
-      })
-      .filter(link => link)
-      .reduce((links, current) => {
-        links.concat(current);
-      })
-      // Print all matches
-      .forEach(link => {
-        console.log(link);
-      });
-});
+// fs.readFile(filename, "utf8", (err, data) => {
+//     if (err) {
+//         throw err;
+//     }
+//     // Set up regex
+//     let regexToken = /(?:ht|f)tps?:\/\/[-a-zA-Z0-9.]+\.[a-zA-Z]{2,3}(\/[^"<]*)?/g;
+//     // Find matches
+//     data
+//       .split("\n")
+//       .map(file => {
+//         file.match(regexToken);
+//       })
+//       .filter(link => link)
+//       .reduce((links, current) => {
+//         links.concat(current);
+//       })
+//       // Print all matches
+//       .forEach(link => {
+//         console.log(link);
+//       });
+// });
+
+// !!!! IMPLEMENT ME
+
+// Read file
+const reader = fs.readFileSync(filename, 'utf8');
+
+// Set up regex
+const regex = /https?:\/\/[^\\'">\s]+?\.[^\\'">\s]+/g;
+
+// Find matches
+const matches = reader.match(regex);
+// Print all matches
+
+for (let url of matches) {
+    console.log(url);
+}
 
 
 
