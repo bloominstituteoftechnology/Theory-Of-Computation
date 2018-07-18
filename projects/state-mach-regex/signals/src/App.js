@@ -116,16 +116,21 @@ class App extends Component {
     ctx.fillText("Handle Neutral", 10, 25);
     
     // Left-To-Both
-    ctx.fillText("Hazard Button Pressed", 45, 106);
+    ctx.fillText("Hazard Button Pressed", 40, 106);
     
     // Left-To-Right
     ctx.fillText("Handle Up", 122, 132);
     
     // Both-To-Off
+    ctx.font = "7px ariel";
+    ctx.fillText("Hazard Button Pressed", 145, 86);
     
     // Both-To-Left
+    ctx.font = "8px ariel";
+    ctx.fillText("Hazard Button Pressed", 40, 116);
     
     // Both-To-Right
+    ctx.fillText("Hazard Button Pressed", 170, 116);
     
     // Right-To-Off
     ctx.fillText("Handle Neutral", 240, 25);
@@ -134,7 +139,7 @@ class App extends Component {
     ctx.fillText("Handle Down", 119, 142);
     
     // Right-To-Both
-    ctx.fillText("Hazard Button Pressed", 160, 106);
+    ctx.fillText("Hazard Button Pressed", 170, 106);
   }
 
   drawCircles(ctx) {
