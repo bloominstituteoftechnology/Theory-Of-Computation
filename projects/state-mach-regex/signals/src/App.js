@@ -17,25 +17,25 @@ class App extends Component {
   drawStateMachine(ctx) {
     // Off Circle 
     ctx.beginPath();
-    ctx.arc(40, 25, 10, 0, 2 * Math.PI);
+    ctx.arc(140, 25, 10, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
 
     // Left Circle
     ctx.beginPath();
-    ctx.arc(60, 85, 10, 0, 2 * Math.PI);
+    ctx.arc(60, 100, 10, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
 
     // Both Circle
     ctx.beginPath();
-    ctx.arc(160, 85, 10, 0, 2 * Math.PI);
+    ctx.arc(140, 100, 10, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
     
     // Right Circle
     ctx.beginPath();
-    ctx.arc(200, 25, 10, 0, 2 * Math.PI);
+    ctx.arc(230, 100, 10, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
   }
