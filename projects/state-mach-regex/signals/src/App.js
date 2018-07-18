@@ -20,23 +20,59 @@ class App extends Component {
     this.circleText(ctx);
   }
 
+  drawArrowhead(context, from, to, radius) {
+    var x_center = to.x;
+    var y_center = to.y;
+  
+    var angle;
+    var x;
+    var y;
+  
+    context.beginPath();
+  
+    angle = Math.atan2(to.y - from.y, to.x - from.x)
+    x = radius * Math.cos(angle) + x_center;
+    y = radius * Math.sin(angle) + y_center;
+  
+    context.moveTo(x, y);
+  
+    angle += (1.0/3.0) * (2 * Math.PI)
+    x = radius * Math.cos(angle) + x_center;
+    y = radius * Math.sin(angle) + y_center;
+  
+    context.lineTo(x, y);
+  
+    angle += (1.0/3.0) * (2 * Math.PI)
+    x = radius *Math.cos(angle) + x_center;
+    y = radius *Math.sin(angle) + y_center;
+  
+    context.lineTo(x, y);
+  
+    context.closePath();
+  
+    context.fill();
+  }
+
   drawLines(ctx) {
     // Off-To-Left
     ctx.beginPath();
+    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 28, y: 95 }, 5);
     ctx.moveTo(130, 29);
-    ctx.lineTo(10, 114);
+    ctx.lineTo(30, 95);
     ctx.stroke();
-
+    
     // Off-To-Both
     ctx.beginPath();
+    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 135, y: 93 }, 5);
     ctx.moveTo(135, 29);
-    ctx.lineTo(135, 114);
+    ctx.lineTo(135, 90);
     ctx.stroke();
     
     // Off-To-Right
     ctx.beginPath();
+    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 268, y: 96 }, 5);
     ctx.moveTo(150, 29);
-    ctx.lineTo(290, 114);
+    ctx.lineTo(265, 94);
     ctx.stroke();
 
     // Left-To-Off
