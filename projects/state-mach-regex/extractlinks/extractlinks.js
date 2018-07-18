@@ -14,7 +14,7 @@ const filename = args[0];
 // Read file
 
 // Set up regex
-
+let regexToken = /(?:ht|f)tps?:\/\/[-a-zA-Z0-9.]+\.[a-zA-Z]{2,3}(\/[^"<]*)?/g;
 // Find matches
 
 // Print all matches
