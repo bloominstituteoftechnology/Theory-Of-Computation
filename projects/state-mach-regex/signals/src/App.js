@@ -39,15 +39,24 @@ class App extends Component {
     ctx.arc(230, 110, 15, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
-
   }
 
   drawText(ctx) {
     ctx.fillStyle = "black";
     ctx.font="12px ariel";
 
-    // Off Circle Text
+    // Off Text
     ctx.fillText("Off", 130, 29);
+
+    // Left Text
+    ctx.fillText("Left", 50, 114);
+
+    // Both Text
+    ctx.fillText("Both", 129, 114);
+
+    // Right Text
+    ctx.fillText("Right", 216, 114);
+    
   }
 
   render() {
