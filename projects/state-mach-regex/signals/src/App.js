@@ -118,12 +118,27 @@ class App extends Component {
     ctx.moveTo(145, 105);
     ctx.lineTo(240, 105);
     ctx.stroke();
-
+    
     // Right-To-Off
-
+    ctx.beginPath();
+    ctx.moveTo(240, 105);
+    ctx.lineTo(240, 29);
+    ctx.lineTo(130, 29);
+    ctx.stroke();
+    
     // Right-To-Left
+    ctx.beginPath();
+    ctx.moveTo(235, 105);
+    ctx.lineTo(235, 140);
+    ctx.lineTo(54, 140);
+    ctx.lineTo(54, 105);
+    ctx.stroke();
 
     // Right-To-Both
+    ctx.beginPath();
+    ctx.moveTo(235, 114);
+    ctx.lineTo(140, 114);
+    ctx.stroke();
   }
 
   lineText(ctx) {
