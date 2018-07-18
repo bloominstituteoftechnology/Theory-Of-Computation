@@ -10,6 +10,9 @@ class App extends Component {
 
     ctx.fillStyle = 'orange';
     ctx.fillRect(0, 0, 300, 300);
+    
+    ctx.fillStyle = 'white';
+    ctx.fillText("Turn Signal State Machine", 90, 9);
 
     this.drawLines(ctx);
     this.lineText(ctx);
@@ -106,7 +109,7 @@ class App extends Component {
     
     // Off-To-Both
     ctx.font = "7px ariel";
-    ctx.fillText("Hazard Button Pressed", 72, 86);
+    ctx.fillText("Hazard Button Pressed", 71, 86);
     
     // Off-To-Right
     ctx.font = "8px ariel";
