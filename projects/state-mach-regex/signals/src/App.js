@@ -105,9 +105,12 @@ class App extends Component {
     ctx.fillText("Handle Down", 70, 65);
     
     // Off-To-Both
-    ctx.fillText("Hazard Button Pressed", 80, 75);
+    ctx.font = "7px ariel";
+    ctx.fillText("Hazard Button Pressed", 72, 86);
     
     // Off-To-Right
+    ctx.font = "8px ariel";
+    ctx.fillText("Handle Up", 185, 65);
 
     // Left-To-Off
     
