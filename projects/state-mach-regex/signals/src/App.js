@@ -70,8 +70,8 @@ class App extends Component {
 
     // Off-To-Both
     ctx.beginPath();
-    ctx.moveTo(140, 29);
-    ctx.lineTo(140, 114);
+    ctx.moveTo(135, 29);
+    ctx.lineTo(135, 114);
     ctx.stroke();
     
     // Off-To-Right
@@ -101,12 +101,23 @@ class App extends Component {
     ctx.lineTo(230, 100);
     ctx.stroke();
 
-
     // Both-To-Off
+    ctx.beginPath();
+    ctx.moveTo(145, 114);
+    ctx.lineTo(145, 29);
+    ctx.stroke();
 
     // Both-To-Left
-
+    ctx.beginPath();
+    ctx.moveTo(145, 105);
+    ctx.lineTo(50, 105);
+    ctx.stroke();
+    
     // Both-To-Right
+    ctx.beginPath();
+    ctx.moveTo(145, 105);
+    ctx.lineTo(240, 105);
+    ctx.stroke();
 
     // Right-To-Off
 
