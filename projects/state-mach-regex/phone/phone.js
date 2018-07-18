@@ -8,7 +8,7 @@ var rl = readline.createInterface({
 
 
 // This code reads a line at a time from stdin
-
+const regex = 
 rl.on('line', function (line) {
 
     // !!!! IMPLEMENT ME

@@ -9,8 +9,21 @@
 ## Regular Expressions
 
 1. Write a regex to parse all links from a web page and print them:
+  const regex = /href="(.*?)"/gim;
 
-```
+  let matches = file.match(regex);
+
+  // Print all matches
+  for (let i = 0; i < matches.length; i++) {
+    console.log(
+      matches[i]
+        .split('href="')
+        .pop()
+        .slice(0, -1)
+    );
+  }
+};
+``` /https?:\/\/[\w-\.\/\?\=\&\%]+/
 curl https://stackoverflow.com > stackoverflow.html
 node extractlinks.js stackoverflow.html
 ```
