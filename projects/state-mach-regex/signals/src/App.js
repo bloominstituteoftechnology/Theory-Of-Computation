@@ -15,11 +15,13 @@ class App extends Component {
     ctx.fillText("Turn Signal State Machine", 90, 9);
 
     this.drawLines(ctx);
+    this.lineArrowhead(ctx);
     this.lineText(ctx);
     this.drawCircles(ctx);
     this.circleText(ctx);
   }
-
+  
+  // Credit to jwir3: https://gist.github.com/jwir3/d797037d2e1bf78a9b04838d73436197
   drawArrowhead(context, from, to, radius) {
     var x_center = to.x;
     var y_center = to.y;
@@ -56,23 +58,20 @@ class App extends Component {
   drawLines(ctx) {
     // Off-To-Left
     ctx.beginPath();
-    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 28, y: 95 }, 5);
     ctx.moveTo(130, 29);
-    ctx.lineTo(30, 95);
+    ctx.lineTo(10, 114);
     ctx.stroke();
-    
+
     // Off-To-Both
     ctx.beginPath();
-    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 135, y: 93 }, 5);
     ctx.moveTo(135, 29);
-    ctx.lineTo(135, 90);
+    ctx.lineTo(135, 114);
     ctx.stroke();
     
     // Off-To-Right
     ctx.beginPath();
-    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 268, y: 96 }, 5);
     ctx.moveTo(150, 29);
-    ctx.lineTo(265, 94);
+    ctx.lineTo(290, 114);
     ctx.stroke();
 
     // Left-To-Off
@@ -134,6 +133,14 @@ class App extends Component {
     ctx.moveTo(280, 114);
     ctx.lineTo(140, 114);
     ctx.stroke();
+  }
+
+  lineArrowhead(ctx) {
+    // Off-To-Left
+    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 32, y: 98}, 5);
+
+    // Off-To-Both
+    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 32, y: 98}, 5);
   }
 
   lineText(ctx) {
