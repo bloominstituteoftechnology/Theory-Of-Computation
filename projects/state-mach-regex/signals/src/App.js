@@ -69,8 +69,16 @@ class App extends Component {
     ctx.stroke();
 
     // Off-To-Both
-
+    ctx.beginPath();
+    ctx.moveTo(140, 29);
+    ctx.lineTo(140, 114);
+    ctx.stroke();
+    
     // Off-To-Right
+    ctx.beginPath();
+    ctx.moveTo(150, 29);
+    ctx.lineTo(240, 114);
+    ctx.stroke();
 
     // Left-To-Off
     
