@@ -149,7 +149,8 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 ## Exercises
 
 * Where do you see boolean algebra used in JavaScript?
+    Boolean algebra is used in boolean operations to determine if conditions are true or false. They enable programmers to type-check inputs made by users, and run asynchronous programs by making programs wait until a condition is true before executing. 
 
 * What are some examples of logical symbols in JavaScript?
-
+    True, False, 
 * The Analytical Engine was never constructed. Why not?
