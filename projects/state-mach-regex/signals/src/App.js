@@ -77,8 +77,8 @@ class App extends Component {
     // Left-To-Off
     ctx.beginPath();
     ctx.moveTo(20, 114);
-    ctx.lineTo(20, 29);
-    ctx.lineTo(130, 29);
+    ctx.lineTo(20, 25);
+    ctx.lineTo(130, 25);
     ctx.stroke();
     
     // Left-To-Both
@@ -116,8 +116,8 @@ class App extends Component {
     // Right-To-Off
     ctx.beginPath();
     ctx.moveTo(280, 105);
-    ctx.lineTo(280, 29);
-    ctx.lineTo(130, 29);
+    ctx.lineTo(280, 25);
+    ctx.lineTo(130, 25);
     ctx.stroke();
     
     // Right-To-Left
@@ -137,10 +137,29 @@ class App extends Component {
 
   lineArrowhead(ctx) {
     // Off-To-Left
-    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 32, y: 98}, 5);
+    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 32, y: 98 }, 5);
 
     // Off-To-Both
-    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 32, y: 98}, 5);
+    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 134, y: 94 }, 5);
+
+    // Off-To-Right
+    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 266, y: 99 }, 5);
+
+    // Left-To-Off
+    this.drawArrowhead(ctx, { x: 20, y: 25 }, { x: 122, y: 25 }, 5);
+
+    // Left-To-Both
+    this.drawArrowhead(ctx, { x: 20, y: 114 }, { x: 123, y: 114 }, 5);
+
+    // Left-To-Right
+    this.drawArrowhead(ctx, { x: 130, y: 29 }, { x: 280, y: 126 }, 4);
+
+    // Both-To-Off
+    this.drawArrowhead(ctx, { x: 145, y: 114 }, { x: 145, y: 41 }, 5);
+
+    // Right-To-Left
+    this.drawArrowhead(ctx, { x: 145, y: 29 }, { x: 15, y: 126}, 4);
+
   }
 
   lineText(ctx) {
