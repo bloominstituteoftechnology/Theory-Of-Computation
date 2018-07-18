@@ -21,7 +21,7 @@ class App extends Component {
     // Off-To-Left
     ctx.beginPath();
     ctx.moveTo(130, 29);
-    ctx.lineTo(20, 114);
+    ctx.lineTo(10, 114);
     ctx.stroke();
 
     // Off-To-Both
@@ -33,7 +33,7 @@ class App extends Component {
     // Off-To-Right
     ctx.beginPath();
     ctx.moveTo(150, 29);
-    ctx.lineTo(280, 114);
+    ctx.lineTo(290, 114);
     ctx.stroke();
 
     // Left-To-Off
@@ -111,24 +111,30 @@ class App extends Component {
     // Off-To-Right
     ctx.font = "8px ariel";
     ctx.fillText("Handle Up", 185, 65);
-
+    
     // Left-To-Off
+    ctx.fillText("Handle Neutral", 10, 25);
     
     // Left-To-Both
-
+    ctx.fillText("Hazard Button Pressed", 45, 106);
+    
     // Left-To-Right
-
+    ctx.fillText("Handle Up", 122, 132);
+    
     // Both-To-Off
-
+    
     // Both-To-Left
-
+    
     // Both-To-Right
-
+    
     // Right-To-Off
-
+    ctx.fillText("Handle Neutral", 240, 25);
+    
     // Right-To-Left
-
+    ctx.fillText("Handle Down", 119, 142);
+    
     // Right-To-Both
+    ctx.fillText("Hazard Button Pressed", 160, 106);
   }
 
   drawCircles(ctx) {
