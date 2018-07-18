@@ -20,44 +20,44 @@ class App extends Component {
   drawCircles(ctx) {
     // Off Circle 
     ctx.beginPath();
-    ctx.arc(140, 25, 15, 0, 2 * Math.PI);
+    ctx.arc(140, 25, 12, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
 
     // Left Circle
     ctx.beginPath();
-    ctx.arc(60, 110, 15, 0, 2 * Math.PI);
+    ctx.arc(60, 110, 12, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
 
     // Both Circle
     ctx.beginPath();
-    ctx.arc(140, 110, 15, 0, 2 * Math.PI);
+    ctx.arc(140, 110, 12, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
     
     // Right Circle
     ctx.beginPath();
-    ctx.arc(230, 110, 15, 0, 2 * Math.PI);
+    ctx.arc(230, 110, 12, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
   }
 
   circleText(ctx) {
     ctx.fillStyle = "black";
-    ctx.font="12px ariel";
+    ctx.font="10px ariel";
 
     // Off Text
-    ctx.fillText("Off", 130, 29);
+    ctx.fillText("Off", 132, 29);
 
     // Left Text
-    ctx.fillText("Left", 50, 114);
+    ctx.fillText("Left", 51, 114);
 
     // Both Text
-    ctx.fillText("Both", 129, 114);
+    ctx.fillText("Both", 130, 114);
 
     // Right Text
-    ctx.fillText("Right", 216, 114);
+    ctx.fillText("Right", 219, 114);
     
   }
 
@@ -81,10 +81,26 @@ class App extends Component {
     ctx.stroke();
 
     // Left-To-Off
+    ctx.beginPath();
+    ctx.moveTo(50, 114);
+    ctx.lineTo(55, 29);
+    ctx.lineTo(130, 29);
+    ctx.stroke();
     
     // Left-To-Both
+    ctx.beginPath();
+    ctx.moveTo(50, 114);
+    ctx.lineTo(140, 114);
+    ctx.stroke();
 
     // Left-To-Right
+    ctx.beginPath();
+    ctx.moveTo(60, 114);
+    ctx.lineTo(60, 130);
+    ctx.lineTo(230, 130);
+    ctx.lineTo(230, 100);
+    ctx.stroke();
+
 
     // Both-To-Off
 
