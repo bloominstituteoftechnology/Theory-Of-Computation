@@ -12,9 +12,12 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
-
+const content = fs.readFileSync(filename, 'utf8')
 // Set up regex
-
+const regex = /(http|https)\::\/\/([\w\W][^"|']+)/g;
 // Find matches
-
+const links = content.match(regex);
 // Print all matches
+links.forEach(match => {
+    console.log(match);
+});
