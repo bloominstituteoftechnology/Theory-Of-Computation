@@ -12,9 +12,16 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+fs.readFile(filename, 'utf8', (err, data) => {
+    if (err) throw err;
+    console.log(data);
+    // Set up regex
+    const re = /https?:\/\/[^"]+(?=")/g
 
-// Set up regex
-
-// Find matches
-
-// Print all matches
+    // Find matches
+    data.split('\n')
+        .map(datum => datum.match(re))
+        .filter(link => link)
+        .reduce((cur, acc) => cur.concat(acc))
+        .forEach(link => console.log(link))
+});
