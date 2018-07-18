@@ -155,4 +155,4 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
     True, False, if, and, or, while
 
 * The Analytical Engine was never constructed. Why not?
-    
+    Incomplete funding and conflicts with engineers.
