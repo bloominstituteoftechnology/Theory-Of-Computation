@@ -20,4 +20,17 @@ rl.on('line', function (line) {
     // If match found, print number with no spaces, parens, or dashes
 
     // Else print that no number was found
+
+    number = '';
+    for(i = 0; i < line.length; i++){
+      if(line[i] != ' ' && line[i] != '-' && line[i] != '(' && line[i] != ')' && !isNaN(line[i])){
+        number += line[i];
+      }
+    }
+    if(number.length == 0){
+      console.log('no number found');
+    }
+    else{
+      console.log(number);
+    }
 });
