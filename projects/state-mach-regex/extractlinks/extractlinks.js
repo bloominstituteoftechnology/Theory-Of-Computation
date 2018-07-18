@@ -13,8 +13,13 @@ const filename = args[0];
 
 // Read file
 
+const complete = fs.readFileSync(filename).toString()
+
 // Set up regex
+const regQuery = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g //  /[-a-zA-Z0-9@:%_\+.~#?&//=]{2,256}\.[a-z]{2,4}\b(\/[-a-zA-Z0-9@:%_\+.~#?&//=]*)?/gi;
+const regex = new RegExp(regQuery);
 
 // Find matches
-
+let experiment = complete.match(regex)
 // Print all matches
+console.log('temp', experiment);
