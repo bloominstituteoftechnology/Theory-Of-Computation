@@ -8,36 +8,46 @@ class App extends Component {
     let canvas = document.getElementById('canvas')
     let ctx = canvas.getContext('2d');
 
-    ctx.fillStyle = 'grey';
+    ctx.fillStyle = 'orange';
     ctx.fillRect(0, 0, 300, 300);
 
-    this.drawStateMachine(ctx);
+    this.drawCircles(ctx);
+    this.drawText(ctx);
   }
 
-  drawStateMachine(ctx) {
+  drawCircles(ctx) {
     // Off Circle 
     ctx.beginPath();
-    ctx.arc(140, 25, 10, 0, 2 * Math.PI);
+    ctx.arc(140, 25, 15, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
 
     // Left Circle
     ctx.beginPath();
-    ctx.arc(60, 100, 10, 0, 2 * Math.PI);
+    ctx.arc(60, 110, 15, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
 
     // Both Circle
     ctx.beginPath();
-    ctx.arc(140, 100, 10, 0, 2 * Math.PI);
+    ctx.arc(140, 110, 15, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
     
     // Right Circle
     ctx.beginPath();
-    ctx.arc(230, 100, 10, 0, 2 * Math.PI);
+    ctx.arc(230, 110, 15, 0, 2 * Math.PI);
     ctx.fillStyle = 'blue';
     ctx.fill();
+
+  }
+
+  drawText(ctx) {
+    ctx.fillStyle = "black";
+    ctx.font="12px ariel";
+
+    // Off Circle Text
+    ctx.fillText("Off", 130, 29);
   }
 
   render() {
