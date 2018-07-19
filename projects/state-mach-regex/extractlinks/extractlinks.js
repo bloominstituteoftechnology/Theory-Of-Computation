@@ -11,10 +11,12 @@ const filename = args[0];
 
 // !!!! IMPLEMENT ME
 
-// Read file
+const regex = /https?:\/\/[^\\'">\s]+?\.[^\\'">\s]+/g;
 
-// Set up regex
+// Read file 
 
-// Find matches
+const file = fs.readFileSync(filename, "utf8").match(regex).forEach ((line) => {
+    console.log(line);
+});
 
-// Print all matches
+
