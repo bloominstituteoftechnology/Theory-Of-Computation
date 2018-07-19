@@ -8,20 +8,23 @@ if (args.length != 1) {
 }
 
 const filename = args[0];
-console.log(filename);
-
+const htmlData = null;
 // !!!! IMPLEMENT ME
-
-// Read file
-const htmlFile = args[1];
-console.log(htmlFile);
 
 // Set up regex
 const searchExpression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
 let regex = new RegExp(searchExpression);
 
-// Find matches
-// if ()
+// Read file
+console.log(filename);
+fs.readFile(filename, "utf8", function(err, data) {
+  // return error if error
+  if (err) {
+    return console.log(err);
+  }
+  // Find matches and print them out
+  if (data.match(regex)) {
+    console.log(data.match(regex));
+  }
+});
 
-// Print all matches
-console.log("it's working");
