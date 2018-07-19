@@ -121,6 +121,7 @@ Expressions](https://en.wikipedia.org/w/index.php?title=Context-free_grammar&act
 ### Look for Compile Errors
 
 The following PL/0 code has a syntax error in it. What needs to be fixed?
+    `DO` needs to be added  after the while condition on line 133.
 
 Use the BNF of the language, above.
 
@@ -129,7 +130,7 @@ VAR x;
 
 BEGIN
    x := 1;
-   WHILE x <= 10
+   WHILE x <= 10 ***DO***
    BEGIN
       ! x;
       x := x + 1
