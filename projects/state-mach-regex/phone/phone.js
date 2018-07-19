@@ -33,7 +33,7 @@ rl.on('line', function (line) {
   //End of Debugging Section*/
   let extracted = line.match(reg);
   if (extracted !== null) {
-    console.log(extracted[1] + extracted[2] + extracted[3]);
+    console.log(`Area Code:\t${extracted[1]}\nPrefix:\t\t${extracted[2]}\nSuffix:\t\t${extracted[3]}`);
   } else {
     console.log("No USA Format Phone Number Found");
   }
