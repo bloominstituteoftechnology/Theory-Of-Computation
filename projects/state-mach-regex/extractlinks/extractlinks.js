@@ -20,3 +20,6 @@ const text = fs.readFileSync(filename, 'utf8');
 const found = text.match(urlRegex);
 
 // Print all matches
+found.forEach(link => {
+    console.log(link)
+  });
