@@ -29,6 +29,7 @@ class App extends Component {
     this.setState({
       left: true,
       right: true,
+      //hazard: !this.state.hazard,
     });
   }
 
