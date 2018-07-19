@@ -8,13 +8,3 @@ if (args.length != 1) {
 }
 
 const filename = args[0];
-
-// !!!! IMPLEMENT ME
-
-// Read file
-
-// Set up regex
-
-// Find matches
-
-// Print all matches
