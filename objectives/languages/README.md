@@ -121,6 +121,7 @@ Expressions](https://en.wikipedia.org/w/index.php?title=Context-free_grammar&act
 ### Look for Compile Errors
 
 The following PL/0 code has a syntax error in it. What needs to be fixed?
+- Needs a do, while x <= 10 do
 
 Use the BNF of the language, above.
 
