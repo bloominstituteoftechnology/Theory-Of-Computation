@@ -14,10 +14,10 @@ const filename = args[0];
 // Read file
 fileArray = filename;
 // Set up regex
-const regEx = https?:\/\/.+;
+const regEx = /https?:\/\/.+/;
 
 // Find matches
-matchObject = regEx.exec(fileArray);
+matchObject = regEx.match(fileArray);
 
 // Print all matches
 print(matchObject);
