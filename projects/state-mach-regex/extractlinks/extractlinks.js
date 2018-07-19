@@ -16,7 +16,7 @@ fs.readFile(filename, 'utf8', function(err, data) {
   if (err) throw err;
 
   // Set up regex
-
+  const urlRegex = new RegExp(/http.+?[^"]+/g);
   // Find matches
 
   // Print all matches
