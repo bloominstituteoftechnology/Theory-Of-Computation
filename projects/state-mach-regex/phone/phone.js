@@ -1,4 +1,4 @@
-var readline = require('readline');
+var readline = require("readline");
 
 var rl = readline.createInterface({
   input: process.stdin,
@@ -6,18 +6,31 @@ var rl = readline.createInterface({
   terminal: false
 });
 
-
 // This code reads a line at a time from stdin
 
-rl.on('line', function (line) {
+rl.on("line", function(line) {
+  // !!!! IMPLEMENT ME
 
-    // !!!! IMPLEMENT ME
+  // Come up with the phone regex
+  const regex = /[0-9]/g;
 
-    // Come up with the phone regex
+  // Find matches
+  const matches = line.match(regex);
 
-    // Find matches
+  // If match found, print number with no spaces, parens, or dashes
+  if (matches.length === 10) {
+    const areacode = matches.slice(0, 3).join("");
+    const prefix = matches.slice(3, 6).join("");
+    const suffix = matches.slice(6, 10).join("");
+    console.log(`
+    Areacode: ${areacode}\n
+    Prefix: ${prefix}\n
+    Suffix: ${suffix}
+    `);
+  }
 
-    // If match found, print number with no spaces, parens, or dashes
-
-    // Else print that no number was found
+  // Else print that no number was found
+  else {
+    console.log("The number entered is invalid");
+  }
 });
