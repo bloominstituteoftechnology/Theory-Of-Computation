@@ -9,7 +9,7 @@
 
 ## Guided Demo
 
-* Conversion from regex to state machine.
+* Conversion from regex to state machine
 * Build a variety of regexes
 
 ## Project

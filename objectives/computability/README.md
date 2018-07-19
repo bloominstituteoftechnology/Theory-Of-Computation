@@ -149,7 +149,10 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 ## Exercises
 
 * Where do you see boolean algebra used in JavaScript?
+You see boolean logic in JavaScript commonly in if/else and while statements using comparisons `x === 5` or `y === 'some string'`; or using `true` and `false`.
 
 * What are some examples of logical symbols in JavaScript?
+Some examples include: `===` (string equality), `!=` (not equal to), `>` (greater than), `<` (less than), `&&` (and), and `||` (or).
 
 * The Analytical Engine was never constructed. Why not?
+The analytical engine was never oconstructed, "due to conflicts with his chief engineer and inadequate funding" ([Analytical Engine - Wikipedia](https://en.wikipedia.org/wiki/Analytical_Engine))
