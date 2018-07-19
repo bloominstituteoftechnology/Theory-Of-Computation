@@ -1,0 +1,65 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="376.5" cy="560.5" rx="30" ry="30"/>
+	<text x="348.5" y="566.5" font-family="Times New Roman" font-size="20">l_blink</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="376.5" cy="560.5" rx="24" ry="24"/>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="505.5" cy="553.5" rx="30" ry="30"/>
+	<text x="476.5" y="559.5" font-family="Times New Roman" font-size="20">r_blink</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="505.5" cy="553.5" rx="24" ry="24"/>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="96.5" cy="456.5" rx="30" ry="30"/>
+	<text x="23.5" y="462.5" font-family="Times New Roman" font-size="20">Hazard_depressed</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="51.5" cy="39.5" rx="30" ry="30"/>
+	<text x="40.5" y="45.5" font-family="Times New Roman" font-size="20">off</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="51.5" cy="39.5" rx="24" ry="24"/>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="82.5" cy="170.5" rx="30" ry="30"/>
+	<text x="20.5" y="176.5" font-family="Times New Roman" font-size="20">Hazard_default</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="703.5" cy="94.5" rx="30" ry="30"/>
+	<text x="638.5" y="100.5" font-family="Times New Roman" font-size="20">sig_arm_default</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="442.5" cy="238.5" rx="30" ry="30"/>
+	<text x="398.5" y="244.5" font-family="Times New Roman" font-size="20">sw_cocked</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="261.5" cy="238.5" rx="30" ry="30"/>
+	<text x="207.5" y="244.5" font-family="Times New Roman" font-size="20">sw_uncocked</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="233.5" cy="560.5" rx="30" ry="30"/>
+	<text x="202.5" y="566.5" font-family="Times New Roman" font-size="20">2_blink</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="233.5" cy="560.5" rx="24" ry="24"/>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="419.5" cy="83.5" rx="30" ry="30"/>
+	<text x="377.5" y="89.5" font-family="Times New Roman" font-size="20">sig_arm_u</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="738.5" cy="291.5" rx="30" ry="30"/>
+	<text x="696.5" y="297.5" font-family="Times New Roman" font-size="20">sig_arm_d</text>
+	<polygon stroke="black" stroke-width="1" points="83.967,200.464 95.033,426.536"/>
+	<polygon fill="black" stroke-width="1" points="95.033,426.536 99.636,418.301 89.648,418.79"/>
+	<text x="95.5" y="319.5" font-family="Times New Roman" font-size="20">driver presses hazard button</text>
+	<polygon stroke="black" stroke-width="1" points="75.592,141.306 58.408,68.694"/>
+	<polygon fill="black" stroke-width="1" points="58.408,68.694 55.385,77.63 65.116,75.327"/>
+	<text x="74.5" y="106.5" font-family="Times New Roman" font-size="20">hazard_default &amp; sw_uncocked</text>
+	<polygon stroke="black" stroke-width="1" points="233.455,227.846 110.545,181.154"/>
+	<polygon fill="black" stroke-width="1" points="110.545,181.154 116.247,188.669 119.799,179.321"/>
+	<text x="176.5" y="195.5" font-family="Times New Roman" font-size="20">&#949;</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 282.968,217.665 A 115.506,115.506 0 0 1 421.032,217.665"/>
+	<polygon fill="black" stroke-width="1" points="282.968,217.665 292.37,216.893 286.394,208.875"/>
+	<text x="282.5" y="185.5" font-family="Times New Roman" font-size="20">straighten wheels</text>
+	<polygon stroke="black" stroke-width="1" points="120.395,474.639 209.605,542.361"/>
+	<polygon fill="black" stroke-width="1" points="209.605,542.361 206.256,533.541 200.21,541.506"/>
+	<text x="151.5" y="529.5" font-family="Times New Roman" font-size="20">&#949;</text>
+	<polygon stroke="black" stroke-width="1" points="708.748,124.037 733.252,261.963"/>
+	<polygon fill="black" stroke-width="1" points="733.252,261.963 736.776,253.211 726.93,254.961"/>
+	<text x="521.5" y="201.5" font-family="Times New Roman" font-size="20">driver pushes arm down</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 446.736,70.956 A 284.486,284.486 0 0 1 677.316,79.887"/>
+	<polygon fill="black" stroke-width="1" points="446.736,70.956 456.018,72.642 452.32,63.352"/>
+	<text x="481.5" y="38.5" font-family="Times New Roman" font-size="20">driver pushes arm up</text>
+	<polygon stroke="black" stroke-width="1" points="423.903,113.175 438.097,208.825"/>
+	<polygon fill="black" stroke-width="1" points="438.097,208.825 441.868,200.178 431.977,201.645"/>
+	<text x="415.5" y="168.5" font-family="Times New Roman" font-size="20">&#949;</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 709.465,299.005 A 328.227,328.227 0 0 1 467.127,255.614"/>
+	<polygon fill="black" stroke-width="1" points="467.127,255.614 471.235,264.106 476.561,255.642"/>
+	<text x="575.5" y="322.5" font-family="Times New Roman" font-size="20">&#949;</text>
+	<polygon stroke="black" stroke-width="1" points="436.476,267.889 382.524,531.111"/>
+	<polygon fill="black" stroke-width="1" points="382.524,531.111 389.028,524.278 379.232,522.27"/>
+	<text x="203.5" y="402.5" font-family="Times New Roman" font-size="20">sig_arm_u &amp; sw_cocked</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 455.356,265.602 A 601.152,601.152 0 0 1 506.943,523.538"/>
+	<polygon fill="black" stroke-width="1" points="506.943,523.538 512.127,515.656 502.13,515.424"/>
+	<text x="502.5" y="394.5" font-family="Times New Roman" font-size="20">sig_arm_d &amp; sw_cocked</text>
+</svg>
+
