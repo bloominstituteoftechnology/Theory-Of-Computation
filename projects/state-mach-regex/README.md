@@ -39,4 +39,9 @@ the url from the double quotes `"` surrounding it.
 
 The output of any of these phone #s as input should be:
 
-      5551234567
+```
+Area code: 555
+Prefix: 123
+Suffix: 4567
+```
+
