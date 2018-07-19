@@ -16,9 +16,9 @@ rl.on('line', function (line) {
     // Come up with the phone regex
     const phoneReg = /(\d{3,4})/g;
     // Find matches
-
+    const phoneNum = line.match(phoneReg);
     // If match found, print number with no spaces, parens, or dashes
 
     // Else print that no number was found
-
+    
 });
