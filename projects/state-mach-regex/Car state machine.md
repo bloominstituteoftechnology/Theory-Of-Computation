@@ -1,3 +1,6 @@
+
+![Car State Machine](./carStateMachine.JPG)
+
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
 
@@ -33,3 +36,4 @@
 	<polygon stroke="black" stroke-width="1" points="379.5,145.5 379.5,249.5"/>
 	<polygon fill="black" stroke-width="1" points="379.5,249.5 384.5,241.5 374.5,241.5"/>
 </svg>
+
