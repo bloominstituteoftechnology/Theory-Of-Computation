@@ -25,3 +25,6 @@ const match = readFile.match(regex);
 for (let links of match) {
   console.log(match);
 }
+
+
+// node extractlinks.js stackoverflow.html
