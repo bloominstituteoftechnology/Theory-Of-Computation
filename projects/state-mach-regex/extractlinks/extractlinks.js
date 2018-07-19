@@ -12,9 +12,19 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+const readFile = fs.readFileSync(filename, "utf8");
 
 // Set up regex
+const regex = /https?:\/\/[^\\'">\s]+?\.[^\\'">\s]+/g;
 
 // Find matches
+const match = readFile.match(regex);
 
 // Print all matches
+
+for (let links of match) {
+  console.log(match);
+}
+
+
+// node extractlinks.js stackoverflow.html
