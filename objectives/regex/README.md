@@ -15,7 +15,7 @@ match patterns in strings of characters.
 [0-9]  Match any digit 0-9
 a?     Match 0 or 1 occurrences of the letter a
 b*     Match 0 or more occurrences of the letter b
-c+     Match 1 or more occurrences of the letter b
+c+     Match 1 or more occurrences of the letter c
 .      Match any character
 .*     Match 0 or more of any character
 \.     Match a period (\ not necessary when using [])
