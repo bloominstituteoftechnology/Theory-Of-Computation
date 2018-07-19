@@ -20,7 +20,7 @@ async function getTheFile(filename) {
 }
 
 // Set up regex
-const regex = /^<.>$/gm
+const regex = /<a.+(href=")(.+?)".+?>/g
 
 // Find matches
 function findMatches(str, regex) {
