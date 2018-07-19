@@ -20,6 +20,11 @@ rl.on('line', function (line) {
     const match = line.match(phoneRegex);
 
     // If match found, print number with no spaces, parens, or dashes
+    if (match) {
+      console.log(match[1] + match[2] + match[3]);
+      return;
 
     // Else print that no number was found
+    console.log("No number was found, suckah.");
+    }
 });
