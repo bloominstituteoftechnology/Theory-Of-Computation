@@ -12,6 +12,7 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+const fileToRead = fs.readFileSync('./stackoverflow.html').toString();
 
 // Set up regex
 
