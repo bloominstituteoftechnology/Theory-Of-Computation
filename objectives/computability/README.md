@@ -150,6 +150,11 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 
 * Where do you see boolean algebra used in JavaScript?
 
+Examples of boolean algebra in JS would be `If/else`, `while`, `do` and other conditional statements.
+
 * What are some examples of logical symbols in JavaScript?
+`|| - or, && - and, ! - not`
 
 * The Analytical Engine was never constructed. Why not?
+
+Conflicts with Babbage's chief engineer and inadequate funding led to the analytical machine no being constructed.
