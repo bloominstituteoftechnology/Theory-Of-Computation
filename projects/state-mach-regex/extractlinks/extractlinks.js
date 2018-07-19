@@ -1,5 +1,5 @@
 const fs = require('fs');
-
+ 
 const args = process.argv.slice(2);
 
 if (args.length != 1) {
@@ -13,8 +13,33 @@ const filename = args[0];
 
 // Read file
 
+fs.readFile('filename', 'utf8', (err, data) => {
+    if (err) {
+        throw err;
+    } else {
+        findMatch(data);
+    }
+});
+
 // Set up regex
+function findMatch(data) {
+
+    const regexUrl = /(http|https):\/\/\w+.+\/.+[^'"@$!~]/ig
 
 // Find matches
 
+    const findMatch = data => {
+        return data.match(readFile);
+};
+
 // Print all matches
+
+    data.forEach(links => {
+        console.log(`${links.length} Matches`);
+});
+
+};
+
+
+
+
