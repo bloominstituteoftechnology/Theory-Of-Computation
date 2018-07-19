@@ -18,3 +18,10 @@ const filename = args[0];
 // Find matches
 
 // Print all matches
+const read = fs.readFileSync(filename, {encoding: 'utf8'});
+const regex = /https?:\/\/[^\\'">)\s]+?\.[^\\'">)\s]+/g;
+const matches = read.match(regex);
+
+matches.forEach(match => {
+    console.log(match);
+})
