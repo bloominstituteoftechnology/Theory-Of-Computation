@@ -12,13 +12,14 @@ console.log(`file name is ${filename}`);
 
 // Read file
 const data = fs.readFileSync("../../../stackoverflow.html");
-console.log(`data ${data}`);
 const str = data.toString();
-console.log(`type of data is ${typeof str}`);
 // Set up regex
-const regex = /(https|http):\/\/(\w+.)+/g; // regex representation of urls
+// \b([-a-zA-Z0-9@:%_\+.~#?&//=]*) refers to a group of chars preceeded by a non word char such as a '/'
+const regex = /(https|http):\/\/([\w\-]{2,256})\b([\w@:%._\+~#?&\/=-]*)/g; // regex representation of urls
 // Find matches
 const matches = str.match(regex); // holds all matches found with regex in stackoverflow.html
-console.log(`matches ${matches}`);
-console.log(`number of matches is ${matches.length}`);
+
 // Print all matches
+matches.forEach(match => {
+	console.log(`${match}\n`);
+});
