@@ -21,8 +21,11 @@ const regex = /https?:\/\/[^\\'">\s]+?\.[^\\'">\s]+/g;
 
 // Find matches
 
-const matches = readFile.match(regex);
+const matches = file.match(regex);
 
 // Print all matches
 
-console.log(matches);
+
+for(index in matches) {
+    console.log(matches[index]);
+}
