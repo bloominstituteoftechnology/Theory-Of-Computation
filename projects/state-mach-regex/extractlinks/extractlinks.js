@@ -12,6 +12,7 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+const text = fs.readFileSync(filename, 'utf8');
 
 // Set up regex
 
