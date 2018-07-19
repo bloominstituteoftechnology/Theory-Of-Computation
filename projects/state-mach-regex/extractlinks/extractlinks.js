@@ -17,5 +17,6 @@ const text = fs.readFileSync(filename, 'utf8');
 // Set up regex
 
 // Find matches
+const found = text.match(urlRegex);
 
 // Print all matches
