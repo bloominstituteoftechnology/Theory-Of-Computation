@@ -12,9 +12,17 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+const data = fs.readFileSync(filename, {encoding: "UTF-8"})
+
 
 // Set up regex
+const regex = new RegExp(/\bhttps?:\/\/\S+/g)
 
-// Find matches
 
-// Print all matches
+//  const match = data.match(regex);
+
+const links = data.match(regex)
+ console.log(links)
+
+
+
