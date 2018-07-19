@@ -12,9 +12,12 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
-
+fileArray = filename;
 // Set up regex
+const regEx = https?:\/\/.+;
 
 // Find matches
+matchObject = regEx.exec(fileArray);
 
 // Print all matches
+print(matchObject);
