@@ -121,7 +121,7 @@ Expressions](https://en.wikipedia.org/w/index.php?title=Context-free_grammar&act
 ### Look for Compile Errors
 
 The following PL/0 code has a syntax error in it. What needs to be fixed?
-
+    *For sure there needs to be a DO statement after the WHILE --> WHILE x <= 10 DO, i believe this is the only issue
 Use the BNF of the language, above.
 
 ```pl/0
