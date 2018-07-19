@@ -12,9 +12,9 @@ var rl = readline.createInterface({
 rl.on('line', function (line) {
 
     // !!!! IMPLEMENT ME
-
+    
     // Come up with the phone regex
-
+    /[(]?(\d{3})(?:\D*)(\d{3})(?:\D*)(\d{4})/g
     // Find matches
 
     // If match found, print number with no spaces, parens, or dashes
