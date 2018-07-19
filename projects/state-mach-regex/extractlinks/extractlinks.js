@@ -30,6 +30,10 @@ lines.forEach(item => {
         results.push(item.match(reg, "").toString().split(" ")[0]);
     }
 })
-
+// Formatting the links to be output to console
+linksString = '\n______________List of Links______________\n'
+results.forEach((item, index) => {
+    linksString += `Link (${index + 1}):\t${item}\n`
+})
 // Print all matches
-console.log(results);
+console.log(`${linksString}\nThere were a total of: ${results.length} links found.\nThe Expression used was: ${String(reg)}`);
