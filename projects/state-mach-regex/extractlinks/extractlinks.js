@@ -30,7 +30,9 @@ function findMatches(str, regex) {
 // Print all matches
 async function doTheThing() {
   const fileContents = await getTheFile(filename).then(data => data.toString())
-  console.log(findMatches(fileContents, regex))
+  const matches = findMatches(fileContents, regex)
+  console.log(matches)
+  console.log('Amount of links found: ', matches.length)
 }
 
 doTheThing()
