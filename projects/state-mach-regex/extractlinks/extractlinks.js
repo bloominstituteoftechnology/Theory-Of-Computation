@@ -16,11 +16,13 @@ fs.readFile(filename, 'utf8', function(err, data) {
   if (err) throw err;
 
   // Set up regex
-  const urlRegex = new RegExp(/http.+?[^"]+/g);
+  const urlRegex = new RegExp(/http.+?\:\/+?[^"']+/g);
   // Find matches
   const urls = data.match(urlRegex);
   // Print all matches
-
+  urls.forEach(url => {
+    console.log(url);
+  });
 });
 
 
