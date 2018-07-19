@@ -7,14 +7,12 @@ if (args.length != 1) {
     process.exit(1);
 }
 
-const filename = args[0];
+const file = args[0];
 
-// !!!! IMPLEMENT ME
+const data = fs.readFileSync(file, {encoding: 'utf8'});
 
-// Read file
+const matches = data.match(/https?:\/\/[^\\'">\s]+?\.[^\\'">\s]+/g);
 
-// Set up regex
-
-// Find matches
-
-// Print all matches
+for (let url of matches) {
+    console.log(url);
+}
