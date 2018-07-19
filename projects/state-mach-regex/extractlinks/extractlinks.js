@@ -15,6 +15,7 @@ const filename = args[0];
 const fileToRead = fs.readFileSync('./stackoverflow.html').toString();
 
 // Set up regex
+const urlLinks = /https?:\/\/[\w\d\.\/\?\=\@\:\-\&\%\;]{2,256}/;
 
 // Find matches
 
