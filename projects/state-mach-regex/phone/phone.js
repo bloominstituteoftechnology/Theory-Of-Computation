@@ -11,7 +11,7 @@ var rl = readline.createInterface({
 
 rl.on('line', function (line) {
     // Find matches
-    const regexp = new RegExp(/\d{10}|\(?(\d{3})\)?(\s|-)?(\d{3})(\s|-)?\d{4}/, 'g')
+    const regexp = new RegExp(/^\d{10}$|^\(?(\d{3})\)?(\s|-)?(\d{3})(\s|-)?\d{4}$/, 'g')
     // If match found, print number with no spaces, parens, or dashes
     if(regexp.test(line)){
       console.log(line.replace(/[\s\-\(\)]+/g, ""));

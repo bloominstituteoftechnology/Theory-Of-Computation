@@ -9,8 +9,6 @@ if (args.length != 1) {
 
 const filename = args[0];
 
-// !!!! IMPLEMENT ME
-
 // Read file
 const file = fs.readFileSync(filename, {encoding: 'UTF-8'});
 // Set up regex
