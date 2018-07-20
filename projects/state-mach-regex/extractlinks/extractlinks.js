@@ -8,13 +8,10 @@ if (args.length != 1) {
 }
 
 const filename = args[0];
+const regex = /(https?:\/\/)([^'"\s]+)/g;
 
-// !!!! IMPLEMENT ME
+// ASYNCHRONOUS
+fs.readFile(filename, "utf8", (err, data) => data.match(regex).forEach(x => console.log(x)));
 
-// Read file
-
-// Set up regex
-
-// Find matches
-
-// Print all matches
+// SYNCHRONOUS
+fs.readFileSync(filename, "utf8").match(regex).forEach(url => console.log(url));

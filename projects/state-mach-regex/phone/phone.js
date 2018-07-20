@@ -1,23 +1,25 @@
-var readline = require('readline');
+const readline = require('readline');
 
-var rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false
-});
+const rl = readline.createInterface({ input: process.stdin, output: process.stdout, terminal: false });
 
+const regex = /(\(?\d{3}\)?) ?-?(\d{3}) ?-?(\d{4})/g;
 
-// This code reads a line at a time from stdin
+rl.prompt();
 
-rl.on('line', function (line) {
+rl.on('line', line => {
+  const match = line.match(regex);
+  
+  if (match) {
+    const digits = [...match[0]].filter(x => Number.isInteger(+x));
 
-    // !!!! IMPLEMENT ME
+    const areaCode = digits.slice(0, 3).join("");
+    const prefix = digits.slice(3, 6).join("");
+    const suffix = digits.slice(6, 10).join("");
 
-    // Come up with the phone regex
+    console.log(`Area code: ${areaCode} \nPrefix: ${prefix} \nSuffix: ${suffix}`);
+  } 
+  
+  else console.log("Not a phone number.");
 
-    // Find matches
-
-    // If match found, print number with no spaces, parens, or dashes
-
-    // Else print that no number was found
+  rl.close();
 });
