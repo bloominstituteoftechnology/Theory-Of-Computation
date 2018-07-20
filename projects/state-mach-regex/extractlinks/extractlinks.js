@@ -16,7 +16,7 @@ const searchExpression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z
 const regex = new RegExp(searchExpression);
 
 // Read file
-console.log(filename);
+console.log("\n\x1b[31mExtracting URL from:\x1b[0m", filename, "\n");
 fs.readFile(filename, "utf8", function(err, data) {
   // return error if error
   if (err) {
@@ -24,7 +24,6 @@ fs.readFile(filename, "utf8", function(err, data) {
   }
   // Find matches and print them out
   if (data.match(regex)) {
-    console.log(data.match(regex));
+    data.match(regex).forEach(foundURL => console.log(foundURL));
   }
 });
-

@@ -32,16 +32,16 @@ rl.on("line", function(line) {
       fixedNumber[1] = phoneNumber.slice(3, 6);
       fixedNumber[2] = phoneNumber.slice(6, 10);
       // print
-      console.log("\nPhone number:", `${fixedNumber[0]}-${ fixedNumber[1]}-${fixedNumber[2]}`)
-      console.log("Area code: ", fixedNumber[0]);
-      console.log("Prefix: ", fixedNumber[1]);
-      console.log("Suffix: ", fixedNumber[2]);
+      console.log("\n\x1b[32mPhone number:\x1b[0m", `${fixedNumber[0]}-${ fixedNumber[1]}-${fixedNumber[2]}`)
+      console.log("\x1b[33mArea code:\x1b[0m", fixedNumber[0]);
+      console.log("\x1b[33mPrefix:\x1b[0m", fixedNumber[1]);
+      console.log("\x1b[33mSuffix:\x1b[0m", fixedNumber[2]);
     } else {
       // if all is good: just print them out
-      console.log("\nPhone number:", `${phoneNumber[0]}-${ phoneNumber[1]}-${phoneNumber[2]}`)
-      console.log("Area code: ", phoneNumber[0]);
-      console.log("Prefix: ", phoneNumber[1]);
-      console.log("Suffix: ", phoneNumber[2]);
+      console.log("\n\x1b[32mPhone number:\x1b[0m", `${phoneNumber[0]}-${ phoneNumber[1]}-${phoneNumber[2]}`)
+      console.log("\x1b[33mArea code:\x1b[0m", phoneNumber[0]);
+      console.log("\x1b[33mPrefix:\x1b[0m", phoneNumber[1]);
+      console.log("\x1b[33mSuffix:\x1b[0m", phoneNumber[2]);
     }
   } else {
     // ERROR
