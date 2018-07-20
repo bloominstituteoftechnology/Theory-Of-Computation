@@ -11,12 +11,12 @@ var rl = readline.createInterface({
 const regex = /\(?(\d{3})\)?\s*-?\s*(\d{3})\s*-?\s*(\d{4})/;
 rl.on('line', function (line) {
 
-    // !!!! IMPLEMENT ME
-const matched = line.match(regex);
-if(matched ===null) {
-  console.log('Phone number not found');
-} else {
-  console.log(`${matched[1]}${matched[2]}${matched[3]}`);
-}
+  // !!!! IMPLEMENT ME
+  const matched = line.match(regex);
+  if (matched === null) {
+    console.log('Phone number not found');
+  } else {
+    console.log(`${matched[1]}${matched[2]}${matched[3]}`);
+  }
 });
 
