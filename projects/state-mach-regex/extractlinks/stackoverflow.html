@@ -361,9 +361,7 @@ your communities            </h3>
     </div>
 </div><script>
     StackExchange.ready(function () {
-
         StackExchange.Hero.init("hi", "a");
-
         var location = 0;
         if ($("body").hasClass("questions-page")) {
             location = 7;
@@ -374,20 +372,16 @@ your communities            </h3>
         } else if ($("body").hasClass("home-page")) {
             location = 6;
         }
-
         $('#tell-me-more').click(function () {
             StackExchange.using("gps", function () {
                 StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
             });
         });
-
         $('.js-dismissable-hero #close').click(function () {
             StackExchange.using("gps", function () {
                 StackExchange.gps.track("hero.action", { hero_action_type: "minimize", location: location }, true);
               });
-
             StackExchange.Hero.dismiss();
-
             $.ajax({
                 url: "/hero-mini",
                 success: function (data) {
@@ -3755,7 +3749,6 @@ site design / logo &#169; 2017 Stack Exchange Inc; user contributions licensed u
                     _comscore.push({ c1: "2", c2: "17440561" });
             })();
             
-
     </script>
         
     
