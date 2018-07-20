@@ -13,7 +13,7 @@ const htmlData = null;
 
 // Set up regex
 const searchExpression = /https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/gi;
-let regex = new RegExp(searchExpression);
+const regex = new RegExp(searchExpression);
 
 // Read file
 console.log(filename);
