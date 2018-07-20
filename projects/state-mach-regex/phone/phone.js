@@ -2,7 +2,7 @@ const readline = require('readline');
 
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout, terminal: false });
 
-const regex = /\(?(\d{3})\)?\s*-?\s*(\d{3})\s*-?\s*(\d{4})/; // const regex = /(\d{10})|((\()?(\d{3}\) )|(\d{3}[- ]))(\d{3}[- ])(\d{4})/;
+const regex = /(\(?\d{3}\)?) ?-?(\d{3}) ?-?(\d{4})/g;
 
 rl.prompt();
 
@@ -10,10 +10,16 @@ rl.on('line', line => {
   const match = line.match(regex);
   
   if (match) {
-    console.log(`Area code: ${match[1]} \nPrefix: ${match[2]} \nSuffix: ${match[3]}`);
-  } else {
-    console.log("Not a phone number.");
-  }
+    const digits = [...match[0]].filter(x => Number.isInteger(+x));
+
+    const areaCode = digits.slice(0, 3).join("");
+    const prefix = digits.slice(3, 6).join("");
+    const suffix = digits.slice(6, 10).join("");
+
+    console.log(`Area code: ${areaCode} \nPrefix: ${prefix} \nSuffix: ${suffix}`);
+  } 
+  
+  else console.log("Not a phone number.");
 
   rl.close();
 });
