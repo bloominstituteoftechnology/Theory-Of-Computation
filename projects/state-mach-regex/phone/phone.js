@@ -9,15 +9,25 @@ var rl = readline.createInterface({
 
 // This code reads a line at a time from stdin
 
-rl.on('line', function (line) {
+const reg = new RegExp('[(]?([0-9]{3})[)]?[ -]?([0-9]{3})[ -]?([0-9]{4})');
 
-    // !!!! IMPLEMENT ME
+rl.on('line', function (line) {
 
     // Come up with the phone regex
 
     // Find matches
+    const match = line.match(reg);
 
     // If match found, print number with no spaces, parens, or dashes
-
+    if (match && match.length > 3) {
+      console.log("Area code: ", match[1])
+       
+      console.log("\nPrefix: ", match[2])
+       
+      console.log("\nSuffix: ", match[3]);
+    } 
+    else {
+      console.log("No number was detected");
+    }
     // Else print that no number was found
 });
