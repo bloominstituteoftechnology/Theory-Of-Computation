@@ -20,12 +20,20 @@ const readFile = fs.readFile(`./${ filename }`, (err, data) => {
   }
 
   // Set up regex
-  const findLinksRegExp = new RegExp(/href=["'](http[s]?.+?)["']/g);
+  // const findLinksRegExp = new RegExp(/(?:href=["'])(http[s]?.+?)(?:["'])/g);
+  const findLinksRegExp = new RegExp(/http[s]?.*?(?=")/g);
 
   // Find matches
   const matches = data.match(findLinksRegExp);
 
+  console.log(matches)
+
   // Print all matches
+  // for (match of matches) {
+  //   match = match.replace(/href="/, '');
+  //   match = match.replace(/"/, '');
+  //   console.log(match)
+  // }
   
 
   return data
