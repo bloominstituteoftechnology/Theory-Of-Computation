@@ -5,7 +5,7 @@
 1. Draw out the state machine for a car's turn signal system. What are the
    transitions leading to both lights not blinking, one light blinking, the
    other light blinking, or both lights blinking?
-      ![car_signal](/car_signal.svg)
+      ![car_signal](img/car-signal.png)
 ## Regular Expressions
 
 1. Write a regex to parse all links from a web page and print them:
