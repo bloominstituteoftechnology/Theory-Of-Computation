@@ -76,3 +76,29 @@ Video game AIs can exist in a lot of states, e.g. idling, bored, running, shooti
 1. Come up with a list of 4 states an AI can be in.
 2. Figure out the transitions between those states.
 3. Draw a state machine diagram of your AI.
+
+
+### Draw state Machine for a Car Blinker
+
++-------------+                                             +---------------+
+|  lights off |             Move Stick up                   |               |
+|             +---------------------------------------------> left Blinker  |
+|             <---------------------------------------------+               |
+|             |             move stick to neutral           |               |
++--+---+------+                                             +---------------+
+   ^   ^     ^
+   |   |     ||
+   |   |     ||
+   |   |     ||           push button                       +--------------+
+   |   |     +--------------------------------------------->+              |
+   |   |     |                                              | Hazard lights|
+   |   |     +----------------------------------------------+              |
+   |   |                  release Button                    |              |
+   |   |                                                    +--------------+
+   |   |
+   |   |                                                    +--------------+
+   |   |                  Move stick down                   |              |
+   |   +--------------------------------------------------->+ Right Blinker|
+   |                                                        |              |
+   +--------------------------------------------------------+              |
+                          move stick to neutral             +--------------+
