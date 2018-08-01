@@ -13,17 +13,22 @@ const filename = args[0];
 
 // Read file
 const readFile = fs.readFile(`./${ filename }`, (err, data) => {
+  data = String(data);
+  
   if (err) {
     console.log('err');
   }
 
   // Set up regex
-  const findLinksRegExp = new RegExp(/href=["'](.+)["']/);
+  const findLinksRegExp = new RegExp(/href=["'](http[s]?.+?)["']/g);
 
   // Find matches
-  // Print all matches
+  const matches = data.match(findLinksRegExp);
 
-  return String(data)
+  // Print all matches
+  
+
+  return data
 });
 
 
