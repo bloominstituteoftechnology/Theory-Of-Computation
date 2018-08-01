@@ -5,7 +5,7 @@
 1. Draw out the state machine for a car's turn signal system. What are the
    transitions leading to both lights not blinking, one light blinking, the
    other light blinking, or both lights blinking?
-  <img src="theory-of-computation/projects/state-match-regex/IMG_0116.jpg" title= "state flow">
+  <img src="Theory-Of-Computation/projects/state-mach-regex/IMG_0116.JPG" title= "state flow">
 
 ## Regular Expressions
 
