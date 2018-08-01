@@ -12,9 +12,20 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+const readFile = fs.readFile(`./${ filename }`, (err, data) => {
+  if (err) {
+    console.log('err');
+  }
 
-// Set up regex
+  // Set up regex
+  const findLinksRegExp = new RegExp(/href=["'](.+)["']/);
 
-// Find matches
+  // Find matches
+  // Print all matches
 
-// Print all matches
+  return String(data)
+});
+
+
+
+
