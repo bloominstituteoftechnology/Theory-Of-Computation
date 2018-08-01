@@ -12,9 +12,21 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
-
-// Set up regex
-
-// Find matches
-
-// Print all matches
+const readFile = fs.readFile(`./${ filename }`, (err, data) => {
+    data = String(data);
+    
+    if (err) {
+      console.log('err');
+    }
+  
+    // Set up regex
+    const findLinksRegExp = new RegExp(/http[s]?.*?(?=")/g);
+  
+    // Find matches
+    const matches = data.match(findLinksRegExp);
+  
+    // Print all matches
+    console.log(matches)
+  
+    return data
+  });
