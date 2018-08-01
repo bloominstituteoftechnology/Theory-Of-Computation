@@ -9,7 +9,7 @@
 1. `Off`: *Both* blinkers off.
 2. `L`:   Left blinker on (*right blinker off*).
 3. `R`:   Right blinker on (*left blinker off*).
-4. `Hz`:  *Both* blinkers on (*hazard lights on*).
+4. `LR`:  *Both* blinkers on (*hazard lights on*).
 
 ### Identify Transitions
 
@@ -22,9 +22,9 @@
 * Input **Put Neutral**: Put turn signal lever in neutral/resting position</br>
   Transition: *s* ∈ {`L`, `R`} ⟶ `Off`
 * Input **Hz On**: Toggle hazard light indicator on.<br/>
-  Transition: *s* ∈ {`Off`, `L`, `R`} ⟶ `Hz`<br/>
+  Transition: *s* ∈ {`Off`, `L`, `R`} ⟶ `LR`<br/>
 * Input **Hz Off**: Toggle hazard light indicator off.<br/>
-  Transition: `Hz` ⟶ *s* ∈ {`Off`, `L`, `R`} <br/>
+  Transition: `LR` ⟶ *s* ∈ {`Off`, `L`, `R`} <br/>
 
 ### Draw It Out
 
