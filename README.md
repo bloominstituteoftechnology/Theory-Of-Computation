@@ -15,3 +15,5 @@
 ## Project
 
 * [State machines and regexes](projects/state-mach-regex)
+
+## Ready, set, go!
