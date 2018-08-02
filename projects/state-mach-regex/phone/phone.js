@@ -6,18 +6,20 @@ var rl = readline.createInterface({
   terminal: false
 });
 
-
 // This code reads a line at a time from stdin
 
 rl.on('line', function (line) {
+  let regEx = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})/
+  let brokenUp = line.match(regEx)
 
-  // !!!! IMPLEMENT ME
-
-  // Come up with the phone regex
-
-  // Find matches
-
-  // If match found, print number with no spaces, parens, or dashes
-
-  // Else print that no number was found
+  if (brokenUp === null) {
+    console.log('No number was found.')
+  }
+  else if (brokenUp != null) {
+    let areaCode = brokenUp[1]
+    let prefix = brokenUp[2]
+    let suffix = brokenUp[3]
+    console.log(`Area code: ${areaCode}\nPrefix: ${prefix}\nSuffix: ${suffix}`)
+  }
 });
+
