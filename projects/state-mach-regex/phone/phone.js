@@ -1,15 +1,14 @@
-var readline = require('readline');
+const readline = require('readline');
 
-var rl = readline.createInterface({
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
   terminal: false
 });
 
-
 // This code reads a line at a time from stdin
 
-rl.on('line', function (line) {
+rl.on('line', (line) => {
 
     // !!!! IMPLEMENT ME
 
