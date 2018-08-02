@@ -15,7 +15,7 @@ const filename = args[0];
 const file = fs.readFileSync(filename).toString();
 
 // Set up regex
-const linkRegex = /http[s]?:[^"']+/img;
+const linkRegex = /http[s]?:[^"']+\.[^"']+/img;
 
 // Find matches
 const found = file.match(linkRegex);
