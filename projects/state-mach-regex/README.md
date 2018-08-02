@@ -6,7 +6,7 @@
    transitions leading to both lights not blinking, one light blinking, the
    other light blinking, or both lights blinking?
 
-* [State Machine Diagram](projects/state-machine)
+* [State Machine Diagram](state-machine.md)
 
 ## Regular Expressions
 
