@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="340.5" cy="272.5" rx="30" ry="30"/>
+	<text x="329.5" y="278.5" font-family="Times New Roman" font-size="20">off</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="442.5" cy="272.5" rx="30" ry="30"/>
+	<text x="432.5" y="278.5" font-family="Times New Roman" font-size="20">on</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 321.913,249.184 A 78.535,78.535 0 1 1 461.087,249.184"/>
+	<polygon fill="black" stroke-width="1" points="461.087,249.184 469.226,244.413 460.365,239.778"/>
+	<text x="162.5" y="125.5" font-family="Times New Roman" font-size="20">turn on the turn signal when turn left/right. (state change)</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 321.384,295.469 A 22.5,22.5 0 1 1 310.641,271.298"/>
+	<text x="3.5" y="315.5" font-family="Times New Roman" font-size="20">light stays off, the state not chage</text>
+	<polygon fill="black" stroke-width="1" points="310.641,271.298 303.86,264.74 301.774,274.52"/>
+	<path stroke="black" stroke-width="1" fill="none" d="M 463.74,251.48 A 22.5,22.5 0 1 1 472.104,276.573"/>
+	<text x="514.5" y="250.5" font-family="Times New Roman" font-size="20">light stays on, the state not change.</text>
+	<polygon fill="black" stroke-width="1" points="472.104,276.573 478.222,283.754 481.24,274.22"/>
+	<path stroke="black" stroke-width="1" fill="none" d="M 458.219,297.79 A 70.884,70.884 0 1 1 324.781,297.79"/>
+	<polygon fill="black" stroke-width="1" points="324.781,297.79 317.373,303.631 326.786,307.008"/>
+	<text x="89.5" y="413.5" font-family="Times New Roman" font-size="20">turn the light off when drive straigt/ or finish w/ hazard light. (state change)</text>
+</svg>

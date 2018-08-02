@@ -11,13 +11,14 @@ var rl = readline.createInterface({
 
 rl.on('line', function (line) {
 
-    // !!!! IMPLEMENT ME
+  // !!!! IMPLEMENT ME
+  // Come up with the phone regex
+  const regex = /^([0-9]{10})|(\D*[0-9]{3}\D*[0-9]{3}\D*[0-9]{4})/g;
 
-    // Come up with the phone regex
+  // Find matches
+  // const phoneMatch = 
 
-    // Find matches
+  // If match found, print number with no spaces, parens, or dashes
 
-    // If match found, print number with no spaces, parens, or dashes
-
-    // Else print that no number was found
+  // Else print that no number was found
 });
