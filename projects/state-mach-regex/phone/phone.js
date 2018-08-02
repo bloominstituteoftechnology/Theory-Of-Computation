@@ -12,7 +12,11 @@ var rl = readline.createInterface({
 rl.on('line', function (line) {
 
     // !!!! IMPLEMENT ME
-
+    var regex = /([1-9]{3,4})/g;
+    var myArray = line.match(regex)
+    console.log("Area code: " + myArray[0])
+    console.log("Prefix: " + myArray[1])
+    console.log("Suffix: " + myArray[2])
     // Come up with the phone regex
 
     // Find matches
