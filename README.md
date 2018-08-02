@@ -15,3 +15,4 @@
 ## Project
 
 * [State machines and regexes](projects/state-mach-regex)
+* [State Machine Diagram](projects/state-machine)
