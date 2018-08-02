@@ -18,3 +18,21 @@ const filename = args[0];
 // Find matches
 
 // Print all matches
+
+
+const data = fs.readFileSync(filename, {encoding: 'utf8'});
+
+// console.log(data);
+
+// https://wordpress.stackexchange.com',
+
+const regex = /https?:\/\/[^\\'">\s]+?\.[^\\'">\s]+/g;
+
+const links = data.match(regex);
+
+console.log(links.length);
+let i = 1
+for (let link of links) {
+    console.log(i, link);
+    i+= 1;
+}
