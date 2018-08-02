@@ -1,8 +1,21 @@
-var readline = require('readline');
+const readline = require('readline');
 
+/*
+\(? -- Match on 0 or 1 opening parens. Backslash to escape since we're looking for a literal '('.
+(\d{3}) -- Match on 3 digits. Add to capture group 1.
+\)? -- Match on 0 or 1 closing parens. Backslash to escape since we're looking for a literal ')'.
+\s* -- Match on 0 or more spaces.
+-? -- Match or 0 or 1 dashes.
+\s* -- Match on 0 or more spaces.
+(\d{3}) -- Match on 3 digits. Add to capture group 2.
+\s* -- Match on 0 or more spaces.
+-? -- Match or 0 or 1 dashes.
+\s* -- Match on 0 or more spaces.
+(\d{4}) -- Match on 4 or more digits. Add to capture group 3. 
+*/
 const regex = /\(?(\d{3})\)?\s*-?\s*(\d{3})\s*-?\s*(\d{4})/;
 
-var rl = readline.createInterface({
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
   terminal: false
