@@ -13,7 +13,12 @@ rl.on('line', function (line) {
     // !!!! IMPLEMENT ME
 
     // Come up with the phone regex
-    let phoneRegex = /^[(]?(\d{3})[)]?.?(\d{3}).?(\d{4})$/im
+    let phoneRegex = /^[(]?(\d{3})[)]?[-.\s]?(\d{3})[-.\s]?(\d{4})$/im
+
+    /*instructor regex solution:
+    let phoneRegex = /\(?(\d{3})\)?\s*-?\s*(\d{3})\s*-?\s*(\d{4})/;
+    */
+   
     // Find matches
     const found = line.match(phoneRegex)
      // If match found, print number with no spaces, parens, or dashes
