@@ -22,4 +22,4 @@ const links = file.match(regex);
 
 // Print all matches
 console.log(links);
-console.log(links.length);
+console.log("number of links: ", links.length);
