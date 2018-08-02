@@ -16,7 +16,7 @@ rl.on('line', function (line) {
     // !!!! IMPLEMENT ME
 
     // Come up with the phone regex
-    let phoneregex = /\(?(\d{3})\)?.?(\d{3}).?(\d{4})/im
+    let phoneregex = /^[(]?(\d{3})[)]?.?(\d{3}).?(\d{4})$/im
 
     // Find matches
     const number = line.match(phoneregex)
