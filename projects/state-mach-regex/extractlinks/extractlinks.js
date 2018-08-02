@@ -29,7 +29,7 @@ console.log(myArray[1])
 // Find matches
 
 for( let i =0; i < myArray.length; i++){
-    console.log(myArray[i].substr(5))
+    console.log(myArray[i].substr(6).slice(0, -1))
 }
 
 
