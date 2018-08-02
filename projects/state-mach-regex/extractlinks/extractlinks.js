@@ -16,7 +16,7 @@ const file = fs.readFileSync(filename).toString();
 // console.log(file)
 
 // Set up regex
-const links = file.match(/(http.+\")/g);
+const links = file.match(/(http.+?\")/g);
 
 console.log(links);
 
