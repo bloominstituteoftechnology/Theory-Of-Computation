@@ -11,17 +11,19 @@ const filename = args[0];
 
 // !!!! IMPLEMENT ME
 fs.readFile(filename, 'utf8', (err, data) => {
-    console.log(data)
     if (err) throw err;
 
-    const regex = /https?:\/\/(\w)*\.(\w*\/?\w*\.?\??\=?)*/g
+    const regex = /https?:\/\/(\w)+\-?(\w)+\.(\w*\/?\w*\.?\??\=?\-?&?;?)*/g
 
     const links = data.match(regex)
-
+    let variable = new Set()
+    for (let i = 0; i < links.length; i++) {
+        // variable.add(links[i])
+        variable.add(links[i])
+    }
     if (links === null) {
         console.log('Cannot retrieve links')
     } else {
-
         console.log(links)
     }
 })
