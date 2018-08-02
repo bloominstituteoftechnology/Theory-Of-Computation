@@ -12,7 +12,7 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
-const files = fs.readFile('stackoverflow.html', 'utf8', (err, links) => {
+fs.readFile(filename, 'utf8', (err, links) => {
     if (err) {
         return console.log(err)
     }
