@@ -13,7 +13,7 @@ const filename = args[0];
 fs.readFile(filename, 'utf8', (err, data) => {
     if (err) throw err;
 
-    const regex = /https?:\/\/(\w)+\-?(\w)+\.(\w*\/?\w*\.?\??\=?\-?&?;?)*/g
+    const regex = /https?:\/\/(\w)+\-?(\w)+\.(\w*\/?\w*\.?\??\=?\-?&?;?%?)*/g
     // http, zero or 1 s, a colon, two forward slashes,
     // one or more instances of an alphanumeric character
     // zero or one instance of hyphen
@@ -27,6 +27,7 @@ fs.readFile(filename, 'utf8', (err, data) => {
     // zero or one hyphen
     // zero or one ampersand
     // zero or one semicolon
+    // zero or one percentage sign
     // } capture group ends
     // zero or more instances of the capture group
 
