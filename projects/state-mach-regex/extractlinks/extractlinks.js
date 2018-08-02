@@ -9,6 +9,15 @@ if (args.length != 1) {
 
 const filename = args[0];
 
+const data = fs.readFileSync(filename, {encoding: 'utf8'});
+
+const regex = /https?: \/\/[^\\'">\s]+?\.[^\\'">\s]+/g;
+
+const matched = filedata.match(regex);
+
+for (let url of matched) {
+    console.log(url);
+}
 // !!!! IMPLEMENT ME
 
 // Read file
