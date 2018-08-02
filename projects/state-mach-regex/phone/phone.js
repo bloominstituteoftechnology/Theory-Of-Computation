@@ -10,6 +10,15 @@ var rl = readline.createInterface({
 
 rl.on('line', function (line) {
   let regEx = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  // Starting at the beginning of the string
+  // Zero or one opening parenthesis
+  // Capture group 1: 3 characters 0-9
+  // Zero or one closing parenthesis
+  // Either a hyphen, period, or space (zero or one)
+  // Capture group 2: 3 characters 0-9
+  // Either a hyphen, period, or space (zero or one)
+  // Capture group 3: 4 characters 0-9
+  // Ends at end of string
   let brokenUp = line.match(regEx);
 
   if (brokenUp === null) {
