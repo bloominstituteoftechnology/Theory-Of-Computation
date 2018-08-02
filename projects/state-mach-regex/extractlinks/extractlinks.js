@@ -9,12 +9,16 @@ if (args.length != 1) {
 
 const filename = args[0];
 
-// !!!! IMPLEMENT ME
+// Find anything with either http/https, a colon, 2 slashes, and anything other
+// than quotes, more than once.
+const regex = /(http|https):\/\/([^\"\']{1,})/g;
 
 // Read file
-
-// Set up regex
-
-// Find matches
-
-// Print all matches
+fs.readFile(filename, 'utf-8', (err, data) => {
+    if (err) throw err;
+    const dataStr = JSON.stringify(data);
+    const matches = dataStr.match(regex);
+    matches.forEach(match => {
+        console.log(match);
+    });
+});
