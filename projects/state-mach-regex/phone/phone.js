@@ -14,16 +14,16 @@ rl.on('line', function (line) {
     // !!!! IMPLEMENT ME
 
     // Come up with the phone regex
-    const digits = line.replace(/\D/g, '');
+    const numbers = line.replace(/\D/g, '');
 
-    if (digits === '') {
+    if (numbers === '') {
       console.log('No number was found');
     }
 
     // Find matches
-    const areaCode = digits.substring(0,3);
-    const prefix = digits.substring(3,6);
-    const suffix = digits.substring(6,10);
+    const areaCode = numbers.substring(0,3);
+    const prefix = numbers.substring(3,6);
+    const suffix = numbers.substring(6,10);
 
     // If match found, print number with no spaces, parens, or dashes
     console.log(`Area code: ${areaCode} \nPrefix: ${prefix} \nSuffix: ${suffix}`);

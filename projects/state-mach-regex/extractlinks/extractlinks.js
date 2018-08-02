@@ -16,7 +16,6 @@ const file = fs.readFileSync(filename).toString();
 
 // Set up regex
 const links = file.match(/(href.+?\>)/g);
-// console.log(links)
 
 // Find matches
 const urls = []
@@ -31,6 +30,7 @@ links.forEach(link => {
 
 // Print all matches
 console.log(urls);
+console.log(urls.length)
 
 // Set up regex
 
