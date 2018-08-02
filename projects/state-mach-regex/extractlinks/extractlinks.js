@@ -12,9 +12,21 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+const files = fs.readFile('stackoverflow.html', 'utf8', (err, links) => {
+    if (err) {
+        return console.log(err)
+    }
+    // Set up regex
+    const regex = /https?:\/\/[^\\'">\s]+/ig;
+    // Find matches
+    const allLinks = links.match(regex);
+    // Print all matches
+    // console.log(allLinks.length);
+    console.log(allLinks);
+})
 
-// Set up regex
 
-// Find matches
 
-// Print all matches
+
+
+
