@@ -15,6 +15,9 @@ const filename = args[0];
 const data = fs.readFileSync(filename, 'utf8')
 
 // Set up regex
+// looking for the string in the first part, "?" signals that the "s" in https is optional
+// followed by two escaped slashed. followed by our 2 negating blocks removing "" / '' and whitespace
+// global flag for obvious reasons
 const regex = /https?:\/\/[^\\'">\s]+?\.[^\\'">\s]+/g;
 
 // Find matches
