@@ -16,7 +16,7 @@ let fe = fs.readFileSync(filename, 'utf8');
 // Set up regex
 const re = /.+/g
 // Find matches
-const navLink = file.match(re);
+const navLink = fe.match(re);
 
 // Print all matches
 navLink.forEach(element => {
