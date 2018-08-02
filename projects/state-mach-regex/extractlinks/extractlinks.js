@@ -10,11 +10,24 @@ if (args.length != 1) {
 const filename = args[0];
 
 // !!!! IMPLEMENT ME
+let content;
 
 // Read file
 
-// Set up regex
+fs.readFile('./stackoverflow.html', 'utf8', function read(err, data) {
+    if (err) {
+        throw err;
+    }
+    content = data;
 
-// Find matches
+    // Set up regex
+    let re = /(http)\w+(:\/\/)\w+([\s\S]*?)"/g;
+    // let re = new RegExp('(http)\w+(:\/\/)\w+([\s\S]*?)"', 'g');
+    // Find matches
+    let matched = content.match(re);
 
-// Print all matches
+    // Print all matches
+    console.log(matched);
+    console.log(matched.length);
+});
+
