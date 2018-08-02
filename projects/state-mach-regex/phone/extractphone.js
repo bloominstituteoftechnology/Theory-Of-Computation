@@ -9,10 +9,10 @@ var rl = readline.createInterface({
 
 // This code reads a line at a time from stdin
 rl.on('line', function (line) {
-  const regex = /((1-)?(\(?\d{3}\)?)(?:|-|\s)?(\d{3})(?:-|\s)?(\d{4}))/
+  const regex = /(1-)?(\(?\d{3}\)?)(?:-|\s)?(\d{3})(?:-|\s)?(\d{4})/
   const matched = line.match(regex);
   if(matched !== null){
-    console.log(`Country Code: \t${matched[2]|| `1-`}\nArea Code:\t${matched[3]}\nPrefix:\t\t${matched[4]}\nSuffix:\t\t${matched[5]}`)
+    console.log(`Country Code: \t${matched[1]|| `1-`}\nArea Code:\t${matched[2]}\nPrefix:\t\t${matched[3]}\nSuffix:\t\t${matched[4]}`)
     } else {
       console.error("US Phone Number not found!");
     }
