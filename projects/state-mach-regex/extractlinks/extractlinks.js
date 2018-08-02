@@ -8,13 +8,31 @@ if (args.length != 1) {
 }
 
 const filename = args[0];
+const file = fs.readFileSync(filename, { encoding: 'utf8' });
+const re = /https?:\/\/[^\\'">\s]+?\.[^\\'">\s]+/g;
+const links = file.match(re);
 
-// !!!! IMPLEMENT ME
+let answers = fs.readFileSync('./answers.txt', { encoding: 'utf8' });
+answers = JSON.parse(answers);
 
-// Read file
+for (let i = 0; i < answers.length; i++) {
+    if (links[i] !== answers[i]) {
+        console.log(`Mismatched link: got ${links[i]} but expected ${answers[i]}`);
+        break;
+    }
+}
 
-// Set up regex
+console.log(`You found all the correct links!`);
 
-// Find matches
-
-// Print all matches
+// try {
+//     const data = fs.readFileSync('./answers.txt', { encoding: 'utf8' });
+//     const links = JSON.parse(data);
+//     console.log(links == orig_links);
+// } catch (err) {
+//     fs.writeFileSync('./answers.txt', JSON.stringify(orig_links), (ferr) => {
+//         if (ferr) {
+//             console.log('Error writing links to answers.txt: ', ferr);
+//             return;
+//         }
+//     });
+// }
