@@ -11,10 +11,22 @@ const filename = args[0];
 
 // !!!! IMPLEMENT ME
 
-// Read file
+fs.readFile(filename, 'utf8', (error, data) => {
+    console.log(data)
+    if (error) throw error;
 
-// Set up regex
+    const regex = /(https?:\/\/.+?\")/g;
 
-// Find matches
+    let links = data.match(regex)
+    if (links) {
+        links = links[0].slice(0, links[0].length - 1);
+    }
 
-// Print all matches
+    if (links === null) {
+        console.log('Cannot retrieve links')
+    } else {
+
+        console.log(links)
+    }
+})
+
