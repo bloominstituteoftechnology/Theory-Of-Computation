@@ -9,16 +9,15 @@ var rl = readline.createInterface({
 
 // This code reads a line at a time from stdin
 
-// console.log('test')
 rl.on('line', function (line) {
-  console.log('test')
     // !!!! IMPLEMENT ME
 
     // Come up with the phone regex
-    let phoneRegex = /[(]?(\d{3})[)]?.?(\d{3}).?(\d{4})/im
+    let phoneRegex = /^[(]?(\d{3})[)]?.?(\d{3}).?(\d{4})$/im
     // Find matches
-     // If match found, print number with no spaces, parens, or dashes
     const found = line.match(phoneRegex)
+     // If match found, print number with no spaces, parens, or dashes
+    
     if (found) {
       console.log('Area code: ', found[1])
       console.log('Prefix: ', found[2])
