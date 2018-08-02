@@ -14,7 +14,7 @@ rl.on('line', function (line) {
   // !!!! IMPLEMENT ME
   
   // Come up with the phone regex
-  const regex = /\(?(\d{3})\)?\s{0,1}-?\s{0,1}(\d{3})\s{0,1}-?\s{0,1}(\d{4})/
+  const regex = /\(?(\d{3})\)?\s?-?\s?(\d{3})\s?-?\s?(\d{4})/
     // Find matches
   const found = line.match(regex)
     // If match found, print number with no spaces, parens, or dashes
