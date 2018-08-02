@@ -1,5 +1,3 @@
-// import ('stackoverflow.html');
-
 const fs = require('fs');
 
 const args = process.argv.slice(2);
@@ -14,26 +12,47 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
-const readFile = fs.readFileSync(filename).toString();
+const file = fs.readFileSync(filename, { encoding: 'utf8' });
+// const readFile = fs.readFileSync(filename).toString();
 
 // Set up regex
-const regex = /(http|https+)(.+)(\"{1}|\'{1})/g;
-const matchedLinks = readFile.match(regex);
+//http and https
+// ://
+// body of url
+// top-level
+// the fiddly bits
 
-// (http|https+)(.+)('{1}|"{1})
-// /(http|https+)(.+)("{1})/g;
-// /(http|https+)(.+(?="))/g;
+/*
+https? - Match on http or https
+:\/\ - Match on "://" using \ to escape the backslashes
+[^\\'"<>\s]+? -- Match 1 or more on any character NOT in this set, lazily
+\. -- Match on the period
+[^\\'"<>\s]+ -- Match 1 or more on any character NOY in this set, greedily
+*/
+
+const regex = /https?:\/\/[^\\'"<>\s]+?\.[^\\'"<>\s]+/g;
+
+const matchedLinks = file.match(regex);
+
+// const regex = /(http|https+)(.+)(\"{1}|\'{1})/g;
+// const matchedLinks = readFile.match(regex);
+
 
 // Find matches
-const urls = []
 
-matchedLinks.forEach(link => {
-    let url = link.match(regex);
-    if (url) {
-        url = url[0].slice(0, url[0].length - 1);
-        urls.push(url);
-    }
-})
+for (let url of matchedLinks) {
+    console.log(url);
+}
+
+// const urls = []
+
+// matchedLinks.forEach(link => {
+//     let url = link.match(regex);
+//     if (url) {
+//         url = url[0].slice(0, url[0].length - 1);
+//         urls.push(url);
+//     }
+// })
  
 // Print all matches
-console.log(urls);
+console.log(matchedLinks.length);
