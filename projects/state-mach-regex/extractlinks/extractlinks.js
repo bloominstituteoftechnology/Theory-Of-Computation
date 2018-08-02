@@ -12,9 +12,13 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+const file = fs.readFileSync(filename).toString();
 
 // Set up regex
+let regex = /("https:)\S+"/g;
 
 // Find matches
+const links = file.match(regex);
 
 // Print all matches
+console.log(links);
