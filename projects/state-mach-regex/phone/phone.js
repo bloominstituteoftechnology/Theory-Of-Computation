@@ -8,14 +8,14 @@ var rl = readline.createInterface({
 
 // This code reads a line at a time from stdin
 rl.on('line', function(line) {
-  if (line.match(/\(*?\d{3}[)\- ]*?\d{3}[\- ]*?\d{4}/g)) {
-    const phoneNumber = line.replace(/[- \()]/g, '');
+  const phoneNumber = line.match(/^\(*?(\d{3})[)\- ]*?(\d{3})[\- ]*?(\d{4})$/);
+  if (phoneNumber) {
     console.log(`\nArea code: ${
-      phoneNumber.substring(0, 3)
+      phoneNumber[1]
     }\nPrefix: ${
-      phoneNumber.substring(3, 6)
+      phoneNumber[2]
     }\nSuffix: ${
-      phoneNumber.substring(6)
+      phoneNumber[3]
     }\n`);
   } else {
     console.log('Error: Invalid phone number format\n');
