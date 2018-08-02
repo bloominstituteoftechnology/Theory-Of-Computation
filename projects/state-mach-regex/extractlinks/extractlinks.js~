@@ -14,7 +14,7 @@ const filename = args[0];
 // Read file
 const file = fs.readFileSync(filename, 'utf8');
 // Set up regex
-const links = /http?:\/\/[^\\'">\s]+/ig
+const links = /https?:\/\/.[^"\s<>'+]+/g;
 // Find matches
 const matches = file.match(links);
 // Print all matches
