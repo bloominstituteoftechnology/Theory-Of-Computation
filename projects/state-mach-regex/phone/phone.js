@@ -12,33 +12,23 @@ rl.on('line', function(line) {
   // !!!! IMPLEMENT ME
 
   // Come up with the phone regex
-  const regx = /(\d+)/gi;
+  const regx = /\d+/g;
+  const amyRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   // Find matches
-  const matches = line.match(regx);
+  const matches = line.match(amyRegex);
 
   // If match found, print number with no spaces, parens, or dashes
 
   if (matches) {
-    switch (matches.length) {
-      case 1:
-        const number = matches[0];
-        console.log(`
-        Area code:\t${number.slice(0, 4)}
-        Prefix:\t${number.slice(4, 7)}
-        Sufix:\t${number.slice(7)}
-        `);
-        break;
-      case 3:
-        console.log(matches);
-        console.log(`
-        Area code:\t${matches[0]}
-        Prefix:\t\t${matches[1]}
-        Sufix:\t\t${matches[2]}
-        `);
-    }
+    let separateDigits = matches[0].match(regx);
+    separateDigits = separateDigits.join('');
+    console.log('separateDigits', separateDigits.length, separateDigits);
+    console.log(`
+    Area code:\t${separateDigits.slice(0, 3)}
+    Prefix:\t${separateDigits.slice(3, 6)}
+    Sufix:\t${separateDigits.slice(6)}
+    `);
   } else {
-    console.log('No number was found');
+    console.log('No number was found or something went wrong with the input');
   }
-
-  // Else print that no number was found
 });
