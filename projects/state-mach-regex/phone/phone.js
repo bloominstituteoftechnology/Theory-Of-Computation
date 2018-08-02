@@ -9,15 +9,29 @@ var rl = readline.createInterface({
 
 // This code reads a line at a time from stdin
 
+// Match for 0 or 1 opening parens
+// Match for three digits
+// Match on 0 or 1 closing parens
+// Match on 0 or more spaces
+// Match on 0 or 1 dashes
+// Match on 3 digits
+// Match on 0 or more spaces
+// Match on 0 or 1 dashes
+// Match on 4 digits
+const regex = /\(?(\d{3})\)?\s*-?\s*(\d{3})\s*-?\s*(\d{4})/;
+
 rl.on('line', function (line) {
 
     // !!!! IMPLEMENT ME
 
     // Come up with the phone regex
-
+    const matches = line.match(regex);
     // Find matches
 
     // If match found, print number with no spaces, parens, or dashes
-
-    // Else print that no number was found
+    if (!matches) {
+      console.log('No number found');
+    } else {
+      console.log('Area code: ${matches[1]}\nPrefix: ${matches[2]}\nSuffix: ${matches[3]}');
+    }
 });
