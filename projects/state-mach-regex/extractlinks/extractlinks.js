@@ -19,5 +19,5 @@ const regex = /https?:\/\/[^\\><'"\s]+?\.[^\\><"'\s]+/g;
 const found = data.match(regex);
 // Print all matches
 for (let i = 0; i < found.length; i++) {
-    console.log(found[i])
+    console.log(i+1, found[i])
 }
