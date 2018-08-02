@@ -3,21 +3,27 @@ var readline = require('readline');
 var rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
-  terminal: false
+  terminal: false,
 });
-
 
 // This code reads a line at a time from stdin
 
-rl.on('line', function (line) {
+rl.on('line', function(line) {
+  // !!!! IMPLEMENT ME
 
-    // !!!! IMPLEMENT ME
+  // Come up with the phone regex
+  let digitsOnly = ('' + line).replace(/\D/g, '');
+  if (digitsOnly === '') {
+    console.log('no number found');
+    return;
+  }
 
-    // Come up with the phone regex
+  // Find matches
+  let matched = digitsOnly.match(/^(\d{3})(\d{3})(\d{4})$/);
 
-    // Find matches
+  // If match found, print number with no spaces, parens, or dashes
+  console.log(` You entered ${matched[0]}
+   \n Area Code: ${matched[1]} \n Prefix: ${matched[2]} \n Suffix: ${matched[3]}`);
 
-    // If match found, print number with no spaces, parens, or dashes
-
-    // Else print that no number was found
+  // Else print that no number was found
 });
