@@ -9,20 +9,14 @@ var rl = readline.createInterface({
 
 // This code reads a line at a time from stdin
 rl.on('line', function (line) {
-  const regex = /(\(\d{3}\)\s)|(\d{3}|-|\s)|(\d*)/g;
-  newnumber="";
-  const match = line.match(regex);
-  if(match !== null){
-    const regextwo = /[0-9]/g;
-    const matchtwo = line.match(regextwo);
-    if(matchtwo !== null && matchtwo.length === 10){
-      console.log(matchtwo.join(""));
+  const regex = /(1-)?(\(?\d{3}\)?)(?:-|\s)?(\d{3})(?:-|\s)?(\d{4})/
+  const matched = line.match(regex);
+  if(matched !== null){
+    console.log(`Country Code: \t${matched[1]|| `1-`}\nArea Code:\t${matched[2]}\nPrefix:\t\t${matched[3]}\nSuffix:\t\t${matched[4]}`)
     } else {
       console.error("US Phone Number not found!");
     }
-  } else{
-    console.error("US Phone Number not found");
-  }
+  });
   
     // !!!! IMPLEMENT ME
 
@@ -32,4 +26,3 @@ rl.on('line', function (line) {
     // If match found, print number with no spaces, parens, or dashes
 
     // Else print that no number was found
-});

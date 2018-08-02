@@ -9,6 +9,7 @@ if (args.length != 1) {
 
 const filename = args[0];
 
+
 // !!!! IMPLEMENT ME
 
 // Read file
@@ -18,3 +19,11 @@ const filename = args[0];
 // Find matches
 
 // Print all matches
+const file = fs.readFileSync(filename).toString('utf-8');
+const regex = /https?:\/\/[^\\'"<>\s]+?\.[^\\'"<>\s]+/g;
+
+const matches = file.match(regex);
+console.log(matches);
+for(let webaddress of matches) {
+    console.log(webaddress);
+}
