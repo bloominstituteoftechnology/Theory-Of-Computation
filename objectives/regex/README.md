@@ -168,6 +168,10 @@ Write a regex that matches a `1`, followed by 0 or more `2`s, followed by 0-1 `3
 Write a regex that matches any one or two digit number, followed by a space,
 followed by the word `monkey`, followed by 0 or 1 `s`s.
 
+```
+[0-9]{1,2} monkeys?
+```
+
 
 ### Convert Regex to State Machine Diagram
 
