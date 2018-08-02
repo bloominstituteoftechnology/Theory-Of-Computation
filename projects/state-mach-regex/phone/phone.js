@@ -11,21 +11,27 @@ var rl = readline.createInterface({
 
 rl.on('line', function (line) {
 
-    // !!!! IMPLEMENT ME
+  const digits = line.replace(/\D/g, '');
+  if (digits === '') {
+    console.log("No phone numbers were found");
+  }
 
-    // Come up with the phone regex
-    const digits = line.replace(/\D/g, '');
-    if (digits === '') {
-      console.log("No phone numbers were found");
-    }
+  const areaCode = digits.substring(0,3);
+  const prefix = digits.substring(3,6);
+  const suffix = digits.substring(6,10);
 
-    // Find matches
-    const areaCode = digits.substring(0,2);
-    const prefix = digits.substring(3,5);
-    const suffix = digits.substring(6,9);
+  console.log(`Area code: ${areaCode} \nPrefix: ${prefix} \nSuffix: ${suffix}`)
 
-    // If match found, print number with no spaces, parens, or dashes
-    console.log(`Area code: ${areaCode} Prefix: ${prefix} Suffix: ${suffix}`)
 
-    // Else print that no number was found
+  // EXAMPLE SOLUTION
+  // const regex = /\(?(\d{3})\)?\s*-?\s*(\d{3})\s*-?\s*(\d{4})/;
+
+  // const matches = line.match(regex);
+
+  // if(!matches) {
+  //   console.log('No number found')
+  // } else {
+  //   console.log(`Area code: ${matches[1]} \nPrefix: ${matches[2]} \nSuffix: ${matches[3]}`)
+  // }
+
 });
