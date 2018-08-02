@@ -13,6 +13,6 @@ fs.readFile(filename, 'utf8', (err, data) => {
   const links = data
     .match(/\bhref=".*?"/gi)
     .filter(link => link !== 'href="#"')
-    .map(link => link.replace('href="', '').replace('"', ''))
+    .map(link => link.replace(/href="|"/gi, ''))
     .forEach(link => console.log(link));
 });
