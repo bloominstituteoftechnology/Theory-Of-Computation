@@ -14,7 +14,7 @@ rl.on('line', function (line) {
     // !!!! IMPLEMENT ME
 
     // Come up with the phone regex
-    const dig = line.replace(/\D/g, '');
+    const digits = line.replace(/\D/g, '');
 
     if (digits === '') {
       console.log('No number was found');
