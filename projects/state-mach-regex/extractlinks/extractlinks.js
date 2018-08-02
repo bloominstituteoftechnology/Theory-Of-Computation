@@ -21,10 +21,13 @@ const regex = /["']https?:\/\/[^'"]*?\.[^'"]*?["']/g;
 // Find matches
 const output = file.match(regex)
 // Print all matches
-console.log(output)
-fs.writeFile('./links.txt', output, (ferr) => {
-    if (ferr) {
-      // console.log('Error writing secret key to confing file: ', ferr.message)
-      return;
-    }
-  });
+// console.log(output)
+for (let link of output) {
+    console.log(link)
+}
+// fs.writeFile('./links.txt', output, (ferr) => {
+//     if (ferr) {
+//       // console.log('Error writing secret key to confing file: ', ferr.message)
+//       return;
+//     }
+//   });
