@@ -86,7 +86,7 @@ Video game AIs can exist in a lot of states, e.g. idling, bored, running, shooti
 |             <---------------------------------------------+               |
 |             |             move stick to neutral           |               |
 +--+---+------+                                             +---------------+
-   ^   ^     ^
+   ^   |     ^
    |   |     ||
    |   |     ||
    |   |     ||           push button                       +--------------+
