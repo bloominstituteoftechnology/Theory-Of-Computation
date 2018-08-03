@@ -12,9 +12,15 @@ const filename = args[0];
 // !!!! IMPLEMENT ME
 
 // Read file
+const content = fs.readFileSync(filename, 'utf-8');
 
 // Set up regex
+const re = /http[^"']*/gi;
 
 // Find matches
+const matches = content.match(re);
 
 // Print all matches
+matches.forEach(match => {
+    console.log(match);
+});
