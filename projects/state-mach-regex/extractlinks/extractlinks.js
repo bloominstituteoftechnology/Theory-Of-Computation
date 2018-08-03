@@ -35,6 +35,7 @@ const regex = /https?:\/\/[^\\'"<>\s]+?\.[^\\'"<>\s]+/g;
 const matchedLinks = file.match(regex);
 
 // const regex = /(http|https+)(.+)(\"{1}|\'{1})/g;
+// (http|https+).+(\"{1}|\'{1})
 // const matchedLinks = readFile.match(regex);
 
 
@@ -55,4 +56,4 @@ for (let url of matchedLinks) {
 // })
  
 // Print all matches
-console.log(matchedLinks.length);
+// console.log(matchedLinks.length);
