@@ -16,7 +16,7 @@ rl.on('line', function (line) {
   // Come up with the phone regex
 
 
-  phone = /\({0,1}(\d{3})\){0,1}-{0,1}\s{0,1}(\d{3})-{0,1}\s{0,1}(\d{4})/g
+  phone = /\(?(\d{3})\)?-*\s*(\d{3})-*\s*(\d{4})/g
 
   // Find matches
 

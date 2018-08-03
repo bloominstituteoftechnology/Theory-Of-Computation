@@ -16,9 +16,13 @@ const filename = args[0];
 
 fs.readFile(filename, 'utf8', (err, data) => {
     if (err) throw err;
-    links = /https*.+?(?=\")/g
-    console.log(data.match(links))
+    links = /https?.+?(?=\")/g
+    fs.writeFile('result', data.match(links), 'utf8', () => {
+        console.log(data.match(links))
+    })
 });
+
+
 
 
 // Set up regex
