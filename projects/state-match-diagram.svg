@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="800" height="600" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="61.5" cy="190.5" rx="30" ry="30"/>
+	<text x="21.5" y="196.5" font-family="Times New Roman" font-size="20">right light</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="36.5" cy="426.5" rx="30" ry="30"/>
+	<text x="2.5" y="432.5" font-family="Times New Roman" font-size="20">left light</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="659.5" cy="317.5" rx="30" ry="30"/>
+	<text x="648.5" y="323.5" font-family="Times New Roman" font-size="20">off</text>
+	<ellipse stroke="black" stroke-width="1" fill="none" cx="659.5" cy="317.5" rx="24" ry="24"/>
+	<path stroke="black" stroke-width="1" fill="none" d="M 86.938,174.608 A 424.879,424.879 0 0 1 642.717,292.642"/>
+	<polygon fill="black" stroke-width="1" points="86.938,174.608 96.366,174.943 91.37,166.28"/>
+	<text x="298.5" y="98.5" font-family="Times New Roman" font-size="20">when the right blinker is turned on, the car is turning right</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 640.224,340.481 A 473.506,473.506 0 0 1 62.434,441.571"/>
+	<polygon fill="black" stroke-width="1" points="62.434,441.571 67.1,449.77 71.849,440.969"/>
+	<text x="253.5" y="533.5" font-family="Times New Roman" font-size="20">when the left blinker is turned on, the car is turning left</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 629.622,314.795 A 2449.659,2449.659 0 0 1 89.898,200.171"/>
+	<polygon fill="black" stroke-width="1" points="629.622,314.795 622.141,309.048 621.178,319.002"/>
+	<text x="154.5" y="304.5" font-family="Times New Roman" font-size="20">when the car is driving straight</text>
+	<path stroke="black" stroke-width="1" fill="none" d="M 64.835,416.645 A 1874.46,1874.46 0 0 1 629.502,317.851"/>
+	<polygon fill="black" stroke-width="1" points="629.502,317.851 621.405,313.009 621.602,323.007"/>
+	<text x="243.5" y="329.5" font-family="Times New Roman" font-size="20">the blinker is off</text>
+</svg>
