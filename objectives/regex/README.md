@@ -162,6 +162,8 @@ Write a regex that matches a `1`, followed by 0 or more `2`s, followed by 0-1 `3
 ```
 12*3?
 ```
+<!-- 1{1}2*3* --> ANSWER !!! 
+
 
 ### Write a Regular Expression
 
