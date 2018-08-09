@@ -22,6 +22,7 @@ rl.on('line', function (line) {
     const suffix = digits.substring(6, 10);
 
     // If match found, print number with no spaces, parens, or dashes
+    print(areaCode, prefix, suffix)
 
     // Else print that no number was found
 });
