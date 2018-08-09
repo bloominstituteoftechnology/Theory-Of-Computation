@@ -28,9 +28,11 @@ rl.on('line', function (line) {
   
   // if only one match was found we need to split the match into three parts
   // this is for phone numbers formatted like `5551234567`
+  console.log(matches);
+
   if (matches.length === 1) {
     matches[0] = matches[0].match(/(\d{3})(\d{3})(\d+)/);
-
+    
     for (let i = 1; i < 4; i++) {
       phoneNumberStructure[ i ] += matches[0][i];
     }
@@ -44,7 +46,15 @@ rl.on('line', function (line) {
   }
   
   // If match found, print number with no spaces, parens, or dashes
-  for (key in phoneNumberStructure)
-    console.log(phoneNumberStructure[ key ]);
+  // for (key in phoneNumberStructure)
+  //   console.log(phoneNumberStructure[ key ]);
+
+  // If match found, print number with no spaces, parens, or dashes
+  if (matches) {
+    console.log(`Area Code: ${matches[0]}\nPrefix: ${matches[1]}\nSuffix: ${matches[2]}`);
+  // Else print that no number was found
+  } else {
+    console.log('no number found');
+  };
 
 });
