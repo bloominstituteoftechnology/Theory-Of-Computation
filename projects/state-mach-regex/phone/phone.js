@@ -19,8 +19,8 @@ var rl = readline.createInterface({
 // Match on 0 or 1 dashes
 // Match on 4 digits
 
+// Wrting the regex
 const regex = /\(?(\d{3})\)?\s*-?\s*(\d{3})\s*-?\s*(\d{4})/;
-
 
 rl.on('line', function (line) {
 
@@ -31,12 +31,11 @@ rl.on('line', function (line) {
 
     // Find matches
     if (!matched) {
-      console.log('Number not found');
+      console.log('Number not found'); // If no match
     } else {
-      console.log(`Area code: ${matched[1]}\nPrefix: ${matched[2]}\nSuffix: ${matched[3]}`);
+      console.log(`Area code: ${matched[1]}\nPrefix: ${matched[2]}\nSuffix: ${matched[3]}`); //Output of matched phone #s
     }
 
     // If match found, print number with no spaces, parens, or dashes
-
     // Else print that no number was found
 });
