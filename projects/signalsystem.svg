@@ -1,0 +1,43 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+
+<svg width="800" height="800" version="1.1" xmlns="http://www.w3.org/2000/svg">
+	<ellipse stroke="black" stroke-width="2" fill="black" cx="400" cy="100" rx="35" ry="35"/>
+	<text x="373" y="105" font-family="Impact" font-size="17" fill="white">both off</text>
+	<ellipse stroke="black" stroke-width="2" fill="yellow" cx="100" cy="400" rx="35" ry="35"/>
+	<text x="89" y="407" font-family="Impact" font-size="17">left</text>
+	<ellipse stroke="black" stroke-width="2" fill="yellow" cx="700" cy="400" rx="35" ry="35"/>
+	<text x="684" y="407" font-family="Impact" font-size="17">right</text>
+	<ellipse stroke="black" stroke-width="2" fill="black" cx="400" cy="700" rx="35" ry="35"/>
+	<text x="375" y="706" font-family="Impact" font-size="17" fill="white">both on</text>
+	<path stroke="green" stroke-width="2" fill="none" d="M 435,100 A 360,360 0 0 1 700,365"/>
+	<polygon fill="green" stroke-width="1" points="693,357 703,357 698,365"/>
+	<text x="500" y="-310" font-family="Arial" font-size="17" transform="rotate(45)">lever the signal on</text>
+	<path stroke="green" stroke-width="2" fill="none" d="M 100,365 A 360,360 0 0 1 365,100"/>
+	<polygon fill="green" stroke-width="1" points="96,357 106,357 101,365"/>
+	<text x="-70" y="255" font-family="Arial" font-size="17" transform="rotate(-45)">lever the signal on</text>
+	<path stroke="blue" stroke-width="2" fill="none" d="M 700,435 A 360,360 0 0 1 435,700"/>
+	<polygon fill="blue" stroke-width="1" points="435,700 441,693 443,703"/>
+	<text x="-70" y="885" font-family="Arial" font-size="17" transform="rotate(-45)">switch hazard on</text>
+	<path stroke="blue" stroke-width="2" fill="none" d="M 365,700 A 360,360 0 0 1 100,435"/>
+	<polygon fill="blue" stroke-width="1" points="365,700 359,693 357,703"/>
+	<text x="500" y="320" font-family="Arial" font-size="17" transform="rotate(45)">switch hazard on</text>
+	<polygon stroke="red" stroke-width="2" points="700,365 435,100"/>
+	<polygon fill="red" stroke-width="1" points="435,100 437,109 443,103"/>
+	<text x="500" y="-210" font-family="Arial" font-size="17" transform="rotate(45)">lever the signal off</text>
+	<polygon stroke="red" stroke-width="2" points="100,365 365,100"/>
+	<polygon fill="red" stroke-width="1" points="365,100 363,109 357,103"/>
+	<text x="-80" y="355" font-family="Arial" font-size="17" transform="rotate(-45)">lever the signal off</text>
+	<polygon stroke="blueviolet" stroke-width="2" points="435,700 700,435"/>
+	<polygon fill="blueviolet" stroke-width="1" points="690,437 700,435 697,444"/>
+	<text x="-130" y="780" font-family="Arial" font-size="17" transform="rotate(-45)">switch hazard off, lever right signal</text>
+	<polygon stroke="blueviolet" stroke-width="2" points="365,700 100,435"/>
+	<polygon fill="blueviolet" stroke-width="1" points="100,435 110,437 103,444"/>
+	<text x="435" y="220" font-family="Arial" font-size="17" transform="rotate(45)">switch hazard off, lever left signal</text>
+	<path stroke="violet" stroke-width="2" fill="none" d="M 400,135 A 600,600 0 0 1 400,665"/>
+	<polygon fill="violet" stroke-width="1" points="400,665 408,660 399,656"/>
+	<text x="340" y="-480" font-family="Arial" font-size="17" transform="rotate(90)">switch hazard on</text>
+	<path stroke="grey" stroke-width="2" fill="none" d="M 400,665 A 600,600 0 0 1 400,135"/>
+	<polygon fill="grey" stroke-width="1" points="400,135 392,140 401,144"/>
+	<text x="-470" y="320" font-family="Arial" font-size="17" transform="rotate(-90)">switch hazard off</text>
+</svg>
