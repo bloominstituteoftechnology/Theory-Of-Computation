@@ -9,9 +9,21 @@ if (args.length != 1) {
 
 const filename = args[0];
 
+
 // !!!! IMPLEMENT ME
 
 // Read file
+
+fs.readFile(filename, 'utf8', (err, data) => {
+    if (err) throw err;
+    links = /https?.+?(?=\")/g
+    fs.writeFile('result', data.match(links), 'utf8', () => {
+        console.log(data.match(links))
+    })
+});
+
+
+
 
 // Set up regex
 
