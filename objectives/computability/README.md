@@ -150,6 +150,12 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 
 * Where do you see boolean algebra used in JavaScript?
 
+    Javascript &&, ||, ===, !== use boolean algrebra
+
 * What are some examples of logical symbols in JavaScript?
 
+    &&, || and ! are logical operators in javascript
+
 * The Analytical Engine was never constructed. Why not?
+
+    Babbage was unable to generte promised mathematical tables and hence goverment stopped funding for project
