@@ -158,16 +158,16 @@ Notice how the `+` in the regex forms a loop in the state machine diagram
 ### Write a Regular Expression
 
 Write a regex that matches a `1`, followed by 0 or more `2`s, followed by 0-1 `3`s.
+*************
+\(12*3?)\g
 
-```
-12*3?
-```
 
 ### Write a Regular Expression
 
 Write a regex that matches any one or two digit number, followed by a space,
 followed by the word `monkey`, followed by 0 or 1 `s`s.
-
+*************
+/\d{0,2} (monkey)s?/g
 
 ### Convert Regex to State Machine Diagram
 
