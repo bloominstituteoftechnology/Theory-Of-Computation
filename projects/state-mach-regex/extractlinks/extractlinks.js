@@ -14,15 +14,18 @@ fs.readFile("stackoverflow.html", 'utf8', function (err, data) {
     if(err) {
         return console.log(err)
     }
+
+    const regexExp = /\http:|https:+.*?(\.com|")/g
+    // const matches = data.match(/ (http|https) /g)
+    // console.log(matches)
     // console.log(data.match(/\http+.*?\.com/g))
-    console.log(data.match(/\http:+.*?\'/g))
-    console.log(data.match(/\http:+.*?\'/g).length)
-    console.log(data.match(/\http:+.*?\"/g))
-    console.log(data.match(/\http:+.*?\"/g).length)
-    console.log(data.match(/\https:+.*?\'/g))
-    console.log(data.match(/\https:+.*?\'/g).length)
-    console.log(data.match(/\https:+.*?\"/g))
-    console.log(data.match(/\https:+.*?\"/g).length)
+    console.log(data.match(regexExp))
+    console.log(data.match(regexExp).length)
+    // console.log(data.match(/\http:|https:+.*?\"/g))
+    // console.log(data.match(/\http:|https:+.*?\"/g).length)
+    // console.log(data.match(/\http:+.*?\"/g).length)
+    // console.log(data.match(/\https:+.*?\/g))
+    // console.log(data.match(/\https:+.*?\B/g).length)
     // console.log(data.match(/\http+.*?\'/g))
     // console.log(data.match(/\http+.*?\.com/g))
     // console.log(data.match(/\href+.*/g))
