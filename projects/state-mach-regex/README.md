@@ -12,7 +12,7 @@
 
 ```
 curl https://stackoverflow.com > stackoverflow.html
-node extractlinks.js stackoverflow.html
+python3 extract_links.py stackoverflow.html
 ```
 
 This command will produce all of the links from the StackOverflow main page in
