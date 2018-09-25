@@ -24,11 +24,14 @@ filename = sys.argv[1]
 # save in list called 'answer_data'
 
 
-# UNCOMMENT WHEN READY TO CHECK IF YOUR REGEX IS FINDING ALL THE LINKS
-# # Compare answers with matches found using regex, print out any mismatches
+# Compare answers with matches found using regex, print out any mismatches
+# UNCOMMENT BELOW WHEN READY TO CHECK IF YOUR REGEX IS FINDING ALL THE LINKS
 # result = "All links matched!"
-# for i in range( len(answer_data) ):
-#   if( matches[i] != answer_data[i] ):
-#     result = "Mismatched link. Got %s but expected %s" % ( matches[i], answer_data[i] )
-#     break
+# if len( matches ) != len( answer_data ):
+#   result = "Your regex found %i matches. There should be %i matches" %(len( matches ), len( answer_data ) )
+# else:
+#   for i in range( len(answer_data) ):
+#     if( matches[i] != answer_data[i] ):
+#       result = "Mismatched link. Got %s but expected %s" % ( matches[i], answer_data[i] )
+#       break
 # print( result )
