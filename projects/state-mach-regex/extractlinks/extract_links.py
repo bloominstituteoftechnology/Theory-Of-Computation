@@ -1,20 +1,23 @@
-#!/usr/bin/python
-
+import re # module for processing regular expressions https://docs.python.org/3/library/re.html
 import sys
-import re
-import json
 
 if __name__ == '__main__':
-  if len(sys.argv) != 2:
-    print("usage: extract_links.py [input_file]")
-    sys.exit(0)
-  
-  filename = sys.argv[1]
-  
-  with open(filename) as file:
-    read_data = file.read()
-  
-  links = re.findall(r'https?:\/\/[^\'">\s]+?\.[^\'">\s]+', read_data)
+    # Exit if command line args entered incorrectly
+    if len(sys.argv) != 2:
+        print("usage: extract_links.py [input_file]")
+        sys.exit(0)
 
-  with open('./links.txt', 'w') as f:
-    json.dump(links, f)
+# Filename is 2nd command line arg
+filename = sys.argv[1]
+
+# TODO Read HTML file
+
+
+# TODO Set up regex
+
+
+# TODO Find matches
+
+
+# TODO Print all matches
+
