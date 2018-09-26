@@ -77,7 +77,7 @@ The pursuit of ancient philosophy from Aristotle and Stoic philosophers near 300
 [Calculus](https://en.wikipedia.org/wiki/Calculus)
 
 Not a direct antecedent of Computer Science, Calculus instead is part of the
-train of reasonining that informs all of the modern world: Logic and formal
+train of reasoning that informs all of the modern world: Logic and formal
 analysis can describe the behavior of things.
 
 [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra)
@@ -99,7 +99,7 @@ Charles Babbage first proposed that these formal rules could be automated. He
 built part of the Difference Engine and proposed the design of the Analytical
 Engine. His work became the foundation of formal automata theory.
 
-[Ada Lovelace](https://en.wikipedia.org/wiki/Charles_Babbage) (1815-1852)
+[Ada Lovelace](https://en.wikipedia.org/wiki/Ada_Lovelace) (1815-1852)
 
 The first computer programmer, Ada Lovelace studied under Charles Babbage and
 created the first languages to automate the unbuilt Analytical Engine. 
@@ -121,7 +121,7 @@ models](https://en.wikipedia.org/wiki/Theory_of_computation)
 special importance in Computer Science!
 
 One of the first decision problems and the foundation of Computer Science.
-Turing Machine was invented in order to provide a solution for this problem -
+The Turing Machine was invented in order to provide a solution for this problem -
 that it is undecidable.
 
 The question is: Can a program be written `f` that will for every other program

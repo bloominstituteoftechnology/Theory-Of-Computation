@@ -12,7 +12,7 @@
 
 ```
 curl https://stackoverflow.com > stackoverflow.html
-node extractlinks.js stackoverflow.html
+python3 extract_links.py stackoverflow.html
 ```
 
 This command will produce all of the links from the StackOverflow main page in
@@ -39,4 +39,9 @@ the url from the double quotes `"` surrounding it.
 
 The output of any of these phone #s as input should be:
 
-      5551234567
+```
+Area code: 555
+Prefix: 123
+Suffix: 4567
+```
+

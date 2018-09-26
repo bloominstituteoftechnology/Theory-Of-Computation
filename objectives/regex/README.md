@@ -15,7 +15,7 @@ match patterns in strings of characters.
 [0-9]  Match any digit 0-9
 a?     Match 0 or 1 occurrences of the letter a
 b*     Match 0 or more occurrences of the letter b
-c+     Match 1 or more occurrences of the letter b
+c+     Match 1 or more occurrences of the letter c
 .      Match any character
 .*     Match 0 or more of any character
 \.     Match a period (\ not necessary when using [])
@@ -148,13 +148,7 @@ When converting to a state machine, it might be useful to think of the states as
 foo+d    matches food foood foooood etc.
 ```
 
-```
-+---+ f  +---+ o  +---+ o  +---+ d  +===+
-| S |--->| 1 |--->| 2 |--->| 2 |--->| 3 |
-+---+    +---+    +---+    +---+    +===+
-                           /o ^
-                           \__/
-```
+![Fooood State Machine](img/fooood-sm.png)
 
 Notice how the `+` in the regex forms a loop in the state machine diagram
 
@@ -184,8 +178,4 @@ Draw a state machine diagram for the following regex that matches a clock time.
 For this, it's OK to have a single transition for all the digits, e.g. "Go from
 start state to state 1 if the input is `[0-9]` or ε":
 
-```
-+---+  [0-9]   +---+
-| S |--------->| 1 |
-+---+    ε     +---+
-```
+![Regex to State Machine](img/regex-to-sm.png)
