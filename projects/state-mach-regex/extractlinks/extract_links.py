@@ -18,7 +18,7 @@ f = open(filename, 'r')
 contents = f.readlines()
 
 # TODO Set up regex
-regex = re.compile(r'http[s]?:\/\/.+?[\'"]')
+regex = re.compile(r'http[s]?:\/\/.[^+:]{7,}?[\'\"]')
 
 unformatted_matches = []
 
