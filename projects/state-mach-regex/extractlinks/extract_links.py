@@ -18,8 +18,12 @@ textfile.close()
 """https://regexone.com/references/python"""
 # TODO Set up regex
 """
-https*:// - http (0-1) s ://
-(?=") - positive lookahead for ' or "
+https?://  - http (0-1) s ://
+[a-z0-9-]+ - can have a-z 0-9 or - in the address, 1 or more
+\.         - matches a .
+.+         - matches 1 or more any char
+?          - makes it "lazy" so gets the min
+(?=\'|\")  - positive look-ahead - gets all chars until ' or "
 """
 regex = r"https?://[a-z0-9-]+\..+?(?=\'|\")"  # r means "raw string" i.e. not interpolated
 
