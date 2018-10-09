@@ -150,6 +150,12 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 
 * Where do you see boolean algebra used in JavaScript?
 
+    > Truthy & Falsy values, logical operators, mostly if statements.
+
 * What are some examples of logical symbols in JavaScript?
 
+    > `&&`, `||`, `!`
+
 * The Analytical Engine was never constructed. Why not?
+
+    > Due to conflicts with chief engineer and funding shortcomings.

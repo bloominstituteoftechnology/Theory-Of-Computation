@@ -11,9 +11,12 @@ if __name__ == '__main__':
 filename = sys.argv[1]
 
 # TODO Read HTML file
+htmlfile = fopen(filename, 'r');
+ # fclose(htmlfile);
 
 
 # TODO Set up regex
+ # r = r"http"
 
 
 # TODO Find links using regex, save in list called 'matches'
