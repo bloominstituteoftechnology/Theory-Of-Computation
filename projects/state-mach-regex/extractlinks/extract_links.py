@@ -11,7 +11,8 @@ if __name__ == '__main__':
 filename = sys.argv[1]
 
 # TODO Read HTML file
-
+curl https://stackoverflow.com > stackoverflow.html
+python3 extract_links.py stackoverflow.html
 
 # TODO Set up regex
 
