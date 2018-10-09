@@ -20,7 +20,7 @@ filename = sys.argv[1]
 
 
 # Check matches, print results
-# TODO Read in links from answers.txt (hint...this is a CSV file), 
+# TODO Read in links from answers.txt (hint...this is a CSV file),
 # save in list called 'answer_data'
 
 
