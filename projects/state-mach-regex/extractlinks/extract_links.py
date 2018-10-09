@@ -10,19 +10,20 @@ if __name__ == '__main__':
 # Filename is 2nd command line arg
 filename = sys.argv[1]
 
-# TODO Read HTML file
+# TODO Read HTML file, Set up regex, Find links using regex, save in list called 'matches'
 
-
-# TODO Set up regex
-
-
-# TODO Find links using regex, save in list called 'matches'
-
+with open(filename) as f:
+    matches = re.findall('"((http)s?://.*?)"', f.read())
 
 # Check matches, print results
+
+print(matches)
+
 # TODO Read in links from answers.txt (hint...this is a CSV file), 
 # save in list called 'answer_data'
 
+with open(filename) as f:
+    answer_data = re.findall('"((http)s?://.*?)"', f.read())
 
 # Compare answers with matches found using regex, print out any mismatches
 # UNCOMMENT BELOW WHEN READY TO CHECK IF YOUR REGEX IS FINDING ALL THE LINKS
