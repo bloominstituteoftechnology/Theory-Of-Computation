@@ -13,7 +13,15 @@ filename = sys.argv[1]
 # TODO Read HTML file
 
 
+
+f1 = open(new_file + '.html', 'r', encoding="utf-8")
+
+with open(r'H:\Python\Project\File','r') as f:
+     tree = html.fromstring(f.read())
+
 # TODO Set up regex
+
+ https? -- Match on http or https
 
 
 # TODO Find links using regex, save in list called 'matches'
