@@ -11,10 +11,11 @@ if __name__ == '__main__':
 filename = sys.argv[1]
 
 # TODO Read HTML file
-
+with open(filename) as f:
+    matches = re.findall('"((http)s?://.*?)"', f.read())
 
 # TODO Set up regex
-
+print(matches)
 
 # TODO Find links using regex, save in list called 'matches'
 
@@ -22,6 +23,8 @@ filename = sys.argv[1]
 # Check matches, print results
 # TODO Read in links from answers.txt (hint...this is a CSV file), 
 # save in list called 'answer_data'
+with open(filename) as f:
+    answer_data = re.findall('"((http)s?://.*?)"', f.read())
 
 
 # Compare answers with matches found using regex, print out any mismatches
