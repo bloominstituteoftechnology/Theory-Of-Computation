@@ -14,14 +14,15 @@ filename = sys.argv[1]
 open('stackoverflow.html', 'r')
 
 # TODO Set up regex
-regex = r"([a-z]*)"
+regex = r"(^https:)"
 
 # TODO Find links using regex, save in list called 'matches'
-matches = re.findall(regex, "https")
+matches = re.findall(regex, "https:")
 
 # Check matches, print results
 for match in matches:
   print("%s" % (match))
+print(len(matches))
 # TODO Read in links from answers.txt (hint...this is a CSV file), 
 answers = open('answers.txt', 'r')
 
