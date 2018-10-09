@@ -12,13 +12,16 @@ filename = sys.argv[1]
 
 # TODO Read HTML file
 file = open("stackoverflow.html", "r")
-print(file.read())
+# print(file.read())
 
 # TODO Set up regex
-
+regex = r"(https:\/\/)[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9]\.[^\s]{2,})"
+# regex = r"\"https[a-z\.\:]+\""
 
 # TODO Find links using regex, save in list called 'matches'
-
+matches = re.findall(regex, file.read())
+for match in matches:
+    print("Full match: %s" % (match))
 
 # Check matches, print results
 # TODO Read in links from answers.txt (hint...this is a CSV file),
