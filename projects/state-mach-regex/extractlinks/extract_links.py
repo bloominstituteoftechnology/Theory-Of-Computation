@@ -11,7 +11,9 @@ if __name__ == '__main__':
 filename = sys.argv[1]
 
 # TODO Read HTML file
-
+filename = 'stackoverflow.html'
+f = open(filename, "r").read()
+print(f)
 
 # TODO Set up regex
 

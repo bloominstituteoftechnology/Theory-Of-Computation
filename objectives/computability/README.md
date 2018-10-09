@@ -149,7 +149,10 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 ## Exercises
 
 * Where do you see boolean algebra used in JavaScript?
+We see it in IF STATEMENTS (true and false) and  denoted by &&,|| and ! (and, or and not).
 
 * What are some examples of logical symbols in JavaScript?
+&&,|| and !. 
 
 * The Analytical Engine was never constructed. Why not?
+No appropriate funding and team conflicts.
