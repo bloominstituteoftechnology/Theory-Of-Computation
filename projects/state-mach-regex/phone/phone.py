@@ -17,7 +17,7 @@ line = input("Enter a phone number to validate or 'exit' when done. ")
   ?      #   between zero and one time.
 ⋯       # [Match the remaining digits and separator.]
 """
-regex = '\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})'
+regex = r'\(?([0-9]{3})\)?[- ]?([0-9]{3})[- ]?([0-9]{4})'
 
 while line != "exit":
     # TODO Find matches
