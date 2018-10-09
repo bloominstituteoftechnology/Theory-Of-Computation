@@ -15,7 +15,7 @@ if __name__ == '__main__':
 
 # TODO Set up regex
 # TODO Find links using regex, save in list called 'matches'
-  matches = re.findall(r'"https?:\/\/[a-z\.]+\.[a-z]+.*?"', file.read(), re.I);
+  matches = re.findall(r'"https?:\/\/[a-z\.1-9-]+\.[a-z]+.*?"', file.read(), re.I);
   file.close();
 
 # Check matches, print results
@@ -26,11 +26,7 @@ if __name__ == '__main__':
   answer_data = re.findall(r'"[^,]+"', answers_file.read(), re.I);
   answers_file.close();
 
-  difference = []
-  for i in range(len(answer_data)):
-    if answer_data[i] not in matches:
-      difference.append(answer_data[i])
-
+  
 # Compare answers with matches found using regex, print out any mismatches
 # UNCOMMENT BELOW WHEN READY TO CHECK IF YOUR REGEX IS FINDING ALL THE LINKS
 result = "All links matched!"
@@ -39,6 +35,7 @@ if len( matches ) != len( answer_data ):
 else:
   for i in range( len(answer_data) ):
     if( matches[i] != answer_data[i] ):
+      difference.append(answer_data[i]);
       result = "Mismatched link. Got %s but expected %s" % ( matches[i], answer_data[i] )
       break
 print( result )
