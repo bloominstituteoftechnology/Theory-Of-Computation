@@ -13,44 +13,27 @@ if __name__ == '__main__':
 filename = sys.argv[1]
 
 # TODO Read HTML file
-f = open(filename, 'r')
-
-contents = f.readlines()
+f = open(filename)
 
 # TODO Set up regex
-regex = re.compile(r'http[s]?:\/\/.[^+:]{7,}?[\'\"]')
-
-unformatted_matches = []
-
-for line in contents:
-  line_matches = re.findall(regex, line)
-  if(line_matches):
-    for link in line_matches:
-      unformatted_matches.append(line_matches)
+regex = r"http[s]?:\/\/[a-z0-9_-]+\..+?(?=\'|\")"
 
 matches = []
 
-for item in unformatted_matches:
-  item = item[0][0:-1]
-  matches.append(item)
+for line in f:
+  matches.extend(re.findall(regex, line))
 
 # Check matches, print results
 # TODO Read in links from answers.txt (hint...this is a CSV file), 
 # save in list called 'answer_data'
-all_links = ''
-unformatted_answer_data = []
-
-with open('answers.txt', 'r') as csvfile:
-  spamreader = csv.reader(csvfile, delimiter=' ', quotechar='|')
-  for row in spamreader:
-    all_links = ', '.join(row)
-    unformatted_answer_data = all_links.split(',')
 
 answer_data = []
 
-for link in unformatted_answer_data:
-  link = link[1:-1]
-  answer_data.append(link)
+with open('answers.txt') as csvfile:
+  csv_reader = csv.reader(csvfile, delimiter=',')
+  for row in csv_reader:
+    answer_data = row
+
 
 print("In answers and not in matches")
 for link in answer_data:
