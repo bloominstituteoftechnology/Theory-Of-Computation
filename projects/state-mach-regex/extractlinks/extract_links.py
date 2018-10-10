@@ -19,7 +19,7 @@ f = open(path+'\\'+filename, 'r', encoding='utf-8')
 content = f.read()
 
 # TODO Set up regex
-regex = re.compile(r"[\'\"]https?:\/\/[a-zA-Z0-9.-]+(\.).+?[\'\"]")
+regex = re.compile(r"[\'\"]https?:\/\/[a-zA-Z0-9.-]+\..+?[\'\"]")
 
 # TODO Find links using regex, save in list called 'matches'
 found = re.findall(regex, content)
