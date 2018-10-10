@@ -5,18 +5,20 @@ line = input("Enter a phone number to validate or 'exit' when done. ")
 
 # TODO Define your regex
 
+regex = r'([0-9]\d{2}).*(\d{3}).*(\d{4})$'
 
 while line != "exit":
     # TODO Find matches
-
-    
+    matches = re.search(regex, line)
+    if not matches:
     # TODO If no match found, print that no number was found
    
-   
+        print("No number was found.") 
     
     # TODO Else, break number up into area code, prefix, and suffic
     
-    
+    else:
+        print('Area code: %s\nPrefix: %s\nSuffix: %s\n' % (matches.group(1), matches.group(2), matches.group(3)))
     # As a stretch goal, you can modify your regex to search for country codes
     # too and print that out as well!
     
