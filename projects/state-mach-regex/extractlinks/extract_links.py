@@ -14,19 +14,18 @@ with open(html_page, 'r') as f:
 
 f.close()
 
-regex = "''"
+regex = "https?:\/\/[^\"\']+?\.[^\"\']+"
 
 matches = re.findall(regex, parsed_file)
 
-print(matches)
-
 answer_data = []
 
-with open('stackoverflow.html') as csvfile:
+with open('answers.txt') as csvfile:
     reader = csv.reader(csvfile, delimiter=',')
-    next(reader)
     for row in reader:
-        answer_data.append(row)
+        answer_data = row
+
+csvfile.close()
 
 result = "All links matched!"
 if len( matches ) != len( answer_data ):
