@@ -14,7 +14,7 @@ filename = sys.argv[1]
 html = open('stackoverflow.html', 'r')
 
 # TODO Set up regex
-regex = r"https?://[0-9a-zA-Z$\-_.+!*\(\),]+\.[0-9a-zA-Z$\-_,+!*\(\),]+"
+regex = r"(https?://[0-9a-zA-Z$\-_.+!*\(\),]+\.[0-9a-zA-Z$\-_,+!*\(\),]+)"
 
 # TODO Find links using regex, save in list called 'matches'
 matches = []
