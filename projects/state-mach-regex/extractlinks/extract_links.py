@@ -13,10 +13,11 @@ if __name__ == '__main__':
 filename = sys.argv[1]
 
 # TODO Read HTML file
-html = urlopen(filename)
+html = open(filename)
 
 # TODO Set up regex
-regex = r"http[s]?:\/\/.+[.]+[a-z]+.*?"
+regex = r"https?://[a-z0-9-]+\..+?(?=\'|\")"
+# regex = r"http[s]?:\/\/[0-9a-zA-Z\-_.+!*'\(\),]+[\/\/[0-9a-zA-Z\-_.+!*\(\),;/?:]+"
 
 # TODO Find links using regex, save in list called 'matches'
 matches = []
