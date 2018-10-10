@@ -11,28 +11,35 @@ if __name__ == '__main__':
 filename = sys.argv[1]
 
 # TODO Read HTML file
-open('stackoverflow.html', 'r')
+html = open('stackoverflow.html', 'r')
 
 # TODO Set up regex
-regex = r"(^https:)"
+regex = r"https?://[0-9a-zA-Z$\-_.+!*\(\),]+\.[0-9a-zA-Z$\-_,+!*\(\),]+"
 
 # TODO Find links using regex, save in list called 'matches'
-matches = re.findall(regex, "https:")
+matches = []
+
 
 # Check matches, print results
+for line in html:
+  matches.extend(re.findall(regex, line))
 for match in matches:
-  print("%s" % (match))
-print(len(matches))
+  print(match)
+
 # TODO Read in links from answers.txt (hint...this is a CSV file), 
 answers = open('answers.txt', 'r')
 
 # save in list called 'answer_data'
-answer_data = list(answers)
+answer_data = []
+with open('answers.txt') as csv_file:
+  csv_reader=csv.reader(csv_file, delimiter=",")
+  for row in csv_reader:
+    answer_data = row
 
 # Compare answers with matches found using regex, print out any mismatches
-for answer in answer_data:
-  if answer not in matches:
-    print(answer)
+#for answer in answer_data:
+  #if answer not in matches:
+    #print(answer)
 # UNCOMMENT BELOW WHEN READY TO CHECK IF YOUR REGEX IS FINDING ALL THE LINKS
 result = "All links matched!"
 if len( matches ) != len( answer_data ):
