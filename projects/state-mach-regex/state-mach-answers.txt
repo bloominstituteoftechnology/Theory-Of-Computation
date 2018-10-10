@@ -1,12 +1,48 @@
 ############################
-############################                                                                                #####################                                          ############################
-# Both lights not blinking # -------Encountering a left turn or Intending to switch to a left lane -------># Left light blinking#-----> Turn or Lane switch completed ---- # Both lights not blinking #
-############################                                                                                #####################                                          ############################
-############################                                                                                 #######################                                          ############################
-############################ ------- Encountering a right turn or Intending to switch to a right lane  ----> # Right light blinkng #-----> Turn or Lane switch completed ---- # Both lights not blinking #
-            |                                                                                                #######################                                          ############################
+# Both lights not blinking #
+############################
+            ^
             |
             |
+            |
+            |
+Turn or Lane switch completed
+            |
+            |
+            |
+            |
+######################
+# Left light blinking#
+######################
+            ^
+            |
+            |
+            |
+            |
+Encountering a left turn or Intending to switch to a left lane            
+            |
+            |
+            |
+            |
+############################
+############################
+# Both lights not blinking # 
+############################
+############################                                                                                 #######################
+############################ ------- Encountering a right turn or Intending to switch to a right lane  ----> # Right light blinkng #  
+            |                                                                                                #######################
+            |                                                                                                           |
+            |                                                                                                           |
+            |                                                                                                           |
+            |                                                                                                           V
+            |                                                                                               Turn or Lane switch completed
+            |                                                                                                           |
+            |                                                                                                           |
+            |                                                                                                           |
+            |                                                                                                           V
+            |                                                                                               ############################
+            |                                                                                               # Both lights not blinking #
+            |                                                                                               ############################
 Hazardous situation arises in car/hazard lights are pressed
             |
             V
