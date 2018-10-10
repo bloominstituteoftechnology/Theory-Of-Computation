@@ -4,17 +4,24 @@ import re # module for processing regular expressions https://docs.python.org/3/
 line = input("Enter a phone number to validate or 'exit' when done. ")
 
 # TODO Define your regex
+#regex = r"(\d{3} |\(\d{3}\))?(\s | - |\.)?\d{3}(\s | - |\.)\d{4}(\s*(ext | x | ext.)\s *\d{2, 5})?
+regex = r"^\(?[0-9]{3}[\) -]*[0-9]{3}[ -]*[0-9]{4}$"
 
 
 while line != "exit":
     # TODO Find matches
-
+    match = re.match(regex, line)
     
     # TODO If no match found, print that no number was found
-   
-   
-    
+    if match is None:
+        print("no match found\n")
+    else:
     # TODO Else, break number up into area code, prefix, and suffic
+        nums = [i for i in match.group() if i.isnumeric()]
+        area_code = nums[:3]
+        prefix = nums[3:6]
+        suffix = nums[6:]
+        print(f"  area code: {''.join(area_code)}\n  prefix: {''.join(prefix)}\n  suffix: {''.join(suffix)}\n")
     
     
     # As a stretch goal, you can modify your regex to search for country codes
