@@ -1,0 +1,60 @@
+############################
+# Both lights not blinking #
+############################
+            ^
+            |
+            |
+            |
+            |
+Turn or Lane switch completed
+            |
+            |
+            |
+            |
+######################
+# Left light blinking#
+######################
+            ^
+            |
+            |
+            |
+            |
+Encountering a left turn or Intending to switch to a left lane            
+            |
+            |
+            |
+            |
+############################
+############################
+# Both lights not blinking # 
+############################
+############################                                                                                 #######################
+############################ ------- Encountering a right turn or Intending to switch to a right lane  ----> # Right light blinkng #  
+            |                                                                                                #######################
+            |                                                                                                           |
+            |                                                                                                           |
+            |                                                                                                           |
+            |                                                                                                           V
+            |                                                                                               Turn or Lane switch completed
+            |                                                                                                           |
+            |                                                                                                           |
+            |                                                                                                           |
+            |                                                                                                           V
+            |                                                                                               ############################
+            |                                                                                               # Both lights not blinking #
+            |                                                                                               ############################
+Hazardous situation arises in car/hazard lights are pressed
+            |
+            V
+ ########################
+ # Both Lights blinking #
+ ########################
+            |                                                                                       
+            |
+            |
+Hazardous situation subsides in car/hazard lights are pressed (again)
+            |
+            V
+############################
+# Both lights not blinking #
+############################
