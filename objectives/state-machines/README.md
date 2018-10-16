@@ -75,4 +75,12 @@ Video game AIs can exist in a lot of states, e.g. idling, bored, running, shooti
 1. Come up with a list of 4 states an AI can be in.
    crouched, running, shooting, jumping
 2. Figure out the transitions between those states.
+   Press A to Crouch, Press B to Run, Press Y to Shoot and X to Jump
 3. Draw a state machine diagram of your AI.
+   A --> Crouch
+   B --> Run
+   Y --> Shoot
+   X --> Jump
+   A + Y --> Crouch and Shoot
+   B + Y --> Run and Shoot
+   X + Y --> Jump and Shoot
