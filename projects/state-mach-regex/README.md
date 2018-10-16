@@ -6,6 +6,18 @@
    transitions leading to both lights not blinking, one light blinking, the
    other light blinking, or both lights blinking?
 
+
++--------------+                       +---------------+
+|left signal on|------------>|<--------|right signal on|
++--------------+             |         +---------------+
+        ^            Driving | Straight         ^
+        |                    v                  |
+        |Turning left +----------------+        | Turning right       
+        |-------------|Both signals off|--------|    
+                      +----------------+         
+
+
+
 ## Regular Expressions
 
 1. Write a regex to parse all links from a web page and print them:
