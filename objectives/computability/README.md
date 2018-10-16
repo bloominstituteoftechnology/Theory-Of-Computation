@@ -154,3 +154,4 @@ Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
   ! || &
 
 - The Analytical Engine was never constructed. Why not?
+  The reasons are still debated and the cocktail of considerations is a rich one. Babbage was a prickly character, highly principled, easily offended and given to virulent public criticism of those he took to be his enemies. Runaway costs, high precision, a disastrous dispute with his engineer, fitful financing, political instability, accusations of personal vendettas, delays, failing credibility and the cultural divide between pure and applied science, were all factors.
