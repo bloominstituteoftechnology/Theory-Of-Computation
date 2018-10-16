@@ -11,17 +11,32 @@ if __name__ == '__main__':
 filename = sys.argv[1]
 
 # TODO Read HTML file
-
+# html = open(filename)
 
 # TODO Set up regex
-
+# regex = r"https?://[\dA-z]+\..+?(?=\'|\")"
 
 # TODO Find links using regex, save in list called 'matches'
+# matches = []
+# for line in html: 
+#     matches.extend(re.findall(regex, line))
+# for match in matches:
+#     print(match)
 
+# re.findall(pattern, string, flags=0)
+# Return all non-overlapping matches of pattern in string, as a list of strings. 
+# The string is scanned left-to-right, and matches are returned in the order found. 
+# If one or more groups are present in the pattern, return a list of groups; 
+# this will be a list of tuples if the pattern has more than one group. 
 
 # Check matches, print results
 # TODO Read in links from answers.txt (hint...this is a CSV file), 
 # save in list called 'answer_data'
+# answer_data = []
+# with open('answers.txt') as csv_file:
+#     csv_reader = csv_reader(csv_file, delimiter=",")
+#     for row in csv_reader:
+#         answer_data = row
 
 
 # Compare answers with matches found using regex, print out any mismatches
