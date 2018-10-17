@@ -13,8 +13,8 @@ finite automata.
 A finite state machine is the most common construct in all of Computer Science.
 It is the basis on which the rest of computation is built.
 
-* [Finite-state machine](https://en.wikipedia.org/wiki/Finite-state_machine)
-* [Automata Theory](https://en.wikipedia.org/wiki/Automata_theory)
+- [Finite-state machine](https://en.wikipedia.org/wiki/Finite-state_machine)
+- [Automata Theory](https://en.wikipedia.org/wiki/Automata_theory)
 
 A _state machine_ is a collection of _states_ and _transitions_ between those
 states. Each transition is a description of what triggers the transition into
@@ -41,11 +41,11 @@ event is required (or no input consumed) for the transition to take place.
 
 State machines are frequently used explicitly in a number of programming situations.
 
-* Network protocols
-* Terminal emulators
-* Web login systems
-* Compilers
-* Game AI
+- Network protocols
+- Terminal emulators
+- Web login systems
+- Compilers
+- Game AI
 
 Anyplace _state_ needs to be maintained, a state machine is of use.
 
@@ -68,11 +68,19 @@ next input moves us to the next state.
 Follow the state machine as the user deposits a dime, a nickel, and then another
 dime.
 
-
 ### Draw a state machine diagram for a video game AI
 
 Video game AIs can exist in a lot of states, e.g. idling, bored, running, shooting.
 
 1. Come up with a list of 4 states an AI can be in.
+   crouched, running, shooting, jumping
 2. Figure out the transitions between those states.
+   Press A to Crouch, Press B to Run, Press Y to Shoot and X to Jump
 3. Draw a state machine diagram of your AI.
+   A --> Crouch
+   B --> Run
+   Y --> Shoot
+   X --> Jump
+   A + Y --> Crouch and Shoot
+   B + Y --> Run and Shoot
+   X + Y --> Jump and Shoot

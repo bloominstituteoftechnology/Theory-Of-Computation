@@ -2,9 +2,9 @@
 
 ## Objectives
 
-* Learn what general-purpose computation is
-* Learn the who's-who in the early study of computation
-* Learn about the Church-Turing Thesis
+- Learn what general-purpose computation is
+- Learn the who's-who in the early study of computation
+- Learn about the Church-Turing Thesis
 
 Why do I have to build data structures and what are they for? Data structures
 are specific examples of mechanical, automated problem solving.
@@ -49,7 +49,7 @@ Machine does.
 One of the most common places the λ-calculus makes an appearance is in
 [_functional programming
 languages_](ihttps://en.wikipedia.org/wiki/Functional_programming) such as
-[LISP](https://en.wikipedia.org/wiki/Lisp_(programming_language)).
+[LISP](<https://en.wikipedia.org/wiki/Lisp_(programming_language)>).
 
 > Functional Programming is what is called a [_programming
 > paradigm_](https://en.wikipedia.org/wiki/Programming_paradigm).
@@ -102,7 +102,7 @@ Engine. His work became the foundation of formal automata theory.
 [Ada Lovelace](https://en.wikipedia.org/wiki/Ada_Lovelace) (1815-1852)
 
 The first computer programmer, Ada Lovelace studied under Charles Babbage and
-created the first languages to automate the unbuilt Analytical Engine. 
+created the first languages to automate the unbuilt Analytical Engine.
 
 [Principia Mathematica](https://en.wikipedia.org/wiki/Principia_Mathematica)
 
@@ -145,11 +145,13 @@ special importance in Computer Science!
 [Gödel's Incompleteness
 Theorem](https://en.wikipedia.org/wiki/G%C3%B6del%27s_incompleteness_theorems)
 
-
 ## Exercises
 
-* Where do you see boolean algebra used in JavaScript?
+- Where do you see boolean algebra used in JavaScript?
+  if statements()
 
-* What are some examples of logical symbols in JavaScript?
+- What are some examples of logical symbols in JavaScript?
+  ! || &
 
-* The Analytical Engine was never constructed. Why not?
+- The Analytical Engine was never constructed. Why not?
+  The reasons are still debated and the cocktail of considerations is a rich one. Babbage was a prickly character, highly principled, easily offended and given to virulent public criticism of those he took to be his enemies. Runaway costs, high precision, a disastrous dispute with his engineer, fitful financing, political instability, accusations of personal vendettas, delays, failing credibility and the cultural divide between pure and applied science, were all factors.

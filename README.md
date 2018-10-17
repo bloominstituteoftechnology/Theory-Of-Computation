@@ -9,9 +9,9 @@
 
 ## Guided Demo
 
-* Conversion from regex to state machine.
-* Build a variety of regexes
+- Conversion from regex to state machine.
+- Build a variety of regexes
 
 ## Project
 
-* [State machines and regexes](projects/state-mach-regex)
+- [State machines and regexes](projects/state-mach-regex)
