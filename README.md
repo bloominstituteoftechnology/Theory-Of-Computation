@@ -8,11 +8,13 @@
 ## Project
 [State Machines in C](project/c-state-machines)
 
-## Legacy
+----------------
+
+### Legacy
 
 These modules have been deprecated but you can check them out if you are interested!
 1. [Regular Expressions](legacy/objectives/regex)
 2. [Languages](legacy/objectives/languages)
 
-## Legacy project
+#### Legacy project
 * [State machines and regexes](legacy/projects/state-mach-regex)
