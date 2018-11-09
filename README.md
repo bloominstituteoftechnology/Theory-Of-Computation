@@ -6,7 +6,7 @@
 2. [State Machines](objectives/state-machines)
 
 ## Project
-[State Machines in C](project/c-state-machines)
+[State Machines in C](project)
 
 ----------------
 
