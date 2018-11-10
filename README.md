@@ -4,14 +4,17 @@
 
 1. [Computability](objectives/computability)
 2. [State Machines](objectives/state-machines)
-3. [Regular Expressions](objectives/regex)
-4. [Languages](objectives/languages)
-
-## Guided Demo
-
-* Conversion from regex to state machine.
-* Build a variety of regexes
 
 ## Project
+[State Machines in C](project)
 
-* [State machines and regexes](projects/state-mach-regex)
+----------------
+
+### Legacy
+
+These modules have been deprecated but you can check them out if you are interested!
+1. [Regular Expressions](legacy/objectives/regex)
+2. [Languages](legacy/objectives/languages)
+
+#### Legacy project
+* [State machines and regexes](legacy/projects/state-mach-regex)
