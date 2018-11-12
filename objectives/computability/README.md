@@ -17,7 +17,7 @@ chemistry research, calculus, other mathematics, and finances. This lead to an
 academic discipline that involved philosophy about the nature of mathematics and
 what kinds of knowledge could be formally proven.
 
-Alonzo Church, Alan Turning, Stephen Kleene, Kurt Godel, David Hilbert, and
+Alonzo Church, Alan Turing, Stephen Kleene, Kurt Godel, David Hilbert, and
 others worked to formalize these ideas into mathematical proofs leading,
 eventually, to the Turing Machine and the proofs that accompanied it.
 

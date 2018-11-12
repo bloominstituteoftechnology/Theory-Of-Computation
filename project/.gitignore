@@ -1,0 +1,8 @@
+build
+*/build
+*/tests/state_machines_tests
+*.o
+*.dSYM
+*.log
+
+*/state_machines
