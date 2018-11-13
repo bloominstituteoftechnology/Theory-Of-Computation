@@ -80,11 +80,14 @@ State *create_state(char *name) {
  *****/
 Transition *create_transition(char *name, State *origin, State *destination) {
   // Allocate memory for transition struct
-  
+  Transition *transition = malloc(sizeof(Transition));
   // Allocate memory and copy transition name (hint: use strdup)
-
+  transition->name = strdup(name);
   // Set origin and destination states
+  transition->origin = origin;
+  transition->destination = destination;
 
+  return transition;
 }
 
 /*****
@@ -93,7 +96,10 @@ Transition *create_transition(char *name, State *origin, State *destination) {
  * TODO: FILL THIS IN
  *****/
 void destroy_state(State *state) {
-
+  if (state != NULL) {
+    free(state->name);
+    free(state);
+  }
 }
 
 /*****
@@ -102,7 +108,10 @@ void destroy_state(State *state) {
  * TODO: FILL THIS IN
  *****/
 void destroy_transition(Transition *transition) {
-
+  if (transition != NULL) {
+    free(transition->name);
+    free(transition);
+  }
 }
 
 /*****
