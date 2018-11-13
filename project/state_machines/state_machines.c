@@ -33,6 +33,9 @@ typedef struct StateMachine {
  *   CREATE & DESTROY FUNCTIONS
  *
  ************************************/
+// Comments: 
+//So the rule is this: if you have a struct, use the dot operator; if you have a pointer to a struct, use the arrow operator (->).
+
 
 /*****
  * Allocate memory for a new  state machine
@@ -42,7 +45,8 @@ typedef struct StateMachine {
 StateMachine *create_state_machine (int state_capacity, int transition_capacity) {
   // Allocate memory for state machine struct
   StateMachine *sm = malloc(sizeof(StateMachine));
-  // Current state should default to NULL
+  // Current state should default to NULL. The same as saying "deference pointer sm so we can use it"
+  // is equivilent to (*sm).current_state = NULL. We do this to treat it as if it is that variable
   sm->current_state = NULL;
   // num_states and num_transitions should default to 0
   sm->num_states = 0;
