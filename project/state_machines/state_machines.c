@@ -96,7 +96,10 @@ Transition *create_transition(char *name, State *origin, State *destination) {
  * TODO: FILL THIS IN
  *****/
 void destroy_state(State *state) {
-
+	if(state != NULL){
+		free(state->name);
+		free(state);
+	}
 }
 
 /*****
@@ -105,7 +108,10 @@ void destroy_state(State *state) {
  * TODO: FILL THIS IN
  *****/
 void destroy_transition(Transition *transition) {
-
+	if(transition != NULL){
+		free(transition->name);
+		free(transition);
+	}
 }
 
 /*****
