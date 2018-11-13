@@ -148,6 +148,8 @@ void destroy_state_machine(StateMachine *sm) {
 }
 
 
+
+
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
   if(sm->num_states >= sm->state_capacity){
@@ -177,6 +179,19 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
   return state;
 }
 
+
+State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
+  // Add a state to the state machine
+  // HINT: you can do this via the sm_add_state() function
+  State *state = sm_add_state(sm, state_name);
+
+  // If the new state is valid, set is_terminal to 1
+  if(state){
+    state->is_terminal = 1; 
+  }
+  return state;
+}
+
 int main(void)
 {
   StateMachine *sm = create_state_machine(10, 15);
@@ -187,6 +202,11 @@ int main(void)
   sm_add_state(sm, "15");
   sm_add_state(sm, "20");
 
+  sm_add_terminal_state(sm, "SODA");
+  sm_add_terminal_state(sm, "SODA + NICKEL");
+  sm_add_terminal_state(sm, "SODA + DIME");
+  sm_add_terminal_state(sm, "SODA + NICKEL + DIME");
+  sm_add_terminal_state(sm, "SODA + DIME + DIME");
 
   destroy_state_machine(sm);
 
