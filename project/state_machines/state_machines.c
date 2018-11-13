@@ -164,14 +164,14 @@ void destroy_state_machine(StateMachine *sm) {
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
   if(sm->num_states == sm->state_capacity) {
-    perror("Not enough capacity.");
+    perror("Not enough capacity.\n");
     return NULL;
   }
 
   // Return NULL and print an error if state name is not unique
   for(int i=0; i<sm->num_states; i++) {
     if (strcmp(sm->states[i]->name, state_name) == 0) {
-      perror("Name already exists");
+      perror("Name already exists\n");
       return NULL;
     }
   }
@@ -199,12 +199,11 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
 State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   // Add a state to the state machine
   // HINT: you can do this via the sm_add_state() function
-  StateMachine *state = sm_add_state(state_name);
+  StateMachine *state = sm_add_state(sm, state_name);
   // If the new state is valid, set is_terminal to 1
-  if(sm->current_state) {
-  sm->current_state->is_terminal = 1;
+  if(state != NULL) {
+    sm->current_state->is_terminal = 1;
   }
-
   return state;
 }
 
@@ -214,20 +213,26 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
  *
  * TODO: FILL THIS IN
  *****/
-Transition *sm_add_transition(StateMachine *sm, char *transition_name,
-                              char *origin_state_name, char *destination_state_name) {
+Transition *sm_add_transition(StateMachine *sm, char *transition_name, char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
-
+  if(sm->num_transitions == sm->transition_capacity) {
+    perror("Not enough capacity.\n");
+    return NULL;
+  }
   // Declare origin_state and destination_state
+  State *origin_state = create_state(origin_state_name);
+  State *destination_state = create_state(destination_state_name);
 
   // Search the state machine for states with matching names for both origin and destination
+
 
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
 
   // Otherwise, print an error and return NULL
-
+  perror("Error. \n");
+  return NULL;
 }
 
 
