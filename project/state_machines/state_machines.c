@@ -199,8 +199,11 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
 State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   // Add a state to the state machine
   // HINT: you can do this via the sm_add_state() function
-
+  StateMachine *state = sm_add_state(state_name);
   // If the new state is valid, set is_terminal to 1
+  if(sm->current_state) {
+  sm->current_state->is_terminal = 1;
+  }
 
   return state;
 }
