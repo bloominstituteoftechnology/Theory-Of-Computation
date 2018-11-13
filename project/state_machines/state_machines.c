@@ -114,6 +114,7 @@ void destroy_transition(Transition *transition) {
     free(transition-> name);
     free(transition-> origin); 
     free(transition-> destination); 
+    free(transition); 
   }
 }
 
@@ -125,10 +126,17 @@ void destroy_transition(Transition *transition) {
 void destroy_state_machine(StateMachine *sm) {
 
   // Free all transitions
-
+    for(int y = 0; y < sm->transition_capacity; y++){
+      destroy_transition(sm->transitions[y]); 
+    }
   // Free all states
-
+    for(int y = 0; y < sm-> state_capacity; y++){
+      destroy_state(sm->states[y]);
+    }
   // Free state machine
+    free(sm->transitions); 
+    free(sm->states); 
+    free(sm); 
 }
 
 
