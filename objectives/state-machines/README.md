@@ -80,3 +80,4 @@ Idle -player approaches-> talking with player -player leaves npc approaches-> np
 
 Idle -npc approaches-> npcs talk -other npc leaves-> -player approaches-> talking with player -player leaves ->  npc back stabs npc
 3. Draw a state machine diagram of your AI.
+ 
