@@ -56,7 +56,7 @@ StateMachine *create_state_machine(int state_capacity, int transition_capacity)
   sm->states = calloc(state_capacity, sizeof(State *));
   // Allocate memory for transitions
   sm->transition_capacity = transition_capacity;
-  sm->states = calloc(transition_capacity, sizeof(Transition *));
+  sm->transitions = calloc(transition_capacity, sizeof(Transition *));
 
   return sm;
 }
@@ -133,15 +133,15 @@ void destroy_state_machine(StateMachine *sm)
 {
 
   // Free all transitions
-for (int i = 0; i < sm->transition_capacity; i++)
-{
-  destroy_transition(sm->transitions[i]);
-}
+  for (int i = 0; i < sm->transition_capacity; i++)
+  {
+    destroy_transition(sm->transitions[i]);
+  }
   // Free all states
-for (int j = 0; j < sm->state_capacity; j++)
-{
-  destroy_state(sm->states[j]);
-}
+  for (int j = 0; j < sm->state_capacity; j++)
+  {
+    destroy_state(sm->states[j]);
+  }
   // Free state machine
 
   free(sm->transitions);
@@ -163,12 +163,35 @@ for (int j = 0; j < sm->state_capacity; j++)
 State *sm_add_state(StateMachine *sm, char *state_name)
 {
   // Return NULL and print an error if number of states is over capacity
+  if (sm->num_states >= sm->state_capacity)
+  {
+    printf("Error: States Over Capacity!!");
+    return NULL;
+  }
 
   // Return NULL and print an error if state name is not unique
 
+  for (int i = 0; i < sm->num_states; i++)
+  {
+    if (!strcmp(sm->states[i]->name, state_name))
+    {
+      printf("Error: State Already Exists!!");
+      return NULL;
+    }
+  }
+
   // Create a new state and add it to the state machine
 
+  State *state = create_state(state_name);
+  sm->states[sm->num_states] = state;
+  sm->num_states++;
+
+
   // Initialize the state machine's current state if it hasn't been set yet
+  if (sm->current_state == NULL)
+  {
+    sm->current_state = state;
+  }
 
   // Return the state
   return state;
