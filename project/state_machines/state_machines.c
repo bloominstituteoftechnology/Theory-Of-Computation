@@ -151,13 +151,13 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
 
   if(sm->num_states > sm->state_capacity){
     printf("This machine has reach capacity of states.");
-    // return ?
+    return NULL;
   }
   // Return NULL and print an error if state name is not unique
   for(int i=0; i < sm->num_states; i++){
     if (sm->states[i]->name == state_name){
       printf("This machine already has a state of that name.");
-      // return ?
+      return NULL;
     }
   }
   
@@ -183,7 +183,10 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   // HINT: you can do this via the sm_add_state() function
 
   // If the new state is valid, set is_terminal to 1
-
+  State *state = sm_add_state(sm, state_name);
+  if(state != NULL){
+    state->is_terminal = 1;
+  }
   return state;
 }
 
