@@ -212,28 +212,26 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
 	State *destination_state = NULL;
   // Search the state machine for states with matching names for both origin and destination
 	for(int i=0; i< sm->num_states; i++){
-		if(sm->states[i]->name == origin_state_name){
-			origin_state = sm->states[i];
-		}
-
-		if(sm->states[i]->name == destination_state_name){
-                        destination_state = sm->states[i];
-                }
+		if (strcmp(sm->states[i]->name, origin_state_name) == 0) {
+      			origin_state = sm->states[i];
+    		}
+		if (strcmp(sm->states[i]->name, destination_state_name) == 0) {
+     			 destination_state = sm->states[i];
+    		}
 	}
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
   	if(origin_state != NULL && destination_state != NULL){
 		Transition *transition = create_transition(transition_name, origin_state, destination_state);
-		sm->transitions[num_transitions] = transition;
+		sm->transitions[sm->num_transitions] = transition;
 		sm->num_transitions+=1;
-		return transition
+		return transition;
 
 	} // Otherwise, print an error and return NULL
 	else{
-		perror("Origin and/or destination states are not valid\n");
+		perror("Origin and  destination states are not valid\n");
 		return NULL;
-	}	
-
+	}
 }
 
 
@@ -248,7 +246,15 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   // Search the state machine for a valid transition:
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
+	for(int i=0; i < sm->transition_capacity; i++){
+		if(sm->transitions[i]->name == transition_name && sm->current_state->name == sm->transitions[i]->origin->name){
+			sm->current_state = sm->transitions[i]->destination;
+			return sm->current_state;	
+		}
+	}
 
+	perror("Invalid transition name");
+	return NULL;
   // If a valid transition is found, update the state machine's current state
 
   // If a valid transition is not found, print an error and return NULL;
