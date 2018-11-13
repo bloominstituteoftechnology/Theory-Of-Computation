@@ -240,15 +240,25 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
  * TODO: FILL THIS IN
  *****/
 State *sm_do_transition(StateMachine *sm, char *transition_name) {
-
+  Transition *transition = NULL;
   // Search the state machine for a valid transition:
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
-
+  for (int i = 0; i < sm->num_transitions; i++) {
+    if (sm->transitions[i]->name == transition_name) {
+      if (sm->transitions[i]->origin == sm->current_state) {
+        transition = sm->transitions[i];
+      }
+    }
+  }
   // If a valid transition is found, update the state machine's current state
-
-  // If a valid transition is not found, print an error and return NULL;
-
+  if (transition) {
+    sm->current_state = transition->destination;
+    return sm->current_state;
+  } else {  // If a valid transition is not found, print an error and return NULL;
+    fprintf(stderr, "an error occurred while attempting this transition\n");
+    return NULL;
+  }
 }
 
 
