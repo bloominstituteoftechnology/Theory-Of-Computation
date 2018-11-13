@@ -163,7 +163,7 @@ void destroy_state_machine(StateMachine *sm) {
  *****/
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
-  if (sm->state_capacity < num_states) {
+  if (sm->state_capacity <= num_states) {
     return NULL;
   }
   // Return NULL and print an error if state name is not unique
@@ -174,9 +174,12 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
     }
   }
   // Create a new state and add it to the state machine
-    create_state(state_name);
+   State *state = create_state(state_name);
+   sm->states[sm->num_states] = state;
   // Initialize the state machine's current state if it hasn't been set yet
-    
+   if(sm->current_state == NULL) {
+     sm->current_state = state;
+   }
   // Return the state
   return state;
 }
