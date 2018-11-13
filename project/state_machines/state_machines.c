@@ -129,11 +129,11 @@ void destroy_state_machine(StateMachine *sm) {
 
   // Free all transitions
   for (int i = 0; i<sm->transition_capacity; i++){
-    destory_transition(sm->transitions[i]);
+    destroy_transition(sm->transitions[i]);
   }
   // Free all states
     for (int j = 0; j<sm->state_capacity; j++){
-    destory_state(sm->states[j]); //Brady wrote state_capacity[i] here ??
+    destroy_state(sm->states[j]); //Brady wrote state_capacity[i] here ??
   }
   
   // Free state machine
@@ -158,12 +158,27 @@ void destroy_state_machine(StateMachine *sm) {
  *****/
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
-
+  if (sm->num_states > sm->state_capacity){
+    perror("Exceeded Capacity");
+    return NULL; 
+  }
   // Return NULL and print an error if state name is not unique
+  for(int i = 0; i<sizeof(sm->states); i ++){ //sizeof(sm->states) is wrong, need to fix
+    if (state_name == state[i]->name){
+      perror("That state already exists");
+      return NULL;
+    }
+  }  
 
   // Create a new state and add it to the state machine
+  State *state = create_state(state_name);
+  sm->states[sizeof(sm->states)] = state; //sizeof(sm->states) is wrong, need to fix
+  sm->num_states++;
 
   // Initialize the state machine's current state if it hasn't been set yet
+  if(sm->current_state == NULL){
+    sm->current_state = state;
+  }
 
   // Return the state
   return state;
@@ -191,7 +206,7 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
  * TODO: FILL THIS IN
  *****/
 Transition *sm_add_transition(StateMachine *sm, char *transition_name,
-                              char *origin_state_name, char *destination_state_name) {
+  char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
 
@@ -278,8 +293,6 @@ void process_input(StateMachine *sm) {
 
 }
 
-
-
 #ifndef TESTING
 int main(void)
 {
@@ -318,7 +331,6 @@ int main(void)
   process_input(sm);
 
   destroy_state_machine(sm);
-
 
   return 0;
 }
