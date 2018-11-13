@@ -150,7 +150,10 @@ void destroy_state_machine(StateMachine *sm) {
  *****/
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
-
+  if(sm->state_capacity == sm->num_states){
+    printf("At Capacity");
+    return NULL;
+  }
   // Return NULL and print an error if state name is not unique
 
   // Create a new state and add it to the state machine
