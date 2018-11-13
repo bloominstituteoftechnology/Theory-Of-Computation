@@ -64,11 +64,13 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
  *****/
 State *create_state(char *name) {
   // Allocate memory for state struct
-
+	State *state = malloc(sizeof(State));
   // Allocate memory and copy state name (hint: use strdup)
-
+  	state->name = strdup(name);
   // Set is_terminal to default of 0
+	state->is_terminal = 0;
 
+	return state;
 }
 
 /*****
