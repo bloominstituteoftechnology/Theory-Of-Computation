@@ -154,13 +154,26 @@ void destroy_state_machine(StateMachine *sm)
 State *sm_add_state(StateMachine *sm, char *state_name)
 {
   // Return NULL and print an error if number of states is over capacity
-
+  if (sm->num_states > sm->state_capacity) {
+    printf("Error: Number of states over capacity");
+    return NULL;
+  }
   // Return NULL and print an error if state name is not unique
-
+  for(int i = 0; i < sm->num_states; i++) {
+    if (state_name == *sm->states[i]->name) {
+      printf("Error: There is already a state with this name");
+      return NULL;
+    }
+  }
   // Create a new state and add it to the state machine
+  State *state = create_state(state_name);
+  sm->states[sm->num_states] = state;
+  sm->num_states++;
 
   // Initialize the state machine's current state if it hasn't been set yet
-
+  if (sm->current_state = NULL); {
+    sm->current_state = state;
+  }
   // Return the state
   return state;
 }
@@ -175,9 +188,9 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name)
 {
   // Add a state to the state machine
   // HINT: you can do this via the sm_add_state() function
-
+  State *state = sm_add_state(sm, *state_name);
   // If the new state is valid, set is_terminal to 1
-
+  state->is_terminal = 1;
   return state;
 }
 
@@ -191,9 +204,13 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
 {
 
   // Return NULL and print an error if number of transitions is over capacity
-
+  if (sm->num_transitions > sm->transition_capacity) {
+    printf("Error: Number of transitions over capacity");
+    return NULL;
+  }
   // Declare origin_state and destination_state
-
+  struct State origin->name = *origin_state_name;
+  
   // Search the state machine for states with matching names for both origin and destination
 
   // If both origin and destination states have been found,
@@ -210,11 +227,10 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
  *****/
 State *sm_do_transition(StateMachine *sm, char *transition_name)
 {
-
   // Search the state machine for a valid transition:
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
-
+  
   // If a valid transition is found, update the state machine's current state
 
   // If a valid transition is not found, print an error and return NULL;
