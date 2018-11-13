@@ -166,9 +166,15 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
       }
     }
   // Create a new state and add it to the state machine
+    //create a new pointer called new that is create_state and 
+    State *state = create_state(state_name);
+    sm->states[sm->num_states] = state;
+    sm->current_state++; 
 
   // Initialize the state machine's current state if it hasn't been set yet
-
+    if(sm->current_state == NULL){
+      sm->current_state = state; 
+    }
   // Return the state
   return state;
 }
