@@ -44,7 +44,7 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
   StateMachine *sm = malloc(sizeof(StateMachine));
 
   // Current state should default to NULL
-  sm->current_state NULL;
+  sm->current_state = NULL;
 
   // num_states and num_transitions should default to 0
   sm->num_states = 0; 
@@ -222,24 +222,23 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
   }
   
   // Declare origin_state and destination_state
+  struct State *origin_state = sm->transitions[sm->num_transitions]->origin;
+  struct State *destination_state = sm->transitions[sm->num_transitions]->destination; 
 
   // Search the state machine for states with matching names for both origin and destination
   for(int i = 0; i < sm->num_transitions; i++){
     if(strcmp(sm->transitions[i]->origin->name, origin_state_name) == 0 && strcmp(sm->transitions[i]->destination->name, destination_state_name) == 0){
 
-
-
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
   
-  sm->transitions[sm->num_transitions]->origin->name = origin_state_name; 
-  sm->transitions[sm->num_transitions]->destination->name=destination_state_name; 
-  sm->transitions[sm->num_transitions]->name=transition_name; 
-  
+    Transition *transition = create_transition(transition_name, origin_state, destination_state);
+    return transition;
+    
     } else {
     printf("error: origin and/or destination states cannot be found.");
     return NULL; 
-      }
+    }
   }
   // Otherwise, print an error and return NULL
 
