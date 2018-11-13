@@ -232,16 +232,14 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
   
-    Transition *transition = create_transition(transition_name, origin_state, destination_state);
-    return transition;
-    
+    sm->transitions[sm->num_transitions] = create_transition(transition_name, origin_state, destination_state);
+ 
     } else {
     printf("error: origin and/or destination states cannot be found.");
     return NULL; 
     }
   }
   // Otherwise, print an error and return NULL
-
 }
 
 
@@ -263,6 +261,8 @@ for(int i = 0; i < sm->num_transitions; i++){
     printf("error: origin and/or destination states cannot be found.");
     return NULL; 
   }
+
+  return sm->current_state;
 }
   // If a valid transition is found, update the state machine's current state
 
