@@ -55,7 +55,10 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
   init_state_machine->states = calloc(state_capacity, sizeof(State *));
 
   // Allocate memory for transitions
-  
+  init_state_machine->transition_capacity = transition_capacity;
+  init_state_machine->transitions = calloc(transition_capacity, sizeof(Transition*));
+
+  return init_state_machine;
 }
 
 /*****
@@ -65,11 +68,13 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
  *****/
 State *create_state(char *name) {
   // Allocate memory for state struct
-
+  State *init_state = malloc(sizeof(State));
   // Allocate memory and copy state name (hint: use strdup)
-
+  init_state->name = strdup(name);
   // Set is_terminal to default of 0
+  init_state->is_terminal = 0;
 
+  return init_state;
 }
 
 /*****
@@ -79,11 +84,14 @@ State *create_state(char *name) {
  *****/
 Transition *create_transition(char *name, State *origin, State *destination) {
   // Allocate memory for transition struct
-
+  Transition *init_transition = malloc(sizeof(Transition));
   // Allocate memory and copy transition name (hint: use strdup)
-
+  init_transition->name = strdup(name);
   // Set origin and destination states
+  init_transition->destination = destination;
+  init_transition->origin = origin;
 
+  return init_transition;
 }
 
 /*****
@@ -92,7 +100,7 @@ Transition *create_transition(char *name, State *origin, State *destination) {
  * TODO: FILL THIS IN
  *****/
 void destroy_state(State *state) {
-
+  free(state);
 }
 
 /*****
@@ -101,7 +109,7 @@ void destroy_state(State *state) {
  * TODO: FILL THIS IN
  *****/
 void destroy_transition(Transition *transition) {
-
+  free(transition);
 }
 
 /*****
@@ -112,10 +120,15 @@ void destroy_transition(Transition *transition) {
 void destroy_state_machine(StateMachine *sm) {
 
   // Free all transitions
-
+  for(int i = 0; i < sm->transition_capacity; i++){
+    destroy_transition(sm->transitions[i]);
+  }
   // Free all states
-
+  for (int j = 0; j < sm->states; j++){
+    destroy_state(sm->states[j]);
+  }
   // Free state machine
+  free(sm);
 }
 
 
