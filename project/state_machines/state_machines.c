@@ -214,17 +214,21 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
                               char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
-  if (sm->num_transitions >= sm->transition_capacity){
+  // Declare origin_state and destination_state
+  // Search the state machine for states with matching names for both origin and destination
+  // loop through all states
+  // If both origin and destination states have been found,
+  // Create a new transition and add it to the state machine
+  // Otherwise, print an error and return NULL
+
+  if (sm->num_transitions == sm->transition_capacity){
     perror("Over capacity.\n");
     return NULL;
   }
 
-  // Declare origin_state and destination_state
   State *origin_state = NULL;
   State *destination_state = NULL;
 
-  // Search the state machine for states with matching names for both origin and destination
-  // loop through all states
   for (int i = 0; i < sm->num_states; i++){
     // set origin and destination state to = to state[i] if it matches
     if (strcmp(sm->states[i]->name, origin_state_name) == 0){
@@ -235,8 +239,6 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
     }
   }
 
-  // If both origin and destination states have been found,
-  // Create a new transition and add it to the state machine
   if (origin_state != NULL && destination_state != NULL){
     Transition *new_transition = create_transition(transition_name, origin_state, destination_state);
     sm->transitions[sm->num_transitions] = new_transition;
@@ -244,7 +246,6 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
     return new_transition;
   }
 
-  // Otherwise, print an error and return NULL
   else {
     perror("Cannot add transition.\n");
     return NULL;
@@ -262,22 +263,22 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   // Search the state machine for a valid transition:
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
+  // If a valid transition is found, update the state machine's current state
+  // If a valid transition is not found, print an error and return NULL;
   Transition *valid_transition = NULL;
   for(int i = 0; i < sm->num_transitions; i++){
-    if(sm->transitions[i]->origin == sm->current_state && strcmp(sm->transitions[i]->name, transition_name)){
+    if(sm->transitions[i]->origin == sm->current_state && strcmp(sm->transitions[i]->name, transition_name) == 0){
       valid_transition = sm->transitions[i];
     }
   }
-  // If a valid transition is found, update the state machine's current state
   if (valid_transition){
     sm->current_state = valid_transition->destination;
     return sm->current_state;
   }
-  // If a valid transition is not found, print an error and return NULL;
-
-  perror("Valid transition not found.\n");
-  return NULL;
-  
+  else {
+    perror("Valid transition not found.\n");
+    return NULL;
+  }
 }
 
 
