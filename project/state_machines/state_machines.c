@@ -1,3 +1,4 @@
+#define _SVID_SOURCE
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -151,15 +152,26 @@ void destroy_state_machine(StateMachine *sm) {
  *****/
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
-
+  if (sm->num_states >= sm->state_capacity) {
+    printf("State Machine capacity reached\n");
+    return NULL;
+  }
   // Return NULL and print an error if state name is not unique
-
+  for (int i = 0; i < sm->num_states; i++){
+    if(strcmp(sm->states[i]->name, state_name) == 0) {
+      printf("A state with that name already exists\n");
+      return NULL;
+    }
+  }
   // Create a new state and add it to the state machine
-
+  State *newState = create_state(state_name);
+  sm->states[sm->num_states++] = newState;
   // Initialize the state machine's current state if it hasn't been set yet
-
+  if(sm->current_state == NULL) {
+    sm->current_state = newState;
+  }
   // Return the state
-  //  return state;
+  return newState;
 }
 
 /*****
@@ -168,13 +180,16 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
  *
  * TODO: FILL THIS IN
  *****/
+
 State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   // Add a state to the state machine
   // HINT: you can do this via the sm_add_state() function
-
+  State *newState = sm_add_state(sm, state_name);
   // If the new state is valid, set is_terminal to 1
-
-  //  return state;
+  if(newState != NULL){
+    newState->is_terminal = 1;
+  }
+  return newState;
 }
 
 
@@ -187,16 +202,37 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
                               char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
+  if(sm->num_transitions >= sm->transition_capacity) {
+    printf("State Transition capacity reached\n");
+    return NULL;
+  }
 
   // Declare origin_state and destination_state
+  State *origin_state;
+  State *destination_state;
 
   // Search the state machine for states with matching names for both origin and destination
-
+  for(int i = 0; i < sm->num_states; i++) {
+    if(strcmp(sm->states[i]->name, origin_state_name) == 0) {
+      origin_state = sm->states[i];
+    }else if(strcmp(sm->states[i]->name, destination_state_name) == 0) {
+      destination_state = sm->states[i];
+    }
+  }
   // If both origin and destination states have been found,
+
   // Create a new transition and add it to the state machine
 
   // Otherwise, print an error and return NULL
 
+  if(origin_state != NULL && destination_state != NULL){
+    Transition *transition = create_transition(transition_name, origin_state, destination_state);
+    sm->transitions[sm->num_transitions++] = transition;
+    return transition;
+  } else {
+    printf("origin or destination states or both states could not be found in State Machine\n");
+    return NULL;
+  }
 }
 
 
@@ -213,9 +249,17 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   //   and the transition's name should match the given name
 
   // If a valid transition is found, update the state machine's current state
+  for(int i = 0; i < sm->transition_capacity; i++) {
+    if(strcmp(sm->transitions[i]->name, transition_name) == 0
+        && sm->transitions[i]->origin == sm->current_state) {
+          sm->current_state = sm->transitions[i]->destination;
+          return sm->current_state;
+    }
+  }
 
   // If a valid transition is not found, print an error and return NULL;
-
+  printf("No valid transitions\n");
+  return NULL;
 }
 
 
