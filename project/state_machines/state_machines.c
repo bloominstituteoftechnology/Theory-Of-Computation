@@ -53,6 +53,8 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
   // Allocate memory for transitions
   sm->transition_capacity = transition_capacity;
   sm-transitions = calloc(transition_capacity, sizeof(Transition *));
+
+  return sm;
 }
 
 /*****
@@ -62,11 +64,13 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
  *****/
 State *create_state(char *name) {
   // Allocate memory for state struct
-
+  State *state = malloc(sizeof(State));
   // Allocate memory and copy state name (hint: use strdup)
-
+  state->name = strdup(name);
   // Set is_terminal to default of 0
+  state->is_terminal = 0;
 
+  return state;
 }
 
 /*****
@@ -76,7 +80,7 @@ State *create_state(char *name) {
  *****/
 Transition *create_transition(char *name, State *origin, State *destination) {
   // Allocate memory for transition struct
-
+  
   // Allocate memory and copy transition name (hint: use strdup)
 
   // Set origin and destination states
