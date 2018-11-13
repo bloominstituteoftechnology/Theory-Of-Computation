@@ -137,16 +137,14 @@ void destroy_state_machine(StateMachine *sm) {
   }
 
   // Free all states
-  
-  free(sm->transitions);
-  free(sm->states);
-  free(sm);
-
    for (int j = 0 ; j < sm->state_capacity ; j++ ) {
     destroy_state(sm->states[j]);
   }
 
   // Free state machine
+  free(sm->transitions);
+  free(sm->states);
+  free(sm);
 }
 
 
