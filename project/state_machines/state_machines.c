@@ -139,13 +139,13 @@ void destroy_state_machine(StateMachine *sm)
 {
 
   // Free all transitions
-  for (int i = 0; i < sm->transition_capacity; i++)
+  for (int i = 0; i < sm->num_transitions; i++)
   {
     destroy_transition(sm->transitions[i]);
   }
 
   // Free all states
-  for (int j = 0; j < sm->state_capacity; j++)
+  for (int j = 0; j < sm->num_states; j++)
   {
     destroy_state(sm->states[j]);
   }
@@ -249,7 +249,7 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
   State *destination_state = create_state(destination_state_name);
 
   // Search the state machine for states with matching names for both origin and destination
-  for (int i = 0; i < sm->num_transitions; i++)
+  for (int i = 0; i < sm->num_states; i++)
   {
     if (strcmp(sm->states[i]->name, origin_state_name) == 0)
     {
