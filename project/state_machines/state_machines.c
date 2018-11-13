@@ -19,15 +19,23 @@ typedef struct StateMachine {
 
   int state_capacity;  // How many states can this state machine hold?
   int num_states;  // How many states does the state machine currently hold
-  struct State **states;
+  struct State **states; // an array of states
 
   int transition_capacity;  // How many transitions can this state machine hold?
   int num_transitions;  // How many transitions does the state machine currently hold
   struct Transition **transitions;
 
 } StateMachine;
-
-
+/*
+if sm is a StateMachine instance
+sm->name means getting the name member of sm
+But if you look above, it has no such thing
+*/
+/*
+sm->states = [{name: ,}, state, state]
+i < num_states; i++
+sm->states[i]->name
+*/
 /************************************
  *
  *   CREATE & DESTROY FUNCTIONS
@@ -52,6 +60,7 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
   // Allocate memory for states
   sm->state_capacity = transition_capacity;
   sm->states = calloc(state_capacity, sizeof(State *));
+  // e.g. sm->states has { "State1", "State2", "State3" }
   // Allocate memory for transitions
   sm->transition_capacity = transition_capacity;
   sm->transitions = calloc(transition_capacity, sizeof(Transition *));
@@ -150,13 +159,26 @@ void destroy_state_machine(StateMachine *sm) {
  *
  * TODO: FILL THIS IN
  *****/
-State *sm_add_state(StateMachine *sm, char *state_name) {
+State *sm_add_state(StateMachine *sm, char *state_name) { // sm & state_name are declared here
   // Return NULL and print an error if number of states is over capacity
-
+  if(sm->num_states >= sm->state_capacity){
+    printf("number of states is over capacity");
+    return NULL;
+  }
   // Return NULL and print an error if state name is not unique
-
+ 
+ 
+  for( int i = 0; i <= sm->state_capacity; i++) {
+    if (strcmp(state_name, sm->states[i]->name) == 0){ 
+      
+      printf("state name is not unique");
+      return NULL;
+    }
+    return state_name;
+  }
   // Create a new state and add it to the state machine
-
+  
+  create_state_machine();
   // Initialize the state machine's current state if it hasn't been set yet
 
   // Return the state
@@ -317,3 +339,12 @@ int main(void)
   return 0;
 }
 #endif
+
+
+
+      // char is part of a variable declaration. are these variables not declared yet? they are being declared and passed through
+      // the red squiggly lines don't think that's right lol
+      // sm and state name are parameters. they are already declared.
+      // lemme ask you this: sm represents which struct? => State or StateMachine (Look at the struct declarations near the top)
+      // name is a member of which struct? Directly with State and StateMachine references it through ++, right?
+      // OK
