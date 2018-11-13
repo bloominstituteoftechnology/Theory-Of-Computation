@@ -153,13 +153,13 @@ void destroy_state_machine(StateMachine *sm) {
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
 	if(sm->num_states == sm->state_capacity) {
-		printf("Number of states is over capacity");	
+		perror("Number of states is over capacity\n");	
 		return NULL;
 	}		
   // Return NULL and print an error if state name is not unique
 	for(int i=0; i < sm->num_states; i++){
 		if(sm->states[i]->name==state_name) {
-			printf("State name is not unique");
+			perror("State name is not unique\n");
                 	return NULL;
 		}
 	}
@@ -203,15 +203,36 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
                               char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
-
+	if(sm->num_transitions >= sm->transition_capacity) {
+                perror("Number of transitions is over capacity\n");
+                return NULL;
+        }
   // Declare origin_state and destination_state
-
+	State *origin_state = NULL;
+	State *destination_state = NULL;
   // Search the state machine for states with matching names for both origin and destination
+	for(int i=0; i< sm->num_states; i++){
+		if(sm->states[i]->name == origin_state_name){
+			origin_state = sm->states[i];
+		}
 
+		if(sm->states[i]->name == destination_state_name){
+                        destination_state = sm->states[i];
+                }
+	}
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
+  	if(origin_state != NULL && destination_state != NULL){
+		Transition *transition = create_transition(transition_name, origin_state, destination_state);
+		sm->transitions[num_transitions] = transition;
+		sm->num_transitions+=1;
+		return transition
 
-  // Otherwise, print an error and return NULL
+	} // Otherwise, print an error and return NULL
+	else{
+		perror("Origin and/or destination states are not valid\n");
+		return NULL;
+	}	
 
 }
 
