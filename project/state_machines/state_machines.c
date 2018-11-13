@@ -49,13 +49,11 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
   sm->num_states = 0;
   sm->num_transitions = 0;
 
-  struct State *states;
-
   // Allocate memory for states
   // sizeof(State) = sizeof(char *) + sizeof(int) = 8
   // sizeof(State *)  = sizeof(State *) = 4
   sm->state_capacity = state_capacity;
-  sm->states = calloc(sizeof(State *) * num_states); // look up calloc
+  sm->states = calloc(state_capacity, sizeof(State *)); // look up calloc
 
   // Allocate memory for transitions
   sm->transition_capacity = transition_capacity;
@@ -71,9 +69,9 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
  *****/
 State *create_state(char *name) {
   // Allocate memory for state struct
-  State*state = malloc(sizeof(State));
+  State *state = malloc(sizeof(State));
   // Allocate memory and copy state name (hint: use strdup)
-  state->name =strdup(name); // look up strdup and strcopy.  strdup uses memory
+  state->name = strdup(name); // look up strdup and strcopy.  strdup uses memory
   // Set is_terminal to default of 0
   state->is_terminal = 0;
 
@@ -90,6 +88,7 @@ Transition *create_transition(char *name, State *origin, State *destination) {
   Transition *transition = malloc(sizeof(Transition));
   // Allocate memory and copy transition name (hint: use strdup)
   transition->name = strdup(name);
+
   // Set origin and destination states
   transition->origin = origin;
   transition->destination = destination;
@@ -103,9 +102,10 @@ Transition *create_transition(char *name, State *origin, State *destination) {
  * TODO: FILL THIS IN
  *****/
 void destroy_state(State *state) {
-  if (state != NULL);
+  if (state != NULL){
     free(state->name);
     free(state);
+  }
 }
 
 /*****
@@ -114,9 +114,10 @@ void destroy_state(State *state) {
  * TODO: FILL THIS IN
  *****/
 void destroy_transition(Transition *transition) {
-  if(transition != NULL);
+  if(transition != NULL){
     free(transition->name);
     free(transition);
+  }
 }
 
 /*****
