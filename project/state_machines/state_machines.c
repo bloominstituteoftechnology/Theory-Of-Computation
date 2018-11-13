@@ -150,6 +150,7 @@ void destroy_state_machine(StateMachine *sm) {
  *****/
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
+  //if state_capacity is equal to num_states, then it is at capacity.
   if(sm->state_capacity == sm->num_states){
     printf("At Capacity");
     return NULL;
@@ -166,12 +167,17 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
       }
     }
   // Create a new state and add it to the state machine
-    //create a new pointer called new that is create_state and 
+    //create a new pointer called new that is create_state(state_name). 
     State *state = create_state(state_name);
+    //the new state must be given a space in the array.
+    //so by accessing states[sm->num_states] you will be able to place the state.
     sm->states[sm->num_states] = state;
+    //you also need to increment the current state so that it will fit 
+    //all of the new states that are added.
     sm->current_state++; 
 
   // Initialize the state machine's current state if it hasn't been set yet
+  //if current_state is equal to NULL then change it to state.
     if(sm->current_state == NULL){
       sm->current_state = state; 
     }
@@ -188,9 +194,11 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
 State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   // Add a state to the state machine
   // HINT: you can do this via the sm_add_state() function
-
+  State *state = sm_add_state(sm, state_name);
   // If the new state is valid, set is_terminal to 1
-
+  if(state == NULL){
+    state->is_terminal = 1; 
+  }
   return state;
 }
 
@@ -209,9 +217,12 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
     return NULL;
   }
   // Declare origin_state and destination_state
-
-  // Search the state machine for states with matching names for both origin and destination
-
+  State *origin = create_state(origin_state_name);
+  State *destination = create_state(destination_state_name); 
+  // Search the state machine for states with matching names for both origin and destination 
+  for(int i = 0; i <sm->num_states; i++){
+    if()
+  }
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
 
