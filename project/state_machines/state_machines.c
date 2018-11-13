@@ -212,15 +212,11 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
   for (int i = 0; i < sm->num_states; i++) {
     if (strcmp(sm->states[i]->name, origin_state_name) == 0) {
       origin_state = sm->states[i];
-    } else {
-      printf("origin state not found\n");
-    }
+    } 
   }
   for (int i = 0; i < sm->num_states; i++) {
     if (strcmp(sm->states[i]->name, destination_state_name) == 0) {
       destination_state = sm->states[i];
-    } else {
-      printf("destination state not found\n");
     }
   }
   // If both origin and destination states have been found,
