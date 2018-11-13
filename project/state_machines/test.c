@@ -192,6 +192,41 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   return state;
 }
 
+
+Transition *sm_add_transition(StateMachine *sm, char *transition_name,
+                              char *origin_state_name, char *destination_state_name) {
+
+  // Return NULL and print an error if number of transitions is over capacity
+  if(sm->num_transitions >= sm->transition_capacity) {
+    printf("Error: Number of transitions is over capacity.");
+    return NULL;
+  }
+  
+  // Declare origin_state and destination_state
+
+  // Search the state machine for states with matching names for both origin and destination
+  for(int i = 0; i < sm->num_transitions; i++){
+    if(strcmp(sm->transitions[i]->origin->name, origin_state_name) == 0 && strcmp(sm->transitions[i]->destination->name, destination_state_name) == 0){
+
+
+
+  // If both origin and destination states have been found,
+  // Create a new transition and add it to the state machine
+  
+  sm->transitions[sm->num_transitions]->origin->name = origin_state_name; 
+  sm->transitions[sm->num_transitions]->destination->name=destination_state_name; 
+  sm->transitions[sm->num_transitions]->name=transition_name; 
+  
+    } else {
+    printf("error: origin and/or destination states cannot be found.");
+    return NULL; 
+      }
+  }
+  // Otherwise, print an error and return NULL
+
+}
+
+
 int main(void)
 {
   StateMachine *sm = create_state_machine(10, 15);
@@ -207,6 +242,23 @@ int main(void)
   sm_add_terminal_state(sm, "SODA + DIME");
   sm_add_terminal_state(sm, "SODA + NICKEL + DIME");
   sm_add_terminal_state(sm, "SODA + DIME + DIME");
+
+  sm_add_transition(sm, "NICKEL", "START", "5");
+  sm_add_transition(sm, "DIME", "START", "10");
+  sm_add_transition(sm, "QUARTER", "START", "SODA");
+  sm_add_transition(sm, "NICKEL", "5", "10");
+  sm_add_transition(sm, "DIME", "5", "15");
+  sm_add_transition(sm, "QUARTER", "5", "SODA + NICKEL");
+  sm_add_transition(sm, "NICKEL", "10", "15");
+  sm_add_transition(sm, "DIME", "10", "20");
+  sm_add_transition(sm, "QUARTER", "10", "SODA + DIME");
+  sm_add_transition(sm, "NICKEL", "15", "20");
+  sm_add_transition(sm, "DIME", "15", "SODA");
+  sm_add_transition(sm, "QUARTER", "15", "SODA + NICKEL + DIME");
+  sm_add_transition(sm, "NICKEL", "20", "SODA");
+  sm_add_transition(sm, "DIME", "20", "SODA + NICKEL");
+  sm_add_transition(sm, "QUARTER", "20", "SODA + DIME + DIME");
+
 
   destroy_state_machine(sm);
 
