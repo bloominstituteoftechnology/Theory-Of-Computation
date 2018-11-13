@@ -169,7 +169,7 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
   }
   // Return NULL and print an error if state name is not unique
   for (int i = 0; i < sm->num_states; i++) {
-    if (sm->states[i]->name == state_name) {
+    if (strcmp(sm->states[i]->name, state_name) == 0) {
       printf("Error: this state name is not unique.\n");
       return NULL;
     }
@@ -199,7 +199,7 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   // If the new state is valid, set is_terminal to 1
   if (state != NULL) {
     for (int i = 0; i < sm->num_states; i++) {
-      if (sm->states[i]->name == state_name) {
+      if (strcmp(sm->states[i]->name, state_name)) {
         sm->states[i]->is_terminal = 1;
       }
     }
@@ -226,15 +226,15 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
   State *destination_state = create_state(destination_state_name);
   // Search the state machine for states with matching names for both origin and destination
   for (int i = 0; i < sm->num_states; i++) {
-    if (sm->states[i]->name == origin_state_name) {
+    if (strcmp(sm->states[i]->name, origin_state_name) == 0) {
       origin_state = sm->states[i];
-      for (int j = 0; j < sm->num_states; j++) {
-        if (sm->states[j]->name == destination_state_name) {
-          destination_state = sm->states[j];
-        }
-      }
     }
+    if (strcmp(sm->states[i]->name, destination_state_name) == 0) {
+      destination_state = sm->states[i];
+    }
+  
   }
+  
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
   if ((origin_state != NULL) && (destination_state != NULL)) {
@@ -262,7 +262,7 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   //   and the transition's name should match the given name
   Transition *validTransition = create_transition(transition_name, sm->states[0], sm->states[0]);
   for (int i = 0; i < sm->num_transitions; i++) {
-    if ((sm->current_state == sm->transitions[i]->origin) && (sm->transitions[i]->name == transition_name)) {
+    if ((sm->current_state == sm->transitions[i]->origin) && (strcmp(sm->transitions[i]->name, transition_name) == 0)) {
       validTransition = sm->transitions[i];
     }
   }
