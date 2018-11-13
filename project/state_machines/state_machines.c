@@ -6,20 +6,20 @@
 typedef struct State {
   char *name;
   int is_terminal;  // 1 if this is a terminating state; 0 otherwise
-} State;
+} State; // why is this line the way it is?
 
 typedef struct Transition {
   char *name;
   struct State *origin;
   struct State *destination;
-} Transition;
+} Transition; 
 
 typedef struct StateMachine {
   struct State *current_state;
 
   int state_capacity;  // How many states can this state machine hold?
   int num_states;  // How many states does the state machine currently hold
-  struct State **states;
+  struct State **states; 
 
   int transition_capacity;  // How many transitions can this state machine hold?
   int num_transitions;  // How many transitions does the state machine currently hold
@@ -163,13 +163,20 @@ void destroy_state_machine(StateMachine *sm) {
  *****/
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
-
+  if (sm->state_capacity < num_states) {
+    return NULL;
+  }
   // Return NULL and print an error if state name is not unique
-
+  for (int i = 0; i < num_states; i++) {
+    if (state_name == sm->states[i]->name) {
+      printf("State name not unique");
+      return NULL;
+    }
+  }
   // Create a new state and add it to the state machine
-
+    create_state(state_name);
   // Initialize the state machine's current state if it hasn't been set yet
-
+    
   // Return the state
   return state;
 }
