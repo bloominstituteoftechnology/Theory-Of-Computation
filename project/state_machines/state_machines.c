@@ -127,10 +127,19 @@ void destroy_transition(Transition *transition) {
 void destroy_state_machine(StateMachine *sm) {
 
   // Free all transitions
-
+  for (int i = 0; i < sm->transition_capacity; i++)
+  {
+    destroy_transition(sm->transitions[i]);
+  }
   // Free all states
-
+  for (int j = 0; j < sm->state_capacity; j++)
+  {
+    destroy_state(sm->states[j]);
+  }
   // Free state machine
+  free(sm->transitions);
+  free(sm->states);
+  free(sm);
 }
 
 
@@ -149,13 +158,29 @@ void destroy_state_machine(StateMachine *sm) {
  *****/
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
-
+  if (sm->num_states >= sm->state_capacity)
+  {
+    printf("Number of states is over capacity\n");
+    return NULL;
+  }
   // Return NULL and print an error if state name is not unique
-
+  for (int i = 0; i < sm->num_states; i++)
+  {
+    if (strcmp(sm->states[i]->name, state_name) == 0)
+    {
+      printf("State name is not unique\n");
+      return NULL;
+    }
+  }
   // Create a new state and add it to the state machine
-
+  State *new_state = create_state(state_name);
+  sm->states[sm->num_states] = new_state;
+  sm->num_states += 1;
   // Initialize the state machine's current state if it hasn't been set yet
-
+  if (sm->current_state == NULL)
+  {
+    sm->current_state = new_state;
+  }
   // Return the state
   return state;
 }
@@ -172,7 +197,7 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
 
   // If the new state is valid, set is_terminal to 1
 
-  return state;
+  return new_state;
 }
 
 
