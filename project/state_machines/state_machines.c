@@ -199,7 +199,7 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   // If the new state is valid, set is_terminal to 1
   if (state != NULL) {
     for (int i = 0; i < sm->num_states; i++) {
-      if (strcmp(sm->states[i]->name, state_name)) {
+      if (strcmp(sm->states[i]->name, state_name) == 0) {
         sm->states[i]->is_terminal = 1;
       }
     }
