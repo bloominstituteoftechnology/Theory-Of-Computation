@@ -164,7 +164,7 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
 		}
 	}
   // Create a new state and add it to the state machine
-	State *state = create_state(char state_name);
+	State *state = create_state(state_name);
 	sm->states[sm->num_states] = state;
 	sm->num_states+=1;
   // Initialize the state machine's current state if it hasn't been set yet
@@ -184,8 +184,11 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
 State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   // Add a state to the state machine
   // HINT: you can do this via the sm_add_state() function
-
+	State *state = sm_add_state(sm, state_name);
   // If the new state is valid, set is_terminal to 1
+	if(state != NULL){
+		state->is_terminal = 1;
+	}
 
   return state;
 }
