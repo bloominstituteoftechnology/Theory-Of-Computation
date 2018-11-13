@@ -163,8 +163,8 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
     return NULL; 
   }
   // Return NULL and print an error if state name is not unique
-  for(int i = 0; i<sizeof(sm->states); i ++){ //sizeof(sm->states) is wrong, need to fix
-    if (state_name == state[i]->name){
+  for(int i = 0; i<(sm->num_states-1); i ++){ 
+    if (strcmp(sm->states[i]->name, state_name) == 0){
       perror("That state already exists");
       return NULL;
     }
@@ -172,7 +172,7 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
 
   // Create a new state and add it to the state machine
   State *state = create_state(state_name);
-  sm->states[sizeof(sm->states)] = state; //sizeof(sm->states) is wrong, need to fix
+  sm->states[sm->num_states] = state; 
   sm->num_states++;
 
   // Initialize the state machine's current state if it hasn't been set yet
