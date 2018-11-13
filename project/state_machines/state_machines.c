@@ -157,7 +157,7 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
   }
   // Return NULL and print an error if state name is not unique
   for (int i = 0; i < sm->num_states; i++) {
-    if (sm->states[i]->name == state_name) {
+    if (strcmp(sm->states[i]->name, state_name) == 0) {
       fprintf(stderr, "please provide a unique state name\n");
       return NULL;
     }
@@ -210,13 +210,17 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
   State *destination_state = NULL;
   // Search the state machine for states with matching names for both origin and destination
   for (int i = 0; i < sm->num_states; i++) {
-    if (sm->states[i]->name == origin_state_name) {
+    if (strcmp(sm->states[i]->name, origin_state_name) == 0) {
       origin_state = sm->states[i];
+    } else {
+      printf("origin state not found\n");
     }
   }
   for (int i = 0; i < sm->num_states; i++) {
-    if (sm->states[i]->name == destination_state_name) {
+    if (strcmp(sm->states[i]->name, destination_state_name) == 0) {
       destination_state = sm->states[i];
+    } else {
+      printf("destination state not found\n");
     }
   }
   // If both origin and destination states have been found,
@@ -245,7 +249,7 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
   for (int i = 0; i < sm->num_transitions; i++) {
-    if (sm->transitions[i]->name == transition_name) {
+    if (strcmp(sm->transitions[i]->name, transition_name) == 0) {
       if (sm->transitions[i]->origin == sm->current_state) {
         transition = sm->transitions[i];
       }
