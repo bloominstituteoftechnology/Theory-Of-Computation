@@ -255,9 +255,13 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   // and the transition's name should match the given name
 
   for(int i = 0; i < sm->num_transitions; i++){
-    if(!strcmp(transition_name, sm->transitions[i]->name)){
-      if(!strcmp(sm->transitions[i]->origin->name, sm->current_state->name)){
+    //looping through to gather the transitions.
+    if(strcmp(transition_name, sm->transitions[i]->name)){
+      //if there isstr comparison in each transition name.
+      if(strcmp(sm->transitions[i]->origin->name, sm->current_state->name)){
+        //move onto if there is comparison between tranisition origin name or the current state name.
         transition = sm->transitions[i];
+        //then transition will assume the value of transition[i].
       }
     }
   }
