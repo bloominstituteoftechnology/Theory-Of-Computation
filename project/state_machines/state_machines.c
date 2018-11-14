@@ -52,7 +52,7 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
   sm->states = calloc(state_capacity, sizeof(State *));
   // Allocate memory for transitions
   sm->transition_capacity = transition_capacity;
-  sm-transitions = calloc(transition_capacity, sizeof(Transition *));
+  sm->transitions = calloc(transition_capacity, sizeof(Transition *));
 
   return sm;
 }
@@ -188,7 +188,7 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   if (new_state != NULL) {
     new_state->is_terminal = 1;
   }
-  return state;
+  return new_state;
 }
 
 
@@ -201,7 +201,7 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
                               char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
-
+  
   // Declare origin_state and destination_state
 
   // Search the state machine for states with matching names for both origin and destination
