@@ -1,4 +1,4 @@
-#define _SVID_SOURCE
+#define _POSIX_C_SOURCE 200809L
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -214,26 +214,28 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
     return NULL;
   }
   // Declare origin_state and destination_state
-    State *origin_state = NULL;
-    State *destination_state = NULL;
+    State *origin_state = NULL ;
+    State *destination_state= NULL;
   // Search the state machine for states with matching names for both origin and destination
 for( int i = 0; i<sm->num_states; i++){
-    if(sm->states[i]->name == origin_state_name){
+    if(strcmp(sm->states[i]->name, origin_state_name) == 0){
       origin_state = sm->states[i];
     }
-    if(sm->states[i]->name == destination_state_name){
+    if(strcmp(sm->states[i]->name, destination_state_name) == 0){
       destination_state = sm->states[i];
     }
   }
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
-  if(origin_state && destination_state){
+  if(origin_state != NULL && destination_state != NULL){
      Transition *transition = create_transition(transition_name,origin_state,destination_state);
+     sm->transitions[sm->num_transitions] = transition;
+  sm->num_transitions += 1;
      return transition;
 
   }
   else{
-    printf("Something went wrong");
+    printf("Something went wrong\n");
     return NULL;
   }
  
@@ -248,21 +250,22 @@ for( int i = 0; i<sm->num_states; i++){
  * TODO: FILL THIS IN
  *****/
 State *sm_do_transition(StateMachine *sm, char *transition_name) {
-  Transition *valid = NULL;
+  State *valid =NULL;
   // Search the state machine for a valid transition:
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
   for(int i = 0; i < sm->num_transitions; i++){
-    printf("%s\n",sm->transitions[i]->destination->name);
-    printf("%s\n",transition_name);
+    if(strcmp(sm->transitions[i]->origin->name,sm->current_state->name) ==0 && strcmp(sm->transitions[i]->name, transition_name) ==0){
 
-    if(sm->transitions[i]->origin==sm->current_state && sm->transitions[i]->destination->name == transition_name){
-      valid = *sm->transitions;
+      valid = sm->transitions[i]->destination;
     }
   }
+
   // If a valid transition is found, update the state machine's current state
-  if(valid){
-       sm->current_state = valid->destination;
+  if(valid != NULL){
+       sm->current_state = valid;
+    // printf("%s %s \n", sm->current_state->name, valid->destination->name);
+
       return sm->current_state;
   }
   // If a valid transition is not found, print an error and return NULL;
