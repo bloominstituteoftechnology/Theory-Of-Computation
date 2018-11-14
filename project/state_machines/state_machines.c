@@ -2,7 +2,6 @@
 #include <stdlib.h>
 #include <string.h>
 
-
 typedef struct State {
   char *name;
   int is_terminal;  // 1 if this is a terminating state; 0 otherwise
@@ -198,6 +197,7 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
  *****/
 Transition *sm_add_transition(StateMachine *sm, char *transition_name,
                               char *origin_state_name, char *destination_state_name) {
+  
   // Return NULL and print an error if number of transitions is over capacity
   if(sm->transition_capacity > sm->num_transitions){
     printf("error");
@@ -217,7 +217,6 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
         // If both origin and destination states have been found,
         // Create a new transition and add it to the state machine
         sm->transitions[sm->num_transitions] = create_transition(transition_name, origin, des);
-
       }
     }
   }
@@ -232,6 +231,7 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
  *
  * TODO: FILL THIS IN
  *****/
+
 State *sm_do_transition(StateMachine *sm, char *transition_name) {
   // Search the state machine for a valid transition:
   for(int i = 0; i<sm->num_transitions; i++){
@@ -240,7 +240,7 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
       // and the transition's name should match the given name
       if(sm->transitions[i]->name == transition_name){
         // If a valid transition is found, update the state machine's current state
-        sm->current_state = sm->transitions[i];
+        sm->current_state = sm->transitions[i]->destination;
       }
     } 
   }
