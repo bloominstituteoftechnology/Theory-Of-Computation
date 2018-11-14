@@ -158,13 +158,25 @@ void destroy_state_machine(StateMachine *sm) {
  *****/
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
-
+  if(sm->num_states >= sm->state_capacity){
+    printf("Error: too many states");
+    return NULL;
+  };
   // Return NULL and print an error if state name is not unique
-
+  for(int i = 0; i< sm->num_states; i++){
+    if(strcmp(sm->states[i]->name, state_name) == 0){
+      printf("Error: Duplicate State");
+      return NULL;
+    }
+  }
   // Create a new state and add it to the state machine
-
+  State *state = create_state(state_name);
+  sm->states[sm->num_states] = new_state;
+  sm->num_states++;
   // Initialize the state machine's current state if it hasn't been set yet
-
+  if(sm->current_state == NULL){
+    sm-> current_state = new_state;
+  }
   // Return the state
   return state;
 }
@@ -178,9 +190,11 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
 State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   // Add a state to the state machine
   // HINT: you can do this via the sm_add_state() function
-
+  State *state = sm_add_state(sm, state_name);
   // If the new state is valid, set is_terminal to 1
-
+  if(state != NULL){
+    state->is_terminal = 1;
+  }
   return state;
 }
 
