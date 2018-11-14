@@ -5,8 +5,15 @@
 
 typedef struct State {
   char *name;
-  int is_terminal;  // 1 if this is a terminating state; 0 otherwise
+  int is_terminal;  // 1 if this is a terminating state; 0 otherwise 
 } State;
+
+/*
+int add(int a, intb)
+{
+  return a + b;
+}
+*/
 
 typedef struct Transition {
   char *name;
@@ -19,15 +26,23 @@ typedef struct StateMachine {
 
   int state_capacity;  // How many states can this state machine hold?
   int num_states;  // How many states does the state machine currently hold
-  struct State **states;
+  struct State **states; // an array of states
 
   int transition_capacity;  // How many transitions can this state machine hold?
   int num_transitions;  // How many transitions does the state machine currently hold
   struct Transition **transitions;
 
 } StateMachine;
-
-
+/*
+if sm is a StateMachine instance
+sm->name means getting the name member of sm
+But if you look above, it has no such thing
+*/
+/*
+sm->states = [{name: ,}, state, state]
+i < num_states; i++
+sm->states[i]->name
+*/
 /************************************
  *
  *   CREATE & DESTROY FUNCTIONS
@@ -41,15 +56,23 @@ typedef struct StateMachine {
  *****/
 StateMachine *create_state_machine (int state_capacity, int transition_capacity) {
   // Allocate memory for state machine struct
-
+  StateMachine *sm = malloc(sizeof(StateMachine));
   // Current state should default to NULL
+  sm->current_state = NULL;
 
   // num_states and num_transitions should default to 0
+  sm->num_states = 0;
+  sm->num_transitions = 0;
 
   // Allocate memory for states
-
+  sm->state_capacity = transition_capacity;
+  sm->states = calloc(state_capacity, sizeof(State *));
+  // e.g. sm->states has { "State1", "State2", "State3" }
   // Allocate memory for transitions
+  sm->transition_capacity = transition_capacity;
+  sm->transitions = calloc(transition_capacity, sizeof(Transition *));
 
+  return sm;
 }
 
 /*****
@@ -59,11 +82,12 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
  *****/
 State *create_state(char *name) {
   // Allocate memory for state struct
-
+  State *state = malloc(sizeof(State));
   // Allocate memory and copy state name (hint: use strdup)
-
+  state->name = strdup(name);
   // Set is_terminal to default of 0
-
+  state->is_terminal = 0;
+  return state;
 }
 
 /*****
@@ -73,11 +97,14 @@ State *create_state(char *name) {
  *****/
 Transition *create_transition(char *name, State *origin, State *destination) {
   // Allocate memory for transition struct
-
+  Transition *transition = malloc(sizeof(Transition));
   // Allocate memory and copy transition name (hint: use strdup)
-
+  transition->name = strdup(name);
   // Set origin and destination states
+  transition->origin = origin;
+  transition->destination = destination;
 
+  return transition;
 }
 
 /*****
@@ -86,7 +113,10 @@ Transition *create_transition(char *name, State *origin, State *destination) {
  * TODO: FILL THIS IN
  *****/
 void destroy_state(State *state) {
-
+  if(state != NULL) {
+    free(state->name);
+    free(state);
+  }
 }
 
 /*****
@@ -95,7 +125,10 @@ void destroy_state(State *state) {
  * TODO: FILL THIS IN
  *****/
 void destroy_transition(Transition *transition) {
-
+  if(transition != NULL) {
+    free(transition->name);
+    free(transition);
+  }
 }
 
 /*****
@@ -106,10 +139,18 @@ void destroy_transition(Transition *transition) {
 void destroy_state_machine(StateMachine *sm) {
 
   // Free all transitions
-
+  for(int i = 0; i < sm->transition_capacity; i++) {
+    destroy_transition(sm->transitions[i]);
+  }
   // Free all states
-
+  for(int j = 0; j < sm->state_capacity; j++){
+    destroy_state(sm->states[j]);
+  }
   // Free state machine
+
+  free(sm->transitions);
+  free(sm->states);
+  free(sm);
 }
 
 
@@ -126,15 +167,37 @@ void destroy_state_machine(StateMachine *sm) {
  *
  * TODO: FILL THIS IN
  *****/
-State *sm_add_state(StateMachine *sm, char *state_name) {
+State *sm_add_state(StateMachine *sm, char *state_name) { // sm & state_name are declared here
   // Return NULL and print an error if number of states is over capacity
-
+  if(sm->num_states >= sm->state_capacity){
+    printf("number of states is over capacity");
+    return NULL;
+  }
   // Return NULL and print an error if state name is not unique
+ 
+ 
+  for( int i = 0; i <= sm->state_capacity; i++) {
+    if (strcmp(state_name, sm->states[i]->name) == 0){ 
 
+      printf("state name is not unique");
+      return NULL;
+    }
+    return state_name;
+  }
   // Create a new state and add it to the state machine
-
+  State *state = create_state(state_name);
+  
+  sm->states[sm->num_states] = state;
+  sm->num_states++;
+  /*
+  int num_states = 1;
+  sm->states[num_states] = "something else";
+  num_states++;
+  */
   // Initialize the state machine's current state if it hasn't been set yet
-
+  if(sm->current_state == NULL) {
+    sm->current_state = state;
+  }
   // Return the state
   return state;
 }
@@ -293,3 +356,12 @@ int main(void)
   return 0;
 }
 #endif
+
+
+
+      // char is part of a variable declaration. are these variables not declared yet? they are being declared and passed through
+      // the red squiggly lines don't think that's right lol
+      // sm and state name are parameters. they are already declared.
+      // lemme ask you this: sm represents which struct? => State or StateMachine (Look at the struct declarations near the top)
+      // name is a member of which struct? Directly with State and StateMachine references it through ++, right?
+      // OK
