@@ -203,15 +203,40 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
                               char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
-
+  if (sm->num_transitions >= sm->transition_capacity) {
+    printf("Number of transitions is over capacity \n");
+    return NULL;
+  }
+  
   // Declare origin_state and destination_state
+  State *origin_state = NULL;
+  State *destination_state = NULL;
 
   // Search the state machine for states with matching names for both origin and destination
+
+  for (int j = 0; j<sm->num_states; j++) {
+    if (strcmp(sm->states[j]->name, origin_state_name) == 0) {
+      origin_state = sm->states[j];
+    }
+    if (strcmp(sm->states[j]->name, destination_state_name) == 0) {
+      destination_state = sm->states[j];
+    }
+  }
 
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
 
+  if (origin_state != NULL && destination_state != NULL) {
+    Transition *new_transition = create_transition(transition_name, origin_state, destination_state);
+    sm->transitions[sm->num_transitions] = new_transition;
+    sm->num_transitions += 1;
+    return new_transition;
+  }
   // Otherwise, print an error and return NULL
+    else {
+    printf("Transition cannot be created \n");
+    return NULL;
+  }
 
 }
 
