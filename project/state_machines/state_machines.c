@@ -233,7 +233,8 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
   // Create a new transition and add it to the state machine
   
     sm->transitions[sm->num_transitions] = create_transition(transition_name, origin_state, destination_state);
- 
+    return sm->transitions[sm->num_transitions];
+    
     } else {
     printf("error: origin and/or destination states cannot be found.");
     return NULL; 
@@ -250,25 +251,25 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
  * TODO: FILL THIS IN
  *****/
 State *sm_do_transition(StateMachine *sm, char *transition_name) {
-
   // Search the state machine for a valid transition:
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
-for(int i = 0; i < sm->num_transitions; i++){
-  if(strcmp(sm->transitions[i]->name, transition_name) == 0 && strcmp(sm->current_state->name, sm->transitions[i]->name) == 0){
-    sm->current_state = sm->transitions[i]->destination; 
-  } else {
-    printf("error: origin and/or destination states cannot be found.");
-    return NULL; 
-  }
+  for(int i = 0; i < sm->num_transitions; i++) {
+    if(strcmp(sm->transitions[i]->name, transition_name) == 0 && strcmp(sm->current_state->name, sm->transitions[i]->name) == 0) {
+      sm->current_state = sm->transitions[i]->destination;
+      return sm->current_state;
+      
+    } else {
+      printf("error: origin and/or destination states cannot be found.");
+      return NULL;
+    }
 
-  return sm->current_state;
-}
+  }
   // If a valid transition is found, update the state machine's current state
 
   // If a valid transition is not found, print an error and return NULL;
-
 }
+
 
 
 /************************************
