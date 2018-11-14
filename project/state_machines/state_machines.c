@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+// #define _SVID_SOURCE
+// #define _POSIX_C_SOURCE 200809L
 
 typedef struct State {
   char *name;
@@ -26,7 +28,32 @@ typedef struct StateMachine {
 
 } StateMachine;
 
+int string_length(char s[])
+{
+    int count = 0;
+    for (int i = 0; ; i++){
+        if(s[i] == '\0'){
+            return count;
+        }
+        count += 1;
+    };
+}
 
+char *string_dup(char *src)
+{
+    printf("\n\nstring_dup %c\n\n", *src);
+    // int len = string_length(src);
+    char *temp = malloc(sizeof src);
+    //for loop to copy string
+    int i;
+    for (i = 0; src[i] != '\0'; i++ ){
+        temp[i] = src[i];
+    }
+    temp[i] = '\0';
+    printf("\n tem #%s#\n\n", temp);
+    // temp = src;
+    return temp;
+}
 /************************************
  *
  *   CREATE & DESTROY FUNCTIONS
@@ -56,7 +83,6 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
   sm->transitions = calloc(transition_capacity, sizeof(Transition *));
 
   return sm;
-
 }
 
 /*****
@@ -66,14 +92,13 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
  *****/
 State *create_state(char *name) {
   // Allocate memory for state struct
-  State * state = malloc(sizeof(State));
+  State *state = malloc(sizeof(State));
   // Allocate memory and copy state name (hint: use strdup)
-  state->name = strdup(name);
+  state->name = string_dup(name);
   // Set is_terminal to default of 0
   state->is_terminal = 0;
 
   return state;
-
 }
 
 /*****
@@ -85,7 +110,7 @@ Transition *create_transition(char *name, State *origin, State *destination) {
   // Allocate memory for transition struct
   Transition *transition = malloc(sizeof(Transition));
   // Allocate memory and copy transition name (hint: use strdup)
-  transition->name = strdup(name);
+  transition->name = string_dup(name);
   // Set origin and destination states
   transition->origin = origin;
   transition->destination = destination;
@@ -155,20 +180,24 @@ void destroy_state_machine(StateMachine *sm) {
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
   if(sm->num_states > sm->state_capacity){
-    printf("error");
+    printf("error at add state\n");
     return NULL;
   }
+
   // Return NULL and print an error if state name is not unique
   for(int i=0; i < sm->state_capacity; i++){
-      if(state_name == sm->states[i]->name){
-        printf("error");
+      if(sm->states[i] != NULL && strcmp(state_name, sm->states[i]->name) == 0){
+        printf("error at add state for loop\n");
         return NULL;
       }
   }
   // Create a new state and add it to the state machine
   sm->states[sm->num_states] = create_state(state_name);
   // Initialize the state machine's current state if it hasn't been set yet
-  sm->current_state = sm->states[sm->num_states];
+  if(sm->current_state == NULL){
+    sm->current_state = sm->states[sm->num_states];
+  }
+  sm->num_states++;
   // Return the state
   return sm->current_state;
 }
@@ -195,33 +224,37 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
  *
  * TODO: FILL THIS IN
  *****/
-Transition *sm_add_transition(StateMachine *sm, char *transition_name,
-                              char *origin_state_name, char *destination_state_name) {
+Transition *sm_add_transition(StateMachine *sm, char *transition_name, char *origin_state_name, char *destination_state_name) {
   
   // Return NULL and print an error if number of transitions is over capacity
-  if(sm->transition_capacity > sm->num_transitions){
-    printf("error");
+  if(sm->num_transitions >= sm->transition_capacity){
+    printf("error - transition capacity at add transition\n");
     return NULL;
   }
 
-  State* origin;
-  State* des;
+  // Declare origin_state and destination_state
+  State* origin = NULL;
+  State* des = NULL;
 
   // Search the state machine for states with matching names for both origin and destination
 
-  for(int i=0; i<sm->num_states; i++){
-    if (sm->states[i]->name == origin_state_name){
+  for(int i=0; i < sm->num_states; i++){
+    if (strcmp(sm->states[i]->name, origin_state_name) == 0 && origin == NULL){
       origin = sm->states[i];
-      if (sm->states[i]->name == destination_state_name){
+    }
+    if (strcmp(sm->states[i]->name, destination_state_name) == 0 && des == NULL){
         des = sm->states[i];
         // If both origin and destination states have been found,
         // Create a new transition and add it to the state machine
+    }
+    if(origin != NULL && des != NULL){
         sm->transitions[sm->num_transitions] = create_transition(transition_name, origin, des);
-      }
+        sm->num_transitions++;
+        return sm->transitions[sm->num_transitions-1];
     }
   }
   // Otherwise, print an error and return NULL
-  printf("error");
+  printf("error at end of transition\n");
   return NULL;
 }
 
@@ -234,18 +267,18 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
 
 State *sm_do_transition(StateMachine *sm, char *transition_name) {
   // Search the state machine for a valid transition:
-  for(int i = 0; i<sm->num_transitions; i++){
+  for(int i = 0; i < sm->num_transitions; i++){
     // The transition's origin state should match the state machine's current_state
-    if(sm->transitions[i]->origin == sm->current_state){
-      // and the transition's name should match the given name
-      if(sm->transitions[i]->name == transition_name){
+    
+    if(strcmp(sm->transitions[i]->origin->name, sm->current_state->name) == 0 && strcmp(sm->transitions[i]->name, transition_name) == 0){
+        // and the transition's name should match the given name
         // If a valid transition is found, update the state machine's current state
         sm->current_state = sm->transitions[i]->destination;
-      }
-    } 
+        return sm->current_state;
+    }
   }
   // If a valid transition is not found, print an error and return NULL;
-  printf("error");
+  printf("error in sm+do_transition\n");
   return NULL;
 }
 
