@@ -270,6 +270,23 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
 State *sm_do_transition(StateMachine *sm, char *transition_name)
 {
 
+  Transition *valid_transition = NULL;
+  for (int i = 0; i < sm->num_transitions; i++)
+  {
+    if (strcmp(sm->transitions[i]->name, transition_name) == 0 && sm->transitions[i]->origin == sm->current_state)
+    {
+      valid_transition = sm->transitions[i];
+    }
+  }
+
+  if (valid_transition)
+  {
+    sm->current_state = valid_transition->destination;
+    return sm->current_state;
+  }
+
+  printf("Check the state machine's current state and also your transition name");
+  return NULL;
   // Search the state machine for a valid transition:
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
