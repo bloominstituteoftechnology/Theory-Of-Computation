@@ -48,8 +48,6 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
   sm -> num_states = 0;
   sm -> num_transitions = 0;
   // Allocate memory for states
-  struct State *states;
-
   sm -> state_capacity = state_capacity;
   sm -> states = calloc(state_capacity, sizeof(State *));
   // Allocate memory for transitions
