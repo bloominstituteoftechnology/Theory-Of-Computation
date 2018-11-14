@@ -26,8 +26,6 @@ typedef struct StateMachine {
   struct Transition **transitions;
 
 } StateMachine;
-
-
 /************************************
  *
  *   CREATE & DESTROY FUNCTIONS
@@ -57,7 +55,6 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
   return sm;
 
 }
-
 /*****
  * Allocate memory for a new state and initialize values
  *
@@ -73,7 +70,6 @@ State *create_state(char *name) {
 
   return state;
 }
-
 /*****
  * Allocate memory for a new transition and initialize values
  *
@@ -90,7 +86,6 @@ Transition *create_transition(char *name, State *origin, State *destination){
 
   return transition;
 }
-
 /*****
  * Free memory for a state
  *
@@ -102,7 +97,6 @@ void destroy_state(State *state) {
     free(state);
   }
 }
-
 /*****
  * Free memory for a transition
  *
@@ -114,7 +108,6 @@ void destroy_transition(Transition *transition) {
     free(transition);
   }
 }
-
 /*****
  * Free memory for a state machine and all of its states and transitions
  *
@@ -135,16 +128,11 @@ void destroy_state_machine(StateMachine *sm) {
   free(sm->states);
   free(sm);
 }
-
-
 /************************************
  *
  *   STATE MACHINE FUNCTIONS
  *
  ************************************/
-
-
-
 /*****
  * Add a state to the state machine
  *
