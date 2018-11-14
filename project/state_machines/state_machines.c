@@ -161,15 +161,34 @@ void destroy_state_machine(StateMachine *sm) {
  *****/
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
+  if(sm->num_states > sm->state_capacity) {
+    printf("Error, over capacity\n");
+    return NULL;
+  }
 
   // Return NULL and print an error if state name is not unique
+  for (int i = 0; i < sm->num_states; i++) {
+    if (strcmp(sm->states[i]->name, state_name) == 0) {
+      printf("Error, name is not unique\n");
+      return NULL;
+    }
+  }
 
   // Create a new state and add it to the state machine
+  State *newState = create_state(state_name);
+  sm->states[sm->num_states] = newState;
+  sm->num_states++;
 
   // Initialize the state machine's current state if it hasn't been set yet
-
-  // Return the state
-  return state;
+  if (sm->current_state != NULL) {
+    printf("Error, current state has already been set");
+    return NULL;
+  }
+  if (sm->current_state == NULL) {
+    sm->current_state = newState;
+    // Return the state
+    return newState;
+  }
 }
 
 /*****
@@ -181,10 +200,17 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
 State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   // Add a state to the state machine
   // HINT: you can do this via the sm_add_state() function
+  State *state = sm_add_state(sm, state_name);
 
   // If the new state is valid, set is_terminal to 1
-
-  return state;
+  if (state != NULL) {
+    state->is_terminal = 1;
+    return state;
+  }
+  else {
+    printf("Error, new state is not valid");
+    return NULL;
+  }
 }
 
 
@@ -193,8 +219,7 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
  *
  * TODO: FILL THIS IN
  *****/
-Transition *sm_add_transition(StateMachine *sm, char *transition_name,
-                              char *origin_state_name, char *destination_state_name) {
+Transition *sm_add_transition(StateMachine *sm, char *transition_name, char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
 
