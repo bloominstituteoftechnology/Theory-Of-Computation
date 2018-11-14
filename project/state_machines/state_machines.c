@@ -201,16 +201,35 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
                               char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
-  
+  if (sm->num_transitions >= sm->transition_capacity) {
+    printf("Number of transitions is at capacity, cannot add any more \n");
+    return NULL;
+  }
   // Declare origin_state and destination_state
-
+  State *origin_state = NULL;
+  State *destination_state = NULL;
   // Search the state machine for states with matching names for both origin and destination
-
+  for (int j = 0; j<sm->num_states; j++) {
+    if (strcmp(sm->states[j]->name, origin_state_name) == 0) {
+      origin_state = sm->states[j];
+    }
+    if (strcmp(sm->states[j]->name, destination_state_name) == 0) {
+      destination_state = sm->states[j];
+    }
+  }
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
-
+  if (origin_state != NULL && destination_state != NULL) {
+    Transition *new_transition = create_transition(transition_name, origin_state, destination_state);
+    sm->transitions[sm->num_transitions] = new_transition;
+    sm->num_transitions += 1;
+    return new_transition;
+  }
   // Otherwise, print an error and return NULL
-
+  else {
+    printf("Transition cannot be created \n");
+    return NULL;
+  }
 }
 
 
@@ -226,10 +245,20 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
 
+  for (int k = 0; k<sm->num_transitions; k++) {
+    if ((sm->transitions[k]->origin == sm->current_state) && (strcmp(sm->transitions[k]->name, transition_name) == 0) {
+      val_transition = sm->transitions[k];
+    }
+  }
   // If a valid transition is found, update the state machine's current state
-
+  if (val_transition != NULL) {
+    sm->current_state = transition->destination;
+    return sm-current_state;
+  }
   // If a valid transition is not found, print an error and return NULL;
-
+  else (
+    printf("cannot perform transition \n");
+  )
 }
 
 
