@@ -209,7 +209,7 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
                               char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
-  if(sm->num_transitions == sm->transition_capacity){
+  if(sm->num_transitions >= sm->transition_capacity){
     printf("You can't add another transition");
     return NULL;
   }
