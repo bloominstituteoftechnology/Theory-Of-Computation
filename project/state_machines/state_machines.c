@@ -5,7 +5,7 @@
 
 typedef struct State {
   char *name;
-  int is_terminal;  // 1 if this is a terminating state; 0 otherwise
+  int is_terminal;  //  1 if this is a terminating state; 0 otherwise
 } State;
 
 typedef struct Transition {
