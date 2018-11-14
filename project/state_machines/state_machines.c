@@ -5,8 +5,15 @@
 
 typedef struct State {
   char *name;
-  int is_terminal;  // 1 if this is a terminating state; 0 otherwise
+  int is_terminal;  // 1 if this is a terminating state; 0 otherwise 
 } State;
+
+/*
+int add(int a, intb)
+{
+  return a + b;
+}
+*/
 
 typedef struct Transition {
   char *name;
@@ -80,6 +87,7 @@ State *create_state(char *name) {
   state->name = strdup(name);
   // Set is_terminal to default of 0
   state->is_terminal = 0;
+  return state;
 }
 
 /*****
@@ -170,17 +178,26 @@ State *sm_add_state(StateMachine *sm, char *state_name) { // sm & state_name are
  
   for( int i = 0; i <= sm->state_capacity; i++) {
     if (strcmp(state_name, sm->states[i]->name) == 0){ 
-      
+
       printf("state name is not unique");
       return NULL;
     }
     return state_name;
   }
   // Create a new state and add it to the state machine
+  State *state = create_state(state_name);
   
-  create_state_machine();
+  sm->states[sm->num_states] = state;
+  sm->num_states++;
+  /*
+  int num_states = 1;
+  sm->states[num_states] = "something else";
+  num_states++;
+  */
   // Initialize the state machine's current state if it hasn't been set yet
-
+  if(sm->current_state == NULL) {
+    sm->current_state = state;
+  }
   // Return the state
   return state;
 }

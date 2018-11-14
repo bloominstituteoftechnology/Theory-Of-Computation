@@ -8,6 +8,7 @@ char *basic_state_machine_test()
     sm_add_state(sm, "STATE_1");
     sm_add_state(sm, "STATE_2");
     sm_add_state(sm, "STATE_3");
+    mu_assert(sm_add_state(sm, "STATE_3") == NULL, "Duplicate state not rejected");
 
     sm_add_transition(sm, "MOVE", "STATE_1", "STATE_2");
     sm_add_transition(sm, "MOVE", "STATE_2", "STATE_1");
