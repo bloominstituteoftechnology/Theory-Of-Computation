@@ -160,7 +160,7 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
   }
   // Return NULL and print an error if state name is not unique
   for(int y = 0; y < sm->num_states; y++){
-    if(strcmp(state_name, sm->states[i]->name)){
+    if(strcmp(state_name, sm->states[y]->name)){
       printf("ERROR: State name is already taken!"); 
       return NULL; 
     }
@@ -203,14 +203,33 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
                               char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
-
+  if(sm-> num_transitions == sm-> transition_capacity){
+    return NULL; 
+  }
   // Declare origin_state and destination_state
-
+  State *origin; 
+  State *destination; 
   // Search the state machine for states with matching names for both origin and destination
+  for(int y = 0; y < sm->num_states; y++){
+    
+    if(sm->states[y]->name == origin_state_name){
+      origin = sm->states[y];
+    }
 
+    if(sm->states[y]->name == destination_state_name){
+      destination = sm-> states[y];
+    }
+
+  }
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
-
+  if(origin != NULL && destination != NULL){
+    Transition *new_transition = create_transition(transition_name, origin, destination); 
+    return new_transition; 
+  }else{
+    return NULL; 
+  }
+  
   // Otherwise, print an error and return NULL
 
 }
