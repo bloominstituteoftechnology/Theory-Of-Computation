@@ -48,11 +48,15 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
   sm->num_states = 0;
   sm->num_transitions = 0;
   // Allocate memory for states
+  // sinc we set these to 0 we use calloc which initalizes to 0
+  // calloc() allocates the memory and also initializes the allocates memory block to zero. If we try to access the content of these blocks then we’ll get 0.
   sm->state_capacity = state_capacity;
   sm->states = calloc(state_capacity, sizeof(State *));
   // Allocate memory for transitions
   sm->transition_capacity = transition_capacity;
   sm->transitions = calloc(transition_capacity, sizeof(Transition *));
+  // need a return for the struct:
+  return sm;
 
 }
 
@@ -63,11 +67,13 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
  *****/
 State *create_state(char *name) {
   // Allocate memory for state struct
-
+  State *state_struct = malloc(sizeof(State));
   // Allocate memory and copy state name (hint: use strdup)
-
+  state_struct->name = strdup(name);
   // Set is_terminal to default of 0
-
+  state->is_terminal = 0;
+  // prolly should return the struct
+  return state_struct;
 }
 
 /*****
@@ -77,20 +83,28 @@ State *create_state(char *name) {
  *****/
 Transition *create_transition(char *name, State *origin, State *destination) {
   // Allocate memory for transition struct
-
+  Transition *transition = malloc(sizeof(Transition));
   // Allocate memory and copy transition name (hint: use strdup)
-
+  transition->name = strdup(name);
   // Set origin and destination states
+  transition->origin = origin;
+  transition->destination = destination;
+
+  return transition;
 
 }
 
 /*****
  * Free memory for a state
+ free fucntion deallocations memory previously allocated by calloc malloc or realloc.
  *
  * TODO: FILL THIS IN
  *****/
 void destroy_state(State *state) {
-
+  if (state != NULL){
+    free(state-> name);
+    free(state);
+  }
 }
 
 /*****
@@ -99,7 +113,10 @@ void destroy_state(State *state) {
  * TODO: FILL THIS IN
  *****/
 void destroy_transition(Transition *transition) {
-
+  if (transition != NULL){
+    free(transition-> name);
+    free(transition);
+  }
 }
 
 /*****
@@ -109,11 +126,20 @@ void destroy_transition(Transition *transition) {
  *****/
 void destroy_state_machine(StateMachine *sm) {
 
-  // Free all transitions
-
+  // Free all transitions so iterate through and call
+  // destroy_transition on the transitions from the struct that sm points to:
+  for (int i = 0; i<sm->transitions; i++){
+    destroy_transition(sm->transitions[i]);
+    //technically (*sm).transitions should be equivalent.
+  }
   // Free all states
-
-  // Free state machine
+  for (int j = 0; j < sm->num_states; j++){
+    destroy_state(sm->states[i]);
+  }
+  // Free state machine; deallocations:
+  free(sm->transitions);
+  free(sm->states);
+  free(sm);
 }
 
 
