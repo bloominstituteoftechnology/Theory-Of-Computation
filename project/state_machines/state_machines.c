@@ -151,8 +151,8 @@ void destroy_state_machine(StateMachine *sm) {
  *****/
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
-  if (sm -> num_states >= sm -> state_capacity) {
-    perror("Exceeding full capacity.\n");
+  if (sm -> num_states == sm -> state_capacity) {
+    perror("Full capacity reached.\n");
     return NULL;
   }
   // Return NULL and print an error if state name is not unique
@@ -201,8 +201,8 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
                               char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
-  if (sm -> num_transitions >= sm -> transition_capacity) {
-    perror("Exceeding full capacity.\n");
+  if (sm -> num_transitions == sm -> transition_capacity) {
+    perror("Full capacity reached.\n");
     return NULL;
   }
   // Declare origin_state and destination_state
