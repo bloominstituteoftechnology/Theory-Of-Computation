@@ -158,10 +158,10 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
 	}		
   // Return NULL and print an error if state name is not unique
 	for(int i=0; i < sm->num_states; i++){
-		if(sm->states[i]->name==state_name) {
-			perror("State name is not unique\n");
-                	return NULL;
-		}
+		if (strcmp(sm -> states[i] -> name, state_name)==0) {
+     			perror("Name is not unique.");
+      			return NULL;
+    		}	
 	}
   // Create a new state and add it to the state machine
 	State *state = create_state(state_name);
@@ -246,13 +246,18 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   // Search the state machine for a valid transition:
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
+  	Transition *transition = NULL;
+
 	for(int i=0; i < sm->transition_capacity; i++){
-		if(sm->transitions[i]->name == transition_name && sm->current_state->name == sm->transitions[i]->origin->name){
-			sm->current_state = sm->transitions[i]->destination;
-			return sm->current_state;	
+		if(strcmp(sm->transitions[i]->name, transition_name)==0 && sm->current_state == sm->transitions[i]->origin){
+			transition = sm->transitions[i]; 
 		}
 	}
-
+	
+	if(transition){
+		sm->current_state = transition->destination;
+		return sm->current_state;
+	}
 	perror("Invalid transition name");
 	return NULL;
   // If a valid transition is found, update the state machine's current state
@@ -260,6 +265,7 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   // If a valid transition is not found, print an error and return NULL;
 
 }
+
 
 
 /************************************
