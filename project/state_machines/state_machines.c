@@ -255,10 +255,9 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
   for(int i = 0; i < sm->num_transitions; i++) {
-    if(strcmp(sm->transitions[i]->name, transition_name) == 0 && strcmp(sm->current_state->name, sm->transitions[i]->name) == 0) {
+    if(strcmp(sm->transitions[i]->name, transition_name) == 0 && (sm->current_state == sm->transitions[i]->origin)) {
       sm->current_state = sm->transitions[i]->destination;
       return sm->current_state;
-      
     } else {
       printf("error: origin and/or destination states cannot be found.");
       return NULL;
