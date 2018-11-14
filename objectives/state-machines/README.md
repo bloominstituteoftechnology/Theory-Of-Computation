@@ -34,7 +34,7 @@ everything up as a state machine.
 State machines often have a special _start state_ (denoting where to start) and
 one or more _terminal states_ (when to end).
 
-The Greek letter ε (epsilon) is used to denote an state transition for which no
+The Greek letter ε (epsilon) is used to denote a state transition for which no
 event is required (or no input consumed) for the transition to take place.
 
 ## Example Usage
