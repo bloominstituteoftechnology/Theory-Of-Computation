@@ -281,8 +281,14 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   
 
   // If the new state is valid, set is_terminal to 1
-  if(state != NULL)
-    state->is_terminal = 1; 
+  if(state != NULL){
+    for (int i = 0; i<sm->num_transitions; i++){
+      if(strcmp(state_name, sm->transitions[i]->name)){
+        sm->transitions[i]->destination->is_terminal = 1; 
+      }
+    }
+    printf("\n%s is terminal\n", state->name); 
+  }
     
 
   return state;
@@ -303,12 +309,13 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
   }
 
   // Declare origin_state and destination_state
-  State *origin_state = create_state(origin_state_name);
-  State *destination_state = create_state(destination_state_name);
+  
 
   // Search the state machine for states with matching names for both origin and destination
-  bool found_destination = false; 
-  bool found_origin = false; 
+  // bool found_destination = false; 
+  // bool found_origin = false; 
+  State *found_destination = NULL; 
+  State *found_origin = NULL; 
 
   
     for(int i = 0; i<sm->num_states; i++){
@@ -316,21 +323,22 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
     // Create a new transition and add it to the state machine
     // printf("%s", sm->states );
     if(strcmp(destination_state_name, sm->states[i]->name) == 0)
-      found_destination = true; 
+      found_destination = sm->states[i]; 
     
     if(strcmp(origin_state_name, sm->states[i]->name) == 0)
-      found_origin = true; 
+      found_origin = sm->states[i]; 
+     
     //I put this inside of the loop because if I have found them both no reason to keep on looping. 
-    if (found_origin && found_destination){
-      Transition *transition = create_transition(transition_name, origin_state, destination_state);
+    if (found_origin != NULL && found_destination != NULL){
+      // State *origin_state = create_state(origin_state_name);
+      // State *destination_state = create_state(destination_state_name);
+      Transition *transition = create_transition(transition_name, found_origin, found_destination);
       sm->transitions[sm->num_transitions] = transition; 
       sm->num_transitions++; 
       //create the transition  //add to the state machine  // increase the num_transitions...
       return transition; 
     }
    }
-  
-  
   
   printf("\nUnable to create transistion\n");
   return NULL; 
@@ -349,14 +357,16 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
 
   // Search the state machine for a valid transition:
   //   The transition's origin state should match the state machine's current_state
-  for(int i = 0; i<sm->num_states; i++){
+  
     for(int j = 0; j < sm->num_transitions; j++){
-    if(strcmp( sm->transitions[j]->origin->name, sm->current_state->name ) && strcmp(transition_name, sm->transitions[j]->name)){
-      sm->current_state = sm->states[i];
+    if(strcmp( sm->transitions[j]->origin->name, sm->current_state->name ) == 0 && strcmp(transition_name, sm->transitions[j]->name)== 0){
+      printf("\nUpdating the currentState to %s\n", sm->transitions[j]->name);
+      printf("\n current state is terminal? %d", sm->transitions[j]->destination->is_terminal );
+      sm->current_state = sm->transitions[j]->destination;
       return sm->current_state; 
     }
 
-    }
+
   }
   //   and the transition's name should match the given name
 
