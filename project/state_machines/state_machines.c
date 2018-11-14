@@ -4,6 +4,7 @@
 #include <string.h>
 #include <ctype.h>
 #include <stdbool.h>
+//https://repl.it/@codejoncode/state-machine-lecture    working correctly at repl.it 
 
 /*Structures*/
 typedef struct State {//requires a name. 
@@ -282,12 +283,8 @@ State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
 
   // If the new state is valid, set is_terminal to 1
   if(state != NULL){
-    for (int i = 0; i<sm->num_transitions; i++){
-      if(strcmp(state_name, sm->transitions[i]->name)){
-        sm->transitions[i]->destination->is_terminal = 1; 
-      }
-    }
-    printf("\n%s is terminal\n", state->name); 
+    state->is_terminal = 1; 
+    printf("\n %s is terminal\n", state->name); 
   }
     
 
