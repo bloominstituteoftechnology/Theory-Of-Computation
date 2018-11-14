@@ -150,7 +150,7 @@ void destroy_state_machine(StateMachine *sm) {
  *****/
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
-  if (sm->num_states==sm->state_capacity-1) {
+  if (sm->num_states==sm->state_capacity) {
     printf("Error");
     return NULL;
   } 
@@ -203,7 +203,7 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
                               char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
-  if (sm->num_transitions==sm->transition_capacity-1) {
+  if (sm->num_transitions==sm->transition_capacity) {
     printf("Error");
     return NULL;
   }
