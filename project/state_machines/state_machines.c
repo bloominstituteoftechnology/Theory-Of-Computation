@@ -291,7 +291,7 @@ void sm_print_state_and_transitions(StateMachine *sm) {
   printf("\n");
 }
 
-/*****
+/***
  * Utility function to accept user inputs for state transitions
  *****/
 void process_input(StateMachine *sm) {
