@@ -170,7 +170,7 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if state name is not unique
   int ind = sm->num_states;
   for (int i = 0; i < ind; i++) {
-    if (strcmp(state_name, sm->states[i]->name)) {
+    if (strcmp(state_name, sm->states[i]->name) == 0) {
       printf("Error: %s already exists\n", state_name);
       return NULL;
     }
@@ -222,10 +222,10 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
   State * origin_state, * destination_state;
   // Search the state machine for states with matching names for both origin and destination
   for(int i = 0;i < sm->num_states;i++) {
-    if (strcmp(origin_state_name, sm->states[i]->name)) {
+    if (strcmp(origin_state_name, sm->states[i]->name) == 0) {
       origin_state = sm->states[i];
     }
-    if (strcmp(destination_state_name, sm->states[i]->name)) {
+    if (strcmp(destination_state_name, sm->states[i]->name) == 0) {
       destination_state = sm->states[i];
     }
   }
@@ -257,7 +257,7 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
   for(int i = 0;i < sm->num_transitions;i++) {
-    if (strcmp(transition_name, sm->transitions[i]->name)) {
+    if (strcmp(transition_name, sm->transitions[i]->name) == 0) {
       if (sm->transitions[i]->origin == sm->current_state) {
         // If a valid transition is found, update the state machine's current state
         sm->current_state = sm->transitions[i]->destination;
