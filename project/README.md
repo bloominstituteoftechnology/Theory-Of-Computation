@@ -1,4 +1,4 @@
-# State Machine in C
+# 	State Machine in C
 
 Your project for the next two days is to build a state machine in C. Some code has been filled out for you in `state_machines.c` including struct definitions and test utility functions. You will be filling out the rest of the functions.
 
