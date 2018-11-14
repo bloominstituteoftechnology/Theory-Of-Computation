@@ -177,17 +177,17 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
   }
 
   // Create a new state and add it to the state machine
-  State *state = create_state(state_name); 
-  sm->states[sm->num_states] = state;  
+  State *new_state = create_state(state_name); 
+  sm->states[sm->num_states] = new_state;  
   sm->num_states++;
 
   // Initialize the state machine's current state if it hasn't been set yet
   if(sm->current_state == NULL) {
-    sm->current_state = state;
+    sm->current_state = new_state;
   }
 
   // Return the state
-  return state;
+  return new_state;
 }
 
 /*****
@@ -199,12 +199,12 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
 State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   // Add a state to the state machine
   // HINT: you can do this via the sm_add_state() function
-  StateMachine *state = sm_add_state(sm, state_name);
+  State *new_state = sm_add_state(sm, state_name);
   // If the new state is valid, set is_terminal to 1
-  if(state != NULL) {
-    sm->current_state->is_terminal = 1;
+  if(new_state != NULL) {
+    new_state->is_terminal = 1;
   }
-  return state;
+  return new_state;
 }
 
 
@@ -221,18 +221,33 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name, char *ori
     return NULL;
   }
   // Declare origin_state and destination_state
-  State *origin_state = create_state(origin_state_name);
-  State *destination_state = create_state(destination_state_name);
+  State *origin_state = NULL;
+  State *destination_state = NULL;
 
   // Search the state machine for states with matching names for both origin and destination
-
+  for (int i = 0; i < sm->num_states; i++) {
+    if (strcmp(sm->states[i]->name, origin_state_name) == 0) {
+      origin_state = sm->states[i];
+    }
+    if (strcmp(sm->states[i]->name, destination_state_name) == 0) {
+      destination_state = sm->states[i];
+    }
+  }
 
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
+  if (origin_state != NULL && destination_state != NULL) {
+    Transition *new_transition = create_transition(transition_name, origin_state, destination_state);
+    sm->transitions[sm->num_transitions] = new_transition;  
+    sm->num_transitions++;
+    return new_transition;
+  }
 
   // Otherwise, print an error and return NULL
-  perror("Error. \n");
-  return NULL;
+  else { 
+    perror("Error. \n");
+    return NULL;
+  }
 }
 
 
@@ -247,13 +262,24 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   // Search the state machine for a valid transition:
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
+  Transition *val_transition = NULL;
+  for (int i=0; i < sm->num_transitions; i++) {
+    if ((sm->transitions[i]->origin == sm->current_state) && (strcmp(sm->transitions[i]->name, transition_name) == 0)) {
+      val_transition = sm->transitions[i];
+    }
+  }
 
   // If a valid transition is found, update the state machine's current state
+  if (val_transition != NULL) {
+    sm->current_state = val_transition->destination;
+    return sm->current_state;
+  }
 
   // If a valid transition is not found, print an error and return NULL;
-
+  else {
+    perror("Unsuccessful transition. \n");
+  }
 }
-
 
 /************************************
  *
