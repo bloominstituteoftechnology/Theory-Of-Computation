@@ -158,14 +158,14 @@ void destroy_state_machine(StateMachine *sm) {
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
   if(sm->num_states >= sm->state_capacity){
-    printf("Error: Number of states is over capacity.");
+    printf("Error! Number of states is greater than the capacity.");
     return NULL;
   }
 
   // Return NULL and print an error if state name is not unique
   for(int i = 0; i < sm->num_states; i++) {
     if(strcmp(sm->states[i]->name, state_name) == 0){
-      printf("Error: State name is not unique.");
+      printf("Error! State name must be unique.");
       return NULL; 
     }
   }
