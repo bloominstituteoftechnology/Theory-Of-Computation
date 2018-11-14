@@ -246,7 +246,7 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   // Search the state machine for a valid transition:
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
-
+  
   // If a valid transition is found, update the state machine's current state
 
   // If a valid transition is not found, print an error and return NULL;
