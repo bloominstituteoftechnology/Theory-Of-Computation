@@ -24,3 +24,4 @@ Fill out the following state machine functions:
 `sm_do_transition`
 
 Tests should now pass.
+
