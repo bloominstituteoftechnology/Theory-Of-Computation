@@ -6,6 +6,8 @@
    transitions leading to both lights not blinking, one light blinking, the
    other light blinking, or both lights blinking?
 
+* [State Machine Diagram](state-machine.md)
+
 ## Regular Expressions
 
 1. Write a regex to parse all links from a web page and print them:

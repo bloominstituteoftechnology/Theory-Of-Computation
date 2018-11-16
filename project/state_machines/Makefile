@@ -3,6 +3,7 @@ EXE=$(subst .c,,$(SRC))
 
 $(EXE): $(SRC)
 	gcc -Wall -Wextra -std=c99 -g -o $@ $^
+	# gcc -Wall -Wextra -g -o $@ $^
 
 test: tests
 
@@ -27,6 +28,7 @@ SO_TARGET=$(patsubst %.a,%.so,$(TARGET))
 tests: clean $(TARGET) $(SO_TARGET) tests2
 
 dev: CFLAGS=-g -std=c99 -Wall -Isrc -Wall -Wextra %(OPTFLAGS)
+# dev: CFLAGS=-g -Wall -Isrc -Wall -Wextra %(OPTFLAGS)
 dev: all
 
 $(TARGET): CFLAGS += -fPIC
