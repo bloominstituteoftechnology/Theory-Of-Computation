@@ -74,5 +74,10 @@ dime.
 Video game AIs can exist in a lot of states, e.g. idling, bored, running, shooting.
 
 1. Come up with a list of 4 states an AI can be in.
+Idle, talking with player, talking with other npc, back stabbing
 2. Figure out the transitions between those states.
+Idle -player approaches-> talking with player -player leaves npc approaches-> npcs talk -other npc leaves-> npc back stabs player
+
+Idle -npc approaches-> npcs talk -other npc leaves-> -player approaches-> talking with player -player leaves ->  npc back stabs npc
 3. Draw a state machine diagram of your AI.
+ 
