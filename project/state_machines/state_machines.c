@@ -56,7 +56,7 @@ StateMachine *create_state_machine(int state_capacity, int transition_capacity)
   // Allocate memory for states
   sm->state_capacity = state_capacity;
   sm->states = calloc(state_capacity, sizeof(State *));
-
+  // calloc will initialize everything to NULL
   // Allocate memory for transitions
   sm->transition_capacity = transition_capacity;
   sm->transitions = calloc(transition_capacity, sizeof(Transition *));
@@ -185,16 +185,16 @@ State *sm_add_state(StateMachine *sm, char *state_name)
     }
   }
   // Create a new state and add it to the state machine
-  State *state = create_state(state_name);
-  sm->states[sm->num_states] = state;
+  State *new_state = create_state(state_name);
+  sm->states[sm->num_states] = new_state;
   sm->num_states++;
   // Initialize the state machine's current state if it hasn't been set yet
   if (sm->current_state == NULL)
   {
-    sm->current_state = state;
+    sm->current_state = new_state;
   }
   // Return the state
-  return state;
+  return new_state;
 }
 
 /*****
