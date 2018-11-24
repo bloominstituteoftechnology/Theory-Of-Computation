@@ -41,15 +41,22 @@ typedef struct StateMachine {
  *****/
 StateMachine *create_state_machine (int state_capacity, int transition_capacity) {
   // Allocate memory for state machine struct
-
+  StateMachine *statem = malloc(sizeof(StateMachine)); 
   // Current state should default to NULL
-
+  statem-> current_state = NULL; 
   // num_states and num_transitions should default to 0
-
+  statem-> num_states = 0; 
+  statem-> num_transitions = 0; 
   // Allocate memory for states
-
+  statem-> state_capacity = state_capacity;
+  // Using Calloc frees up the memory and initializes it to 0 
+  //first param is number of params to be allocated and second param is the size of the elements
+  statem-> states = calloc(state_capacity, sizeof(State*)); 
   // Allocate memory for transitions
+  statem->transition_capacity = transition_capacity; 
+  statem-> states = calloc(transition_capacity, sizeof(Transition*)); 
 
+  return statem; 
 }
 
 /*****
@@ -59,11 +66,13 @@ StateMachine *create_state_machine (int state_capacity, int transition_capacity)
  *****/
 State *create_state(char *name) {
   // Allocate memory for state struct
-
+  State *state = malloc(sizeof(State)); 
   // Allocate memory and copy state name (hint: use strdup)
-
+  state->name = strdup(name);  //function allocates sufficient memory for a copy of the string name, does the copy, and returns a pointer to it.
   // Set is_terminal to default of 0
+  state->is_terminal = 0; 
 
+  return state; 
 }
 
 /*****
@@ -73,11 +82,14 @@ State *create_state(char *name) {
  *****/
 Transition *create_transition(char *name, State *origin, State *destination) {
   // Allocate memory for transition struct
-
+  Transition *transition = malloc(sizeof(State)); 
   // Allocate memory and copy transition name (hint: use strdup)
-
+  transition-> name = strdup(name); 
   // Set origin and destination states
+  transition-> origin = origin; 
+  transition-> destination = destination; 
 
+  return transition; 
 }
 
 /*****
@@ -86,7 +98,10 @@ Transition *create_transition(char *name, State *origin, State *destination) {
  * TODO: FILL THIS IN
  *****/
 void destroy_state(State *state) {
-
+  if(state != NULL){
+    free(state->name);
+    free(state); 
+  }
 }
 
 /*****
@@ -95,7 +110,12 @@ void destroy_state(State *state) {
  * TODO: FILL THIS IN
  *****/
 void destroy_transition(Transition *transition) {
-
+  if(transition != NULL){
+    free(transition-> name);
+    free(transition-> origin); 
+    free(transition-> destination); 
+    free(transition); 
+  }
 }
 
 /*****
@@ -106,10 +126,17 @@ void destroy_transition(Transition *transition) {
 void destroy_state_machine(StateMachine *sm) {
 
   // Free all transitions
-
+    for(int y = 0; y < sm->transition_capacity; y++){
+      destroy_transition(sm->transitions[y]); 
+    }
   // Free all states
-
+    for(int y = 0; y < sm-> state_capacity; y++){
+      destroy_state(sm->states[y]);
+    }
   // Free state machine
+    free(sm->transitions); 
+    free(sm->states); 
+    free(sm); 
 }
 
 
@@ -128,13 +155,23 @@ void destroy_state_machine(StateMachine *sm) {
  *****/
 State *sm_add_state(StateMachine *sm, char *state_name) {
   // Return NULL and print an error if number of states is over capacity
-
+  if(sm->num_states == sm->state_capacity){
+    return NULL; 
+  }
   // Return NULL and print an error if state name is not unique
-
+  for(int y = 0; y < sm->num_states; y++){
+    if(strcmp(state_name, sm->states[y]->name)){
+      printf("ERROR: State name is already taken!"); 
+      return NULL; 
+    }
+  }
   // Create a new state and add it to the state machine
-
+  State *state = create_state(state_name); 
+  sm-> num_states +=1; 
   // Initialize the state machine's current state if it hasn't been set yet
-
+  if(sm->current_state == NULL){
+    sm->current_state = state; 
+  }
   // Return the state
   return state;
 }
@@ -148,9 +185,11 @@ State *sm_add_state(StateMachine *sm, char *state_name) {
 State *sm_add_terminal_state(StateMachine *sm, char *state_name) {
   // Add a state to the state machine
   // HINT: you can do this via the sm_add_state() function
-
+  State *state = sm_add_state(sm, state_name); 
   // If the new state is valid, set is_terminal to 1
-
+  if(state != NULL){
+    state-> is_terminal = 1; 
+  }
   return state;
 }
 
@@ -164,14 +203,33 @@ Transition *sm_add_transition(StateMachine *sm, char *transition_name,
                               char *origin_state_name, char *destination_state_name) {
 
   // Return NULL and print an error if number of transitions is over capacity
-
+  if(sm-> num_transitions == sm-> transition_capacity){
+    return NULL; 
+  }
   // Declare origin_state and destination_state
-
+  State *origin; 
+  State *destination; 
   // Search the state machine for states with matching names for both origin and destination
+  for(int y = 0; y < sm->num_states; y++){
+    
+    if(sm->states[y]->name == origin_state_name){
+      origin = sm->states[y];
+    }
 
+    if(sm->states[y]->name == destination_state_name){
+      destination = sm-> states[y];
+    }
+
+  }
   // If both origin and destination states have been found,
   // Create a new transition and add it to the state machine
-
+  if(origin != NULL && destination != NULL){
+    Transition *new_transition = create_transition(transition_name, origin, destination); 
+    return new_transition; 
+  }else{
+    return NULL; 
+  }
+  
   // Otherwise, print an error and return NULL
 
 }
@@ -188,7 +246,7 @@ State *sm_do_transition(StateMachine *sm, char *transition_name) {
   // Search the state machine for a valid transition:
   //   The transition's origin state should match the state machine's current_state
   //   and the transition's name should match the given name
-
+  
   // If a valid transition is found, update the state machine's current state
 
   // If a valid transition is not found, print an error and return NULL;
