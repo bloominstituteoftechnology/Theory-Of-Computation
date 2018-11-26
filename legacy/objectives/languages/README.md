@@ -71,8 +71,8 @@ Example BNF for a made up language:
                 <print> <name>
                 <print> <value>
 <conditional> := <name> <lt> <value>
-                 <name> <gt> <value>
-                 <name> <eq> <value>
+                <name> <gt> <value>
+                <name> <eq> <value>
 <while-loop> := <while> <conditional> | <expressions> \
 <type> := d_int | d_string | banana
 <name> := string
@@ -128,11 +128,11 @@ Use the BNF of the language, above.
 VAR x;
 
 BEGIN
-   x := 1;
-   WHILE x <= 10
-   BEGIN
-      ! x;
-      x := x + 1
-   END
+  x := 1;
+  WHILE x <= 10
+  BEGIN
+    ! x;
+    x := x + 1
+  END
 END.
 ```
