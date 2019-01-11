@@ -6,15 +6,7 @@
 2. [State Machines](objectives/state-machines)
 
 ## Project
-[State Machines in C](project)
 
-----------------
+* **Day 1-2:** [Arrays in C](https://github.com/LambdaSchool/Arrays)
 
-### Legacy
-
-These modules have been deprecated but you can check them out if you are interested!
-1. [Regular Expressions](legacy/objectives/regex)
-2. [Languages](legacy/objectives/languages)
-
-#### Legacy project
-* [State machines and regexes](legacy/projects/state-mach-regex)
+* **Day 3-4:** [Hash Tables in C](https://github.com/LambdaSchool/Hash-Tables)
