@@ -69,7 +69,7 @@ proved these two models to be equivalent with the _Church-Turing Thesis_.
 The pursuit of ancient philosophy from Aristotle and Stoic philosophers near 300 BCE:
 
     If the first, then the second; the first, therefore the second.
-    If the first, then the second; not the second, therefore not the second.
+    If the first, then the second; not the second, therefore not the first.
     Not the first and the second both; the first, therefor not the second.
     The first or the second but not both; the first, therefor not the second.
     The first or the second one or the other; not the second, therefore the first.
