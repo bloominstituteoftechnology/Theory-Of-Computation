@@ -3,7 +3,6 @@
 ## Objectives
 
 1. [Computability](objectives/computability)
-2. [State Machines](objectives/state-machines)
 
 ## Project
 
