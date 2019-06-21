@@ -1,4 +1,4 @@
-# Theory of Computation
+# Theory of Computation 
 
 What is computation? What does it mean to be computable? We’ll explore the basis for computation and how it led to the early concept and design of computing machines, algorithms and data structures.
 
