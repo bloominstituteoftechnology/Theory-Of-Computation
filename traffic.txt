@@ -1,0 +1,18 @@
+In this diagram I demonstrate with 6 examples three situations and states that
+the traffic lights must at a minimum respect.
+
+One and two represent priority being given to the non-intersecting traffic lanes
+with the highest combined weight.
+
+Three and four demonstrate the blocking and waiting that must occur for the lesser
+of the two axis's combined weight.
+
+Five and six point out an important proceedure for managing left turns. After weigh-in,
+and before the winning axis gets to move forward. First allow the winning axis a left turn
+on both respective sides.
+
+Weighing, left turn phase, straight traffic phase, reevaluate that when the weight of the
+losing axis has exceeded the now reduced competing axis it we allow the cycle to restart.
+
+Heavy traffic and light on one side means that we must either toggle axis direction and only
+effect the wait time or the presedence of any registered weight should que a turn for green.
