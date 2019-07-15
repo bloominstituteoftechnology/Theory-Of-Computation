@@ -6,6 +6,8 @@
    transitions leading to both lights not blinking, one light blinking, the
    other light blinking, or both lights blinking?
 
+    `https://www.figma.com/file/MDqCKG0GdokbTkhn4woAKd2V/Untitled?node-id=1%3A36`
+
 ## Regular Expressions
 
 1. Write a regex to parse all links from a web page and print them:
@@ -44,4 +46,3 @@ Area code: 555
 Prefix: 123
 Suffix: 4567
 ```
-
