@@ -1,14 +1,6 @@
 import re  # module for processing regular expressions https://docs.python.org/3/library/re.html
 import sys
 import csv
-# if __name__ == '__main__':
-#     # Exit if command line args entered incorrectly
-#     if len(sys.argv) != 2:
-#         print("usage: extract_links.py [input_file]")
-#         sys.exit(0)
-
-# # Filename is 2nd command line arg
-# filename = sys.argv[1]
 
 # Read HTML file
 with open("stackoverflow.html", encoding="utf8") as stack_overflow_links:
