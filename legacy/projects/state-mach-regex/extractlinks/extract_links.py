@@ -12,11 +12,16 @@ filename = sys.argv[1]
 
 # TODO Read HTML file
 
+html_file = open(f"{filename}").read()
+# html = html_file.read()
 
 # TODO Set up regex
-
+matches = re.findall(r'<a href="(.*?)".*>(.*)</a>', html_file)
 
 # TODO Find links using regex, save in list called 'matches'
+if matches:
+  for link in matches:
+    print(link)
 
 
 # Check matches, print results
