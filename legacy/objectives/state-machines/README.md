@@ -74,5 +74,14 @@ dime.
 Video game AIs can exist in a lot of states, e.g. idling, bored, running, shooting.
 
 1. Come up with a list of 4 states an AI can be in.
+    Therapist AI can be in a state of Listening, Researching, Explaining, Encouraging
+
 2. Figure out the transitions between those states.
+    Transitioning from listening to Researching, i.e. listening to the person to researching keywords to find their personality type.
+    Can go from researching to encouraging i.e. complementing the speaker on their strengths and the good parts of themselves.
+    go from encouraging to explaining i.e. explaning how they can be better off by improving in some areas known to be weak by their researched personalities.
+    go from either encouraging or explaining back to listening. 
+
 3. Draw a state machine diagram of your AI.
+
+
