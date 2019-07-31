@@ -29,6 +29,8 @@ regex, or the `href=` string, or potentially many others. Remember to separate
 the url from the double quotes `"` surrounding it.
 
 2. Write a regex that accepts a phone number in any phone number format:
+^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$
+#tested at regex101.com
 
 ```
 555-123-4567
