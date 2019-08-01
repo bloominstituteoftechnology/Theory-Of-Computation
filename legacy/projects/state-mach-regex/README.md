@@ -2,9 +2,9 @@
 
 ## State machines:
 
-1. Draw out the state machine for a car's turn signal system. What are the
-   transitions leading to both lights not blinking, one light blinking, the
-   other light blinking, or both lights blinking?
+[X] 1. Draw out the state machine for a car's turn signal system. What are the
+transitions leading to both lights not blinking, one light blinking, the
+other light blinking, or both lights blinking?
 
 ## Regular Expressions
 
@@ -44,4 +44,3 @@ Area code: 555
 Prefix: 123
 Suffix: 4567
 ```
-
