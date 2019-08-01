@@ -4,6 +4,7 @@ import re # module for processing regular expressions https://docs.python.org/3/
 line = input("Enter a phone number to validate or 'exit' when done. ")
 
 # TODO Define your regex
+const phoneRegex = ^\s*(?:\+?(\d{1,3}))?[-. (]*(\d{3})[-. )]*(\d{3})[-. ]*(\d{4})(?: *x(\d+))?\s*$
 
 
 while line != "exit":
