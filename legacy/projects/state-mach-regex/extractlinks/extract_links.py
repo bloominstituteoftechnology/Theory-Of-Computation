@@ -1,6 +1,10 @@
 import re # module for processing regular expressions https://docs.python.org/3/library/re.html
 import sys
 import csv
+import io
+from bs4 import BeautifulSoup
+#from urllib import urlopen
+
 if __name__ == '__main__':
   # Exit if command line args entered incorrectly
   if len(sys.argv) != 2:
@@ -13,7 +17,28 @@ filename = sys.argv[1]
 # TODO Read HTML file
 
 
+#*************************************
+f = io.open(filename, mode="r", encoding="utf-8").read()
+
+soup = BeautifulSoup(f, 'html.parser')
+for link in soup.find_all('a'):
+      print(link.get('href'))
+
+#page = urllib.urlopen("./stackoverflow.html").read()
+#p = re.compile(r'([a-z]+)[^>]*(?<!/)')
+
+p = re.compile(r'("https...*\w*\W*")')
+matches = p.findall(f)
+#exp = r"([a-z]+)[^>]*(?<!/)"
+#exp = r"https://regex101.com/r/24uzM5/1"
+#matches = re.findall(exp, filename, 0)
+print(matches)
+#for match in matches:
+      
+ # print(match)
+#re.findall(pattern, string, flags=0)
 # TODO Set up regex
+
 
 
 # TODO Find links using regex, save in list called 'matches'
