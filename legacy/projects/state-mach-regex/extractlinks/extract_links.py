@@ -11,23 +11,36 @@ if __name__ == '__main__':
 filename = sys.argv[1]
 
 # TODO Read HTML file
+matches = []
+html_file = open(f"{filename}", "r", encoding='utf-8', newline="\n")
 
-html_file = open(f"{filename}").read()
-# html = html_file.read()
-
+count = 0
+for line in html_file:
+  if 'http' in line:
 # TODO Set up regex
-matches = re.findall(r'<a href="(.*?)".*>(.*)</a>', html_file)
-
 # TODO Find links using regex, save in list called 'matches'
-if matches:
-  for link in matches:
-    print(link)
+    link_ex = (r'http.*["]\S')
+    link = re.findall(link_ex, line)
+    if len(link) > 0:
+      matches.append(link[0][:-2])
+      count += 1
+    if count > 5:
+      break
 
-
+html_file.close()
 # Check matches, print results
+if matches:
+  print(matches)
+
 # TODO Read in links from answers.txt (hint...this is a CSV file), 
 # save in list called 'answer_data'
-
+answer_data = []
+csvfile = open("answers.txt")
+readCSV = csv.reader(csvfile, delimiter=",")
+for link in readCSV:
+  answer_data.append(link[0])
+csvfile.close()
+print(f"\n\n***********ANSWER DATA*************** {answer_data}")
 
 # Compare answers with matches found using regex, print out any mismatches
 # UNCOMMENT BELOW WHEN READY TO CHECK IF YOUR REGEX IS FINDING ALL THE LINKS
