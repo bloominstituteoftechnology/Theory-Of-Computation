@@ -17,14 +17,16 @@ matches = []
 with open(f"{filename}", "r", encoding='utf-8', newline="\n") as html_file:
   for line in html_file:
     if 'http' in line:
-      link_ex = (r'http.*["]\S')
+      link_ex = (r"[h][t]{2}[p][:|/|a-z|A-Z|-|.|?|= |0-9|@]*\S")
       link = re.findall(link_ex, line)
       if len(link) > 0:
-        matches.append(link[0][:-2])
+        matches.append(link[0])
   html_file.close()
 # Check matches, print results
-# if matches:
-#   print(f"Matches: {matches}\n\n")
+if matches:
+  for match in matches:
+    print(match)
+  # print(f"Matches: {matches}\n\n")
 
 # TODO Read in links from answers.txt (hint...this is a CSV file), 
 # save in list called 'answer_data'
