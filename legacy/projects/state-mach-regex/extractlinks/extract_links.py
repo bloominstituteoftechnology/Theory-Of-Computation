@@ -11,13 +11,16 @@ if __name__ == '__main__':
 filename = sys.argv[1]
 
 # TODO Read HTML file
-
+file = open(filename, "r")
+for line in file:
+  print (line)
+file.close()
 
 # TODO Set up regex
 
 
 # TODO Find links using regex, save in list called 'matches'
-
+matches = []
 
 # Check matches, print results
 # TODO Read in links from answers.txt (hint...this is a CSV file), 
