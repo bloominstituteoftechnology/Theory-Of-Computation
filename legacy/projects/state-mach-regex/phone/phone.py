@@ -8,14 +8,24 @@ line = input("Enter a phone number to validate or 'exit' when done. ")
 
 
 while line != "exit":
-    phone_ex = r"([0-9]{3}[-][0-9]{3}[-][0-9]{4}|[0-9]{10}|[(][0-9]{3}[)]\s[0-9]{3}[-][0-9]{4}|[0-9]{3}\s[0-9]{3}\s[0-9]{4})"
+    phone_ex = r"([0-9]{3}[-][0-9]{3}[-][0-9]{4}|[0-9]{10}|[(][0-9]{3}[)]\s[0-9]{3}[-][0-9]{4}|[0-9]{3}\s[0-9]{3}\s[0-9]{4}|\+..[0-9]{3}[-][0-9]{3}[-][0-9]{4}|\+..[0-9]{10}|\+..[(][0-9]{3}[)]\s[0-9]{3}[-][0-9]{4}|\+..[0-9]{3}\s[0-9]{3}\s[0-9]{4})"
 
     if re.findall(phone_ex, line):
         num = ''.join(e for e in line if e.isalnum())
-        area = num[:3]
-        prefix = num[3:6]
-        suffix = num[6:]
-        print('Area Code:', area, '\nPrefix:', prefix, '\nSuffix:', suffix)
+        if len(num) == 10:
+            area = num[:3]
+            prefix = num[3:6]
+            suffix = num[6:]
+            print('Area Code:', area, '\nPrefix:', prefix, '\nSuffix:', suffix)
+        elif len(num) == 12:
+            country = num[:2]
+            area = num[2:5]
+            prefix = num[5:8]
+            suffix = num[8:]
+            print('Country Code: ', country, '\nArea Code:', area, '\nPrefix:', prefix, '\nSuffix:', suffix)
+        else:
+            print('No number was found')
+
     else:
         print('No number was found')
    
