@@ -15,7 +15,7 @@ file = open(filename, "r")
 stackoverflow_text = file.read()
 
 # TODO Set up regex
-links_reg = r'((http|ftp)s?:\?\?[^\s"]+)'
+links_reg = r'([h][t]{2}[p][s]?[:\/\/][^" \',]+)'
 
 # TODO Find links using regex, save in list called 'matches'
 
