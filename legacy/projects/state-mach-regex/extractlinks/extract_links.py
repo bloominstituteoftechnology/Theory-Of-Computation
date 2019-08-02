@@ -12,15 +12,12 @@ filename = sys.argv[1]
 
 # TODO Read HTML file
 file = open(filename, "r")
-for line in file:
-  print (line)
-file.close()
+stackoverflow_text = file.read()
 
 # TODO Set up regex
-
+links_reg = r'((http|ftp)s?:\?\?[^\s"]+)'
 
 # TODO Find links using regex, save in list called 'matches'
-matches = []
 
 # Check matches, print results
 # TODO Read in links from answers.txt (hint...this is a CSV file), 
