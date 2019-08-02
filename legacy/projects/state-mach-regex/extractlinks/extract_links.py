@@ -12,8 +12,16 @@ filename = sys.argv[1]
 
 # TODO Read HTML file
 
+f = open(filename, "r")
+stack_overflow_text = f.read()
 
 # TODO Set up regex
+
+reg = r'([h][t]{2}[p][s]?[:\/\/][^" \',]+)' 
+
+matches = re.findall(reg, stack_overflow_text, flags=0)
+
+print(matches)
 
 
 # TODO Find links using regex, save in list called 'matches'
