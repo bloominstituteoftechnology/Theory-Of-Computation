@@ -4,6 +4,7 @@ import re # module for processing regular expressions https://docs.python.org/3/
 line = input("Enter a phone number to validate or 'exit' when done. ")
 
 # TODO Define your regex
+phone_ex = r"([0-9]{3}[-][0-9]{3}[-][0-9]{4}|[0-9]{10}|[(][0-9]{3}[)]\s[0-9]{3}[-][0-9]{4}|[0-9]{3}\s[0-9]{3}\s[0-9]{4})"
 
 
 while line != "exit":
