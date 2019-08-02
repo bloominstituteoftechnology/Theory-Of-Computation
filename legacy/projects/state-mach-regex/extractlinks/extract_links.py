@@ -7,28 +7,6 @@ if __name__ == '__main__':
     print("usage: extract_links.py [input_file]")
     sys.exit(0)
 
-'''
-1. Write a regex to parse all links from a web page and print them:
-
-```
-curl https://stackoverflow.com > stackoverflow.html
-python3 extract_links.py stackoverflow.html
-```
-
-This command will produce all of the links from the StackOverflow main page in
-this format:
-
-      https://cdn.sstatic.net/Sites/stackoverflow/img/favicon.ico?v=4f32ecc8f43d
-      http://ajax.googleapis.com/ajax/libs/query/1.12.4/jquery.min.js
-      ...
-      ...
-      ...
-
-You can find these links by searching for the `http` or `https` string with your
-regex, or the `href=` string, or potentially many others. Remember to separate
-the url from the double quotes `"` surrounding it.
-'''
-
 # Filename is 2nd command line arg
 filename = sys.argv[1]
 
