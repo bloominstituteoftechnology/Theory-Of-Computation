@@ -14,7 +14,7 @@ filename = sys.argv[1]
 HtmlFile = open(filename, 'r', encoding='utf-8')
 source_code = HtmlFile.read() 
 
-link_regex = r"http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\), ]|(?:%[0-9a-fA-F][0-9a-fA-F]))+"
+link_regex = r"\"(http.*?)\""
 
 answer_data = re.findall(link_regex, source_code)
 
