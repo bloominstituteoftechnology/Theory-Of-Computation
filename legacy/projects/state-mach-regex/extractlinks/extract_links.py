@@ -17,7 +17,7 @@ matches = []
 with open(f"{filename}", "r", encoding='utf-8', newline="\n") as html_file:
   for line in html_file:
     # 169 - complete matches
-    link_ex = r'([h][t]{2}[p][s]?[:\/\/][^" \',]+)'
+    link_ex = r"[h][t]{2}[p][s]?[:\/\/][^\" \',]+"
     # 170 - incomplete matches
     # link_ex = r"[h][t]{2}[p][:|/|-|.|?|=|0-9|@|#|_|a-z|A-Z]*[^ ]"
     link = re.findall(link_ex, line)
