@@ -10,12 +10,12 @@ numbers_only = r"[0-9]{10}"
 
 numbers_only_matches = re.findall(numbers_only, phone, flags=0)
 
-matches = re.findall(dashed_regex, phone, flags=0)
+dashed_matches = re.findall(dashed_regex, phone, flags=0)
 
 while phone != "exit":
     # TODO Find matches
 
-    if matches:
+    if dashed_matches:
         print('valid phone number')
         break
    
@@ -31,11 +31,6 @@ while phone != "exit":
     else:
         print('invaid phone number')
         break
-        
-
-
-    # As a stretch goal, you can modify your regex to search for country codes
-    # too and print that out as well!
     
     
     # Done validating, read in a new line
