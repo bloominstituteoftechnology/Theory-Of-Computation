@@ -11,3 +11,8 @@ What is computation? What does it mean to be computable? We’ll explore the bas
 * **Day 1-2:** [Arrays in C](https://github.com/LambdaSchool/Arrays)
 
 * **Day 3-4:** [Hash Tables in C](https://github.com/LambdaSchool/Hash-Tables)
+
+
+
+initial
+fklsjf;alsdkjflkj
