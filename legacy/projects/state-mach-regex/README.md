@@ -44,4 +44,3 @@ Area code: 555
 Prefix: 123
 Suffix: 4567
 ```
-
