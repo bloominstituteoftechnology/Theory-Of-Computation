@@ -5,7 +5,8 @@ line = input("Enter a phone number to validate or 'exit' when done. ")
 
 # TODO Define your regex
 phone_ex = r"[0-9]{3}[-]*[)]*[ ]*[0-9]{3}[-]*[ ]*[0-9]{4}"
-# This should work for any phone number formatted like these -> 555-123-4567, 5551234567, (555) 123-4567, 555 123 4567
+# phone_ex = r"[0-9]{3}-*\)*\s*[0-9]{3}"
+# This should work for any phone number formatted like these -> 123-456-7890, 5551234567, (666) 667-6668, 222 333 4444
 
 while line != "exit":
     # TODO Find matches
@@ -15,7 +16,7 @@ while line != "exit":
         print(phone_num)
     # TODO Else, break number up into area code, prefix, and suffix
         for phoneNum in phone_num:
-            num2 =''.join(i for i in phone_num if i.isdigit())
+            num2 =''.join(i for i in phoneNum if i.isdigit())
             print(num2)
             areaCode = num2[0:3]
             prefix = num2[3:6]
