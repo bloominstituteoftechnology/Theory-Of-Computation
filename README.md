@@ -2,11 +2,11 @@
 
 What is computation? What does it mean to be computable? We’ll explore the basis for computation and how it led to the early concept and design of computing machines, algorithms and data structures.
 
-## Theory and History
+## Theory and History of Computation
 
 1. [Computability](objectives/computability)
 
-## Project
+##Computation An Amazing Project
 
 * **Day 1-2:** [Arrays in C](https://github.com/LambdaSchool/Arrays)
 
